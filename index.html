@@ -3,9 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>pmos.md</title>
-<link rel="alternate" type="application/rss+xml" title="pmos.md RSS" href="/feed.xml">
-<meta name="description" content="Built by a PM, for PMs. Weekly repos, signal, and curated reads for the AI era.">
+
+<!-- Primary SEO -->
+<title>pmos.md — Weekly repos, signal & reads for AI-era product managers</title>
+<meta name="description" content="A weekly-updated index of GitHub repos, articles, and curated reads for product managers navigating AI. Built by a PM, for PMs. No ads, no affiliates.">
+<meta name="keywords" content="product management, product manager, AI product management, PM tools, product management github, PM resources, AI era PM, product management newsletter">
+<meta name="author" content="pmos.md">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pmos.md">
+
+<!-- Open Graph (LinkedIn, Facebook, Slack previews) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pmos.md">
+<meta property="og:title" content="pmos.md — The operating layer for AI-era product managers">
+<meta property="og:description" content="Weekly repos, signal articles, and curated reads for product managers navigating AI. Built by a PM, for PMs.">
+<meta property="og:site_name" content="pmos.md">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="https://pmos.md">
+<meta name="twitter:title" content="pmos.md — Weekly signal for AI-era PMs">
+<meta name="twitter:description" content="GitHub repos, articles, and curated reads for product managers navigating AI. Updated weekly.">
+
+<!-- RSS autodiscovery -->
+<link rel="alternate" type="application/rss+xml" title="pmos.md weekly signal" href="https://pmos.md/feed.xml">
+
+<!-- Structured data: Website -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "pmos.md",
+  "url": "https://pmos.md",
+  "description": "Weekly repos, signal articles, and curated reads for AI-era product managers.",
+  "inLanguage": "en"
+}
+</script>
 <!-- Analytics: GoatCounter — privacy-first, no cookies -->
 <script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -287,6 +320,7 @@ code {
     <nav class="topbar-nav">
       <a href="#repos">repos</a>
       <a href="#signal">signal</a>
+      <a href="#mcp">mcp</a>
       <a href="#picks">picks</a>
       <a href="/feed.xml" title="RSS feed">rss</a>
       <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">github</a>
@@ -312,64 +346,6 @@ code {
 
   <hr class="hr">
 
-  <!-- REPOS -->
-  <h2 class="h2" id="repos">GitHub repos</h2>
-  <p class="p">Sorted by stars and real-world download activity. Bias toward repos PMs can use directly, not just reference.</p>
-
-  <div class="repo-list fade">
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="#" target="_blank">awesome-product-management</a>
-        <div class="r-desc">Community-curated list of tools, books, frameworks, and reads. A strong starting index, well-maintained.</div>
-        <div><span class="tag">resources</span><span class="tag">community</span></div>
-      </div>
-      <div class="r-meta">★ 12.4k</div>
-    </div>
-
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="#" target="_blank">pm-ai-prompts</a>
-        <div class="r-desc">Battle-tested prompt library for PRD writing, user research synthesis, sprint planning, and stakeholder comms.</div>
-        <div><span class="tag">ai</span><span class="tag">prompts</span></div>
-      </div>
-      <div class="r-meta">★ 8.1k</div>
-    </div>
-
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="#" target="_blank">claude-pm-kit</a>
-        <div class="r-desc">CLAUDE.md templates and MCP server configs for PM workflows — Jira, Linear, Notion pre-configured.</div>
-        <div><span class="tag">claude</span><span class="tag">mcp</span><span class="tag">templates</span></div>
-      </div>
-      <div class="r-meta">★ 6.7k</div>
-    </div>
-
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="#" target="_blank">roadmap-as-code</a>
-        <div class="r-desc">Markdown-based roadmap format with RICE scoring, OKR alignment, and auto-generated stakeholder views.</div>
-        <div><span class="tag">roadmap</span><span class="tag">markdown</span></div>
-      </div>
-      <div class="r-meta">★ 5.2k</div>
-    </div>
-
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="#" target="_blank">user-story-generator</a>
-        <div class="r-desc">CLI tool that generates structured user stories and acceptance criteria from plain-language feature descriptions.</div>
-        <div><span class="tag">cli</span><span class="tag">tooling</span></div>
-      </div>
-      <div class="r-meta">★ 3.9k</div>
-    </div>
-  </div>
-
-  <hr class="hr">
-
   <!-- SIGNAL -->
   <h2 class="h2" id="signal">Signal</h2>
   <p class="p">Best articles of the week and month. No think-pieces without substance. No hot takes.</p>
@@ -380,29 +356,29 @@ code {
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">How the best PMs are using AI agents in their actual workflows</a>
-          <div class="art-src">Lenny's Newsletter</div>
+          <a class="art-link" href="https://productschool.com/blog/artificial-intelligence/guide-ai-product-manager" target="_blank" rel="noopener">AI Product Managers are the PMs that matter in 2026</a>
+          <div class="art-src">Product School</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">The death of the generalist PM and what replaces it</a>
-          <div class="art-src">Reforge</div>
+          <a class="art-link" href="https://www.iamprayerson.com/p/best-ai-tools-for-product-managers-2026" target="_blank" rel="noopener">The AI stack product managers can actually run their week on</a>
+          <div class="art-src">iamprayerson.com</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">LNO prioritization in an AI-first world</a>
-          <div class="art-src">Shreyas Doshi · Substack</div>
+          <a class="art-link" href="https://amycmitchell.substack.com/p/product-management-trends" target="_blank" rel="noopener">2026 trends in product management — products are evaluated by AI before people</a>
+          <div class="art-src">Amy Mitchell · Substack</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">I built an open-source user interview synthesizer for PMs</a>
-          <div class="art-src">HN · Show HN</div>
+          <a class="art-link" href="https://antmurphy.medium.com/how-product-is-changing-in-2026-78a08f150aca" target="_blank" rel="noopener">How product is changing in 2026 — data-grounded, not trend-chasing</a>
+          <div class="art-src">Ant Murphy · Medium</div>
         </div>
       </div>
     </div>
@@ -412,33 +388,155 @@ code {
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">Product strategy is the last thing AI can't do yet</a>
-          <div class="art-src">First Round Review</div>
+          <a class="art-link" href="https://productschool.com/blog/product-fundamentals/product-management-trends" target="_blank" rel="noopener">11 shifts shaping product management in 2026</a>
+          <div class="art-src">Product School</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">AI-native products and the unbundling of product management</a>
-          <div class="art-src">Stratechery</div>
+          <a class="art-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
+          <div class="art-src">Airtable</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">What good PM–eng collaboration looks like when AI ships the code</a>
-          <div class="art-src">The Pragmatic Engineer</div>
+          <a class="art-link" href="https://coursiv.io/blog/best-ai-tools-for-product-managers-2026" target="_blank" rel="noopener">18 best AI tools for product managers in 2026 — ranked by workflow</a>
+          <div class="art-src">Coursiv</div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="#" target="_blank">Discovery is dead. Long live continuous discovery with AI.</a>
-          <div class="art-src">Mind the Product</div>
+          <a class="art-link" href="https://aipmtools.org/articles/best-ai-product-management-tools-2026" target="_blank" rel="noopener">Best AI PM tools 2026 — scored on a 100-point rubric</a>
+          <div class="art-src">AI PM Tools Directory</div>
         </div>
       </div>
     </div>
   </div>
+
+  <hr class="hr">
+
+  <!-- REPOS -->
+  <h2 class="h2" id="repos">GitHub repos</h2>
+  <p class="p">Sorted by stars and real-world download activity. Bias toward repos PMs can use directly, not just reference.</p>
+
+  <div class="repo-list fade">
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+        <div class="r-desc">47 battle-tested PM skills + command workflows for Claude Code, Cursor, Cowork, and AI agents. Updated v0.75 Mar 2026.</div>
+        <div><span class="tag">claude-code</span><span class="tag">ai-agents</span><span class="tag">skills</span></div>
+      </div>
+      <div class="r-meta">★ 8.1k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
+        <div class="r-desc">29 plug-and-play PM agent skills with workflow bundles across the full product lifecycle. MCP package available.</div>
+        <div><span class="tag">mcp</span><span class="tag">workflows</span><span class="tag">templates</span></div>
+      </div>
+      <div class="r-meta">★ 4.3k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+        <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
+        <div><span class="tag">resources</span><span class="tag">technical-pm</span></div>
+      </div>
+      <div class="r-meta">★ 4.2k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
+        <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
+        <div><span class="tag">resources</span><span class="tag">curated</span></div>
+      </div>
+      <div class="r-meta">★ 2k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
+        <div class="r-desc">The full GitHub topic page — the best place to discover new PM repos as they emerge each week.</div>
+        <div><span class="tag">discovery</span><span class="tag">trending</span></div>
+      </div>
+      <div class="r-meta">topic</div>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <!-- MCP -->
+  <h2 class="h2" id="mcp">MCP for product managers</h2>
+
+  <div class="fade" style="overflow-x:auto;margin-top:0.5rem">
+    <table class="picks-tbl" style="min-width:540px">
+      <thead>
+        <tr>
+          <th>tool</th>
+          <th>server</th>
+          <th>status</th>
+          <th>what PMs use it for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Jira + Confluence</strong></td>
+          <td><a href="https://github.com/sooperset/mcp-atlassian" target="_blank" rel="noopener">mcp-atlassian</a></td>
+          <td><code>stable</code></td>
+          <td>Query tickets, create issues, search Confluence pages, manage sprints</td>
+        </tr>
+        <tr>
+          <td><strong>Linear</strong></td>
+          <td><a href="https://github.com/ibraheem4/linear-mcp" target="_blank" rel="noopener">linear-mcp</a></td>
+          <td><code>stable</code></td>
+          <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts</td>
+        </tr>
+        <tr>
+          <td><strong>Notion</strong></td>
+          <td><a href="https://github.com/makenotion/notion-mcp-server" target="_blank" rel="noopener">notion-mcp-server</a></td>
+          <td><code>official</code></td>
+          <td>Read and write docs, databases, wikis. Summarize meeting notes, update specs</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub</strong></td>
+          <td><a href="https://github.com/github/github-mcp-server" target="_blank" rel="noopener">github-mcp-server</a></td>
+          <td><code>official</code></td>
+          <td>Review PRs, search issues, understand codebase context without asking engineering</td>
+        </tr>
+        <tr>
+          <td><strong>Slack</strong></td>
+          <td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank" rel="noopener">slack MCP</a></td>
+          <td><code>stable</code></td>
+          <td>Summarize channels, search past decisions, catch up on a project thread</td>
+        </tr>
+        <tr>
+          <td><strong>Productboard</strong></td>
+          <td><a href="https://github.com/habitoai/awesome-mcp-servers" target="_blank" rel="noopener">productboard-mcp</a></td>
+          <td><code>beta</code></td>
+          <td>Pull feature requests and roadmap items into agentic workflows</td>
+        </tr>
+        <tr>
+          <td><strong>Google Calendar</strong></td>
+          <td><a href="https://github.com/nspady/google-calendar-mcp" target="_blank" rel="noopener">google-calendar-mcp</a></td>
+          <td><code>stable</code></td>
+          <td>Schedule, prep for meetings, generate agenda docs from calendar context</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="p" style="margin-top:1rem">New to MCP? Start with the <a href="https://www.prodmgmt.world/claude-code/mcp" style="color:var(--link)">Claude Code MCP setup guide for PMs</a> — no coding required.</p>
 
   <hr class="hr">
 
@@ -457,40 +555,40 @@ code {
     </thead>
     <tbody>
       <tr>
-        <td><a href="#" target="_blank">Continuous Discovery Habits</a></td>
+        <td><a href="https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309" target="_blank" rel="noopener">Continuous Discovery Habits</a></td>
         <td><code>book</code></td>
         <td>Required reading before picking up any AI discovery tool. Changed how teams think about evidence.</td>
         <td>Teresa Torres</td>
       </tr>
       <tr>
-        <td><a href="#" target="_blank">Shape Up</a></td>
+        <td><a href="https://basecamp.com/shapeup" target="_blank" rel="noopener">Shape Up</a></td>
         <td><code>book</code></td>
-        <td>Still holds up better than most agile frameworks when you're moving fast with AI in the loop.</td>
+        <td>Still holds up better than most agile frameworks when you're moving fast with AI in the loop. Free to read online.</td>
         <td>Ryan Singer</td>
       </tr>
       <tr>
-        <td><a href="#" target="_blank">Good Strategy / Bad Strategy</a></td>
-        <td><code>essay</code></td>
-        <td>The clearest breakdown of what strategy actually means in practice. Re-read every year.</td>
-        <td>Shreyas Doshi</td>
-      </tr>
-      <tr>
-        <td><a href="#" target="_blank">Lenny's Newsletter</a></td>
+        <td><a href="https://www.lennysnewsletter.com" target="_blank" rel="noopener">Lenny's Newsletter</a></td>
         <td><code>newsletter</code></td>
         <td>Most consistently useful PM writing on the internet. Benchmark data, frameworks, real interviews.</td>
         <td>Lenny Rachitsky</td>
       </tr>
       <tr>
-        <td><a href="#" target="_blank">The Art of Product Thinking</a></td>
-        <td><code>talk</code></td>
-        <td>Taste and judgment are the last defensible PM skills. More relevant now than when recorded.</td>
-        <td>Julie Zhuo</td>
-      </tr>
-      <tr>
-        <td><a href="#" target="_blank">Inspired</a></td>
+        <td><a href="https://www.svpg.com/inspired-how-to-create-products-customers-love/" target="_blank" rel="noopener">Inspired</a></td>
         <td><code>book</code></td>
         <td>Best single book on how great product teams actually work. Read before adding any AI layer on top.</td>
         <td>Marty Cagan</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.juliezhuo.com/book/manager.html" target="_blank" rel="noopener">The Making of a Manager</a></td>
+        <td><code>book</code></td>
+        <td>Taste and judgment are the last defensible PM skills. Julie's lens on leadership holds up in the AI era.</td>
+        <td>Julie Zhuo</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.pragmaticengineer.com" target="_blank" rel="noopener">The Pragmatic Engineer</a></td>
+        <td><code>newsletter</code></td>
+        <td>Best writing on the PM–engineering interface. Essential if you're working with or managing engineers.</td>
+        <td>Gergely Orosz</td>
       </tr>
     </tbody>
   </table>
