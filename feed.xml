@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pmos.md</title>
+    <link>https://pmos.md</link>
+    <description>Weekly signal for AI-era product managers. Repos, articles, and curated reads. Built by a PM, for PMs.</description>
+    <language>en</language>
+    <copyright>pmos.md</copyright>
+    <managingEditor>hello@pmos.md</managingEditor>
+    <webMaster>hello@pmos.md</webMaster>
+    <ttl>10080</ttl>
+    <atom:link href="https://pmos.md/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- ─────────────────────────────────────────
+         TEMPLATE: duplicate this <item> block
+         each week, update date and content.
+         Date format: Day, DD Mon YYYY HH:MM:SS +0000
+         ───────────────────────────────────────── -->
+
+    <item>
+      <title>Week of Apr 14, 2026 — Signal</title>
+      <link>https://pmos.md</link>
+      <guid isPermaLink="false">pmos-md-2026-04-14</guid>
+      <pubDate>Sun, 14 Apr 2026 08:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <h2>This week's signal</h2>
+
+        <h3>Articles</h3>
+        <ul>
+          <li><a href="#">How the best PMs are using AI agents in their actual workflows</a> — Lenny's Newsletter</li>
+          <li><a href="#">The death of the generalist PM and what replaces it</a> — Reforge</li>
+          <li><a href="#">LNO prioritization in an AI-first world</a> — Shreyas Doshi</li>
+          <li><a href="#">I built an open-source user interview synthesizer for PMs</a> — HN Show HN</li>
+        </ul>
+
+        <h3>New repos</h3>
+        <ul>
+          <li><a href="#">claude-pm-kit</a> — CLAUDE.md templates and MCP configs for PM workflows</li>
+        </ul>
+      ]]></description>
+    </item>
+
+    <!-- Add new items above this line, oldest at the bottom -->
+
+  </channel>
+</rss>

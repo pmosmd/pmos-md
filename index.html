@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pmos.md</title>
+<link rel="alternate" type="application/rss+xml" title="pmos.md RSS" href="/feed.xml">
+<meta name="description" content="Built by a PM, for PMs. Weekly repos, signal, and curated reads for the AI era.">
+<!-- Analytics: GoatCounter — privacy-first, no cookies -->
+<script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #FAFAF8;
+  --surface: #F3F3EF;
+  --ink:     #1C1C1A;
+  --ink2:    #5C5C58;
+  --ink3:    #9C9C96;
+  --accent:  #2D6A4F;
+  --red:     #B5451B;
+  --code-bg: #EDEDEA;
+  --rule:    #E2E2DC;
+  --link:    #1A5276;
+  --mono:    'JetBrains Mono', 'Fira Mono', monospace;
+  --serif:   'Newsreader', Georgia, serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+/* ── TOP BAR — simulated editor filepath ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 calc(-1 * clamp(1.25rem, 4vw, 3rem));
+  padding: 0.55rem clamp(1.25rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+.topbar-path { display: flex; align-items: center; gap: 6px; }
+.topbar-path svg { opacity: 0.45; }
+.topbar-path .seg { color: var(--ink3); }
+.topbar-path .seg.cur { color: var(--accent); font-weight: 500; }
+.topbar-path .slash { margin: 0 1px; }
+
+.topbar-nav { display: flex; gap: 1.75rem; }
+.topbar-nav a { color: var(--ink3); text-decoration: none; font-size: 12px; transition: color 0.15s; }
+.topbar-nav a:hover { color: var(--accent); }
+
+/* ── DOC ── */
+.doc { padding: 2.75rem 0 5rem; }
+
+/* h1 → # */
+.h1 {
+  font-family: var(--mono);
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.h1::before { content: '# '; color: var(--ink3); font-weight: 300; }
+
+/* h2 → ## */
+.h2 {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 3rem 0 1.25rem;
+  padding-top: 2.25rem;
+  border-top: 1px dashed var(--rule);
+  color: var(--ink);
+}
+.h2::before { content: '## '; color: var(--ink3); font-weight: 300; }
+
+/* blockquote → > */
+.bq {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1.25rem;
+  margin: 1.25rem 0 1.5rem;
+  background: var(--surface);
+}
+.bq p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.bq p::before { content: '> '; font-family: var(--mono); font-style: normal; color: var(--ink3); font-size: 12px; }
+
+/* paragraph */
+.p {
+  color: var(--ink2);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+  max-width: 70ch;
+}
+
+/* hr → --- */
+.hr { border: none; margin: 2.5rem 0; color: var(--ink3); font-size: 12px; }
+.hr::before { content: '---'; letter-spacing: 0.25em; }
+
+/* inline code */
+code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--red);
+}
+
+/* tag pills */
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  background: var(--code-bg);
+  color: var(--ink2);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 3px;
+}
+
+/* ── REPOS ── */
+.repo-list { margin-top: 0.25rem; }
+
+.repo-row {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.repo-row:last-child { border-bottom: none; }
+
+.r-bullet { color: var(--ink3); font-size: 13px; margin-top: 1px; }
+
+.r-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+.r-link:hover { color: var(--accent); text-decoration: underline; }
+
+.r-desc { font-size: 12.5px; color: var(--ink3); font-weight: 300; margin-bottom: 5px; }
+
+.r-meta { font-size: 11px; color: var(--ink3); text-align: right; white-space: nowrap; padding-top: 2px; }
+
+/* ── SIGNAL: TWO COL ── */
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 0.25rem;
+}
+
+.signal-col-head {
+  font-size: 11px;
+  color: var(--ink3);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.signal-col-head::before { content: '### '; }
+
+.art-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--rule);
+  align-items: baseline;
+}
+.art-row:last-child { border-bottom: none; }
+
+.art-bullet { color: var(--ink3); flex-shrink: 0; font-size: 13px; }
+
+.art-link {
+  font-size: 13px;
+  color: var(--link);
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+  font-weight: 400;
+}
+.art-link:hover { color: var(--accent); text-decoration: underline; }
+
+.art-src { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+
+/* ── PICKS: TABLE ── */
+.picks-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 0.5rem;
+}
+.picks-tbl thead tr { border-bottom: 1px solid var(--ink3); }
+.picks-tbl th {
+  text-align: left;
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--ink3);
+  padding: 0.35rem 0.75rem 0.55rem;
+}
+.picks-tbl th:first-child { padding-left: 0; }
+.picks-tbl td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--ink2);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.picks-tbl td:first-child { padding-left: 0; }
+.picks-tbl tr:last-child td { border-bottom: none; }
+.picks-tbl a { color: var(--link); text-decoration: none; font-weight: 400; }
+.picks-tbl a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ── FOOTER ── */
+.footer {
+  border-top: 1px dashed var(--rule);
+  padding: 1.25rem 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--ink3);
+}
+.footer a { color: var(--ink3); text-decoration: none; }
+.footer a:hover { color: var(--accent); }
+
+/* ── FADE ── */
+.fade { opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .signal-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .repo-row { grid-template-columns: 14px 1fr; }
+  .r-meta { display: none; }
+  .topbar-nav { display: none; }
+  .picks-tbl thead { display: none; }
+  .picks-tbl, .picks-tbl tbody, .picks-tbl tr, .picks-tbl td { display: block; }
+  .picks-tbl tr { border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
+  .picks-tbl tr:last-child { border-bottom: none; }
+  .picks-tbl td { padding: 0.2rem 0; border: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-path">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3.5h4.5l1.5 1.5H14v8H2v-9.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+    <span class="seg">~/</span><span class="slash">/</span><span class="seg cur">pmos.md</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:1.75rem">
+    <span id="last-updated" style="font-size:11px;color:var(--ink3)">updated: <span data-updated="Apr 14, 2026">Apr 14, 2026</span></span>
+    <nav class="topbar-nav">
+      <a href="#repos">repos</a>
+      <a href="#signal">signal</a>
+      <a href="#picks">picks</a>
+      <a href="/feed.xml" title="RSS feed">rss</a>
+      <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">github</a>
+      <a href="/cdn-cgi/l/email-protection#620a070e0e0d22120f0d114c0f06">suggest →</a>
+    </nav>
+  </div>
+</div>
+
+<!-- DOCUMENT -->
+<div class="doc">
+
+  <h1 class="h1">pmos.md</h1>
+
+  <div class="bq">
+    <p>Built by a PM, for PMs. Repos worth using, articles worth reading, a curated shelf of must-reads. Updated weekly.</p>
+  </div>
+
+  <p class="p">
+    The PM toolkit is being reshuffled faster than any taxonomy can keep up with. This is a living index of what's actually useful —
+    filtered for signal, not volume. No sponsored placements, no affiliates.
+    Maintained by a PM. <code>v0.1</code> · <code>Apr 2026</code>
+  </p>
+
+  <hr class="hr">
+
+  <!-- REPOS -->
+  <h2 class="h2" id="repos">GitHub repos</h2>
+  <p class="p">Sorted by stars and real-world download activity. Bias toward repos PMs can use directly, not just reference.</p>
+
+  <div class="repo-list fade">
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="#" target="_blank">awesome-product-management</a>
+        <div class="r-desc">Community-curated list of tools, books, frameworks, and reads. A strong starting index, well-maintained.</div>
+        <div><span class="tag">resources</span><span class="tag">community</span></div>
+      </div>
+      <div class="r-meta">★ 12.4k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="#" target="_blank">pm-ai-prompts</a>
+        <div class="r-desc">Battle-tested prompt library for PRD writing, user research synthesis, sprint planning, and stakeholder comms.</div>
+        <div><span class="tag">ai</span><span class="tag">prompts</span></div>
+      </div>
+      <div class="r-meta">★ 8.1k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="#" target="_blank">claude-pm-kit</a>
+        <div class="r-desc">CLAUDE.md templates and MCP server configs for PM workflows — Jira, Linear, Notion pre-configured.</div>
+        <div><span class="tag">claude</span><span class="tag">mcp</span><span class="tag">templates</span></div>
+      </div>
+      <div class="r-meta">★ 6.7k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="#" target="_blank">roadmap-as-code</a>
+        <div class="r-desc">Markdown-based roadmap format with RICE scoring, OKR alignment, and auto-generated stakeholder views.</div>
+        <div><span class="tag">roadmap</span><span class="tag">markdown</span></div>
+      </div>
+      <div class="r-meta">★ 5.2k</div>
+    </div>
+
+    <div class="repo-row">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="#" target="_blank">user-story-generator</a>
+        <div class="r-desc">CLI tool that generates structured user stories and acceptance criteria from plain-language feature descriptions.</div>
+        <div><span class="tag">cli</span><span class="tag">tooling</span></div>
+      </div>
+      <div class="r-meta">★ 3.9k</div>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <!-- SIGNAL -->
+  <h2 class="h2" id="signal">Signal</h2>
+  <p class="p">Best articles of the week and month. No think-pieces without substance. No hot takes.</p>
+
+  <div class="signal-grid fade">
+    <div>
+      <div class="signal-col-head">This week</div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">How the best PMs are using AI agents in their actual workflows</a>
+          <div class="art-src">Lenny's Newsletter</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">The death of the generalist PM and what replaces it</a>
+          <div class="art-src">Reforge</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">LNO prioritization in an AI-first world</a>
+          <div class="art-src">Shreyas Doshi · Substack</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">I built an open-source user interview synthesizer for PMs</a>
+          <div class="art-src">HN · Show HN</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="signal-col-head">This month</div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">Product strategy is the last thing AI can't do yet</a>
+          <div class="art-src">First Round Review</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">AI-native products and the unbundling of product management</a>
+          <div class="art-src">Stratechery</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">What good PM–eng collaboration looks like when AI ships the code</a>
+          <div class="art-src">The Pragmatic Engineer</div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="#" target="_blank">Discovery is dead. Long live continuous discovery with AI.</a>
+          <div class="art-src">Mind the Product</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <!-- PICKS -->
+  <h2 class="h2" id="picks">Recommended</h2>
+  <p class="p">Subjective and permanent. Things I keep coming back to. No affiliate links.</p>
+
+  <table class="picks-tbl fade">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>type</th>
+        <th>why it's here</th>
+        <th>by</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#" target="_blank">Continuous Discovery Habits</a></td>
+        <td><code>book</code></td>
+        <td>Required reading before picking up any AI discovery tool. Changed how teams think about evidence.</td>
+        <td>Teresa Torres</td>
+      </tr>
+      <tr>
+        <td><a href="#" target="_blank">Shape Up</a></td>
+        <td><code>book</code></td>
+        <td>Still holds up better than most agile frameworks when you're moving fast with AI in the loop.</td>
+        <td>Ryan Singer</td>
+      </tr>
+      <tr>
+        <td><a href="#" target="_blank">Good Strategy / Bad Strategy</a></td>
+        <td><code>essay</code></td>
+        <td>The clearest breakdown of what strategy actually means in practice. Re-read every year.</td>
+        <td>Shreyas Doshi</td>
+      </tr>
+      <tr>
+        <td><a href="#" target="_blank">Lenny's Newsletter</a></td>
+        <td><code>newsletter</code></td>
+        <td>Most consistently useful PM writing on the internet. Benchmark data, frameworks, real interviews.</td>
+        <td>Lenny Rachitsky</td>
+      </tr>
+      <tr>
+        <td><a href="#" target="_blank">The Art of Product Thinking</a></td>
+        <td><code>talk</code></td>
+        <td>Taste and judgment are the last defensible PM skills. More relevant now than when recorded.</td>
+        <td>Julie Zhuo</td>
+      </tr>
+      <tr>
+        <td><a href="#" target="_blank">Inspired</a></td>
+        <td><code>book</code></td>
+        <td>Best single book on how great product teams actually work. Read before adding any AI layer on top.</td>
+        <td>Marty Cagan</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="hr">
+
+  <div class="footer">
+    <span>built by a pm, for pms</span>
+    <span>updated weekly · <a href="/feed.xml">rss</a> · <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">watch on github</a> · <a href="/llms.txt">llms.txt</a> · <a href="/cdn-cgi/l/email-protection#264e434a4a4966564b4955084b42">suggest a resource</a></span>
+  </div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pmos.md — weekly agent</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0F0F0D;
+  --surface: #1A1A17;
+  --border: #2A2A26;
+  --border2: #3A3A36;
+  --ink: #E8E8E0;
+  --ink2: #9A9A90;
+  --ink3: #5A5A56;
+  --green: #4ADE80;
+  --amber: #FBBF24;
+  --red: #F87171;
+  --blue: #60A5FA;
+  --mono: 'JetBrains Mono', monospace;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* TOPBAR */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-title { font-size: 12px; color: var(--ink2); }
+.topbar-title span { color: var(--green); }
+.topbar-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--border);
+  color: var(--ink3);
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 41px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  border-right: 1px solid var(--border);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-section {}
+.sidebar-label {
+  font-size: 10px;
+  color: var(--ink3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.field { margin-bottom: 0.75rem; }
+.field label {
+  display: block;
+  font-size: 11px;
+  color: var(--ink2);
+  margin-bottom: 4px;
+}
+.field input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 8px;
+  outline: none;
+  border-radius: 3px;
+  transition: border-color 0.15s;
+}
+.field input:focus { border-color: var(--border2); }
+.field input::placeholder { color: var(--ink3); }
+
+.step-list { display: flex; flex-direction: column; gap: 4px; }
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--ink3);
+  cursor: default;
+  transition: background 0.15s;
+}
+.step.active { background: var(--surface); color: var(--ink); }
+.step.done { color: var(--green); }
+.step-num {
+  width: 18px;
+  height: 18px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.step.done .step-num { background: var(--green); color: var(--bg); border-color: var(--green); }
+
+/* MAIN */
+.main { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* PANEL */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.panel-header {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+}
+.panel-title { font-size: 11px; color: var(--ink2); }
+.panel-title span { color: var(--amber); }
+.panel-body { padding: 1rem; }
+
+/* BUTTONS */
+.btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 7px 16px;
+  border-radius: 3px;
+  border: 1px solid var(--border2);
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--border); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-green { border-color: var(--green); color: var(--green); }
+.btn-green:hover { background: rgba(74,222,128,0.1); }
+.btn-blue { border-color: var(--blue); color: var(--blue); }
+.btn-blue:hover { background: rgba(96,165,250,0.1); }
+.btn-red { border-color: var(--red); color: var(--red); }
+
+/* LOG */
+.log {
+  font-size: 12px;
+  line-height: 1.7;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+.log-line { display: flex; gap: 0.75rem; padding: 1px 0; }
+.log-time { color: var(--ink3); flex-shrink: 0; }
+.log-msg { color: var(--ink2); }
+.log-msg.success { color: var(--green); }
+.log-msg.warn { color: var(--amber); }
+.log-msg.error { color: var(--red); }
+.log-msg.info { color: var(--blue); }
+
+/* SCAN RESULTS */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.results-section {}
+.results-section-title {
+  font-size: 10px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.result-item {
+  display: flex;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  cursor: pointer;
+}
+.result-item:last-child { border-bottom: none; }
+.result-item:hover { opacity: 0.85; }
+
+.result-check {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  transition: all 0.1s;
+}
+.result-item.checked .result-check {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--bg);
+}
+
+.result-body { flex: 1; min-width: 0; }
+.result-name { font-size: 12px; color: var(--ink); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result-meta { font-size: 11px; color: var(--ink3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* PUBLISH STATUS */
+.publish-status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 12px;
+  color: var(--ink2);
+}
+.status-icon { width: 16px; text-align: center; }
+.status-icon.pending { color: var(--ink3); }
+.status-icon.running { color: var(--amber); }
+.status-icon.done { color: var(--green); }
+.status-icon.error { color: var(--red); }
+
+/* SPINNER */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinning { display: inline-block; animation: spin 1s linear infinite; }
+
+/* EMPTY */
+.empty { color: var(--ink3); font-size: 12px; padding: 1rem 0; }
+
+/* SELECTION BAR */
+.sel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+}
+.sel-count { font-size: 11px; color: var(--ink3); }
+
+@media (max-width: 700px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+  .results-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">pmos<span>.md</span> / weekly-agent</div>
+  <div class="topbar-badge" id="phase-badge">idle</div>
+</div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">config</div>
+      <div class="field">
+        <label>github token</label>
+        <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx">
+      </div>
+      <div class="field">
+        <label>repository</label>
+        <input type="text" id="gh-repo" value="pmosmd/pmos-md">
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">workflow</div>
+      <div class="step-list">
+        <div class="step active" id="step-1">
+          <div class="step-num">1</div>
+          <span>scan signal</span>
+        </div>
+        <div class="step" id="step-2">
+          <div class="step-num">2</div>
+          <span>review &amp; approve</span>
+        </div>
+        <div class="step" id="step-3">
+          <div class="step-num">3</div>
+          <span>publish to github</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section" style="margin-top:auto">
+      <div class="sidebar-label">sources scanned</div>
+      <div style="font-size:11px;color:var(--ink3);line-height:1.9">
+        github trending<br>
+        hacker news<br>
+        lenny's newsletter<br>
+        reforge · first round<br>
+        the pragmatic engineer<br>
+        stratechery · mind the product
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- STEP 1: SCAN -->
+    <div class="panel" id="panel-scan">
+      <div class="panel-header">
+        <span class="panel-title"><span>01</span> / scan</span>
+        <button class="btn btn-green" id="btn-scan" onclick="runScan()">run weekly scan →</button>
+      </div>
+      <div class="panel-body">
+        <div class="log" id="scan-log">
+          <div class="log-line">
+            <span class="log-time">--:--:--</span>
+            <span class="log-msg">ready. configure github token and click run.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: REVIEW -->
+    <div class="panel" id="panel-review" style="opacity:0.4;pointer-events:none">
+      <div class="panel-header">
+        <span class="panel-title"><span>02</span> / review &amp; approve</span>
+        <div style="display:flex;gap:8px">
+          <button class="btn" id="btn-select-all" onclick="selectAll()">select all</button>
+          <button class="btn btn-blue" id="btn-approve" onclick="goPublish()" disabled>approve →</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="sel-bar">
+          <span class="sel-count" id="sel-count">0 items selected</span>
+        </div>
+        <div class="results-grid" id="results-grid">
+          <div class="empty">run scan first</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: PUBLISH -->
+    <div class="panel" id="panel-publish" style="opacity:0.4;pointer-events:none">
+      <div class="panel-header">
+        <span class="panel-title"><span>03</span> / publish to github</span>
+        <button class="btn btn-green" id="btn-publish" onclick="runPublish()" disabled>push to main →</button>
+      </div>
+      <div class="panel-body">
+        <div class="publish-status" id="publish-status">
+          <div class="status-row">
+            <span class="status-icon pending" id="ps-fetch">○</span>
+            <span>fetch current index.html from github</span>
+          </div>
+          <div class="status-row">
+            <span class="status-icon pending" id="ps-update">○</span>
+            <span>update signal &amp; repos sections</span>
+          </div>
+          <div class="status-row">
+            <span class="status-icon pending" id="ps-html">○</span>
+            <span>push index.html</span>
+          </div>
+          <div class="status-row">
+            <span class="status-icon pending" id="ps-feed">○</span>
+            <span>push feed.xml</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let scanData = null;
+let items = [];
+
+function ts() {
+  return new Date().toTimeString().slice(0,8);
+}
+
+function addLog(msg, type='') {
+  const log = document.getElementById('scan-log');
+  const line = document.createElement('div');
+  line.className = 'log-line';
+  line.innerHTML = `<span class="log-time">${ts()}</span><span class="log-msg ${type}">${msg}</span>`;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+}
+
+function setBadge(text) {
+  document.getElementById('phase-badge').textContent = text;
+}
+
+function setStep(n) {
+  [1,2,3].forEach(i => {
+    const el = document.getElementById(`step-${i}`);
+    el.className = 'step' + (i === n ? ' active' : '') + (i < n ? ' done' : '');
+    if (i < n) el.querySelector('.step-num').textContent = '✓';
+    else el.querySelector('.step-num').textContent = i;
+  });
+}
+
+function enablePanel(id) {
+  const el = document.getElementById(id);
+  el.style.opacity = '1';
+  el.style.pointerEvents = 'auto';
+}
+
+async function callClaude(messages, useSearch = false) {
+  const body = {
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 3000,
+    messages
+  };
+  if (useSearch) {
+    body.tools = [{ type: 'web_search_20250305', name: 'web_search' }];
+  }
+  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!resp.ok) throw new Error(`API error ${resp.status}`);
+  const data = await resp.json();
+  return data.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
+}
+
+async function runScan() {
+  const btn = document.getElementById('btn-scan');
+  btn.disabled = true;
+  setBadge('scanning');
+  addLog('starting weekly scan...', 'info');
+  addLog('searching github trending, hn, newsletters...', 'info');
+
+  const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+  const prompt = `You are the weekly content curator for pmos.md, a resource hub for AI-era product managers.
+
+Today is ${today}. Search the web and find:
+
+1. TOP 3 GitHub repos published or trending this week that are useful for product managers — focus on AI tooling, PM workflows, prompt templates, agent frameworks, or productivity tools. Must have real GitHub URLs.
+
+2. TOP 4 articles from THIS WEEK about product management + AI from these sources: Lenny's Newsletter, Reforge, First Round Review, Stratechery, The Pragmatic Engineer, Mind the Product, Hacker News, Substack PM writers.
+
+3. TOP 4 articles from THIS MONTH (same sources, broader picks).
+
+Return ONLY valid JSON, no commentary, no markdown fences:
+{
+  "repos": [
+    {"name": "owner/repo", "url": "https://github.com/...", "stars": "1.2k", "desc": "one line description", "tags": ["ai","pm"]}
+  ],
+  "weekly": [
+    {"title": "article title", "url": "https://...", "source": "Publication Name"}
+  ],
+  "monthly": [
+    {"title": "article title", "url": "https://...", "source": "Publication Name"}
+  ]
+}`;
+
+  try {
+    addLog('calling scan agent with web search...', 'info');
+    const raw = await callClaude([{ role: 'user', content: prompt }], true);
+
+    addLog('parsing results...', 'info');
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const start = clean.indexOf('{');
+    const end = clean.lastIndexOf('}');
+    scanData = JSON.parse(clean.slice(start, end + 1));
+
+    const repoCount = (scanData.repos || []).length;
+    const weeklyCount = (scanData.weekly || []).length;
+    const monthlyCount = (scanData.monthly || []).length;
+
+    addLog(`found ${repoCount} repos, ${weeklyCount} weekly articles, ${monthlyCount} monthly articles`, 'success');
+    addLog('scan complete — review results below', 'success');
+
+    renderResults();
+    enablePanel('panel-review');
+    setStep(2);
+    setBadge('reviewing');
+
+  } catch(e) {
+    addLog(`error: ${e.message}`, 'error');
+    addLog('check your network connection and try again', 'warn');
+    btn.disabled = false;
+    setBadge('error');
+  }
+}
+
+function renderResults() {
+  items = [];
+
+  (scanData.repos || []).forEach((r, i) => {
+    items.push({ type: 'repo', id: `r${i}`, data: r, checked: true });
+  });
+  (scanData.weekly || []).forEach((a, i) => {
+    items.push({ type: 'weekly', id: `w${i}`, data: a, checked: true });
+  });
+  (scanData.monthly || []).forEach((a, i) => {
+    items.push({ type: 'monthly', id: `m${i}`, data: a, checked: true });
+  });
+
+  const grid = document.getElementById('results-grid');
+  grid.innerHTML = '';
+
+  const repoCol = makeCol('repos this week', items.filter(i => i.type === 'repo'));
+  const articleCol = makeCol('articles', [
+    ...items.filter(i => i.type === 'weekly').map(i => ({...i, labelPrefix: '[week] '})),
+    ...items.filter(i => i.type === 'monthly').map(i => ({...i, labelPrefix: '[month] '}))
+  ]);
+
+  grid.appendChild(repoCol);
+  grid.appendChild(articleCol);
+
+  updateSelCount();
+  document.getElementById('btn-approve').disabled = false;
+}
+
+function makeCol(title, its) {
+  const div = document.createElement('div');
+  div.className = 'results-section';
+  div.innerHTML = `<div class="results-section-title">${title} (${its.length})</div>`;
+
+  its.forEach(item => {
+    const el = document.createElement('div');
+    el.className = 'result-item checked';
+    el.id = `item-${item.id}`;
+    const name = item.type === 'repo'
+      ? item.data.name
+      : (item.labelPrefix || '') + item.data.title;
+    const meta = item.type === 'repo'
+      ? `★ ${item.data.stars} · ${(item.data.tags || []).join(', ')}`
+      : item.data.source;
+
+    el.innerHTML = `
+      <div class="result-check">✓</div>
+      <div class="result-body">
+        <div class="result-name" title="${name}">${name}</div>
+        <div class="result-meta">${meta}</div>
+      </div>`;
+    el.onclick = () => toggleItem(item.id);
+    div.appendChild(el);
+  });
+
+  return div;
+}
+
+function toggleItem(id) {
+  const item = items.find(i => i.id === id);
+  if (!item) return;
+  item.checked = !item.checked;
+  const el = document.getElementById(`item-${id}`);
+  el.classList.toggle('checked', item.checked);
+  el.querySelector('.result-check').textContent = item.checked ? '✓' : '';
+  updateSelCount();
+}
+
+function selectAll() {
+  items.forEach(item => {
+    item.checked = true;
+    const el = document.getElementById(`item-${item.id}`);
+    if (el) {
+      el.classList.add('checked');
+      el.querySelector('.result-check').textContent = '✓';
+    }
+  });
+  updateSelCount();
+}
+
+function updateSelCount() {
+  const n = items.filter(i => i.checked).length;
+  document.getElementById('sel-count').textContent = `${n} of ${items.length} items selected`;
+}
+
+function goPublish() {
+  enablePanel('panel-publish');
+  document.getElementById('btn-publish').disabled = false;
+  setStep(3);
+  setBadge('ready to publish');
+}
+
+function setStatus(id, state) {
+  const el = document.getElementById(id);
+  const icons = { pending: '○', running: '⟳', done: '✓', error: '✗' };
+  el.textContent = icons[state] || '○';
+  el.className = `status-icon ${state}`;
+  if (state === 'running') el.classList.add('spinning');
+}
+
+function toBase64(str) {
+  return btoa(unescape(encodeURIComponent(str)));
+}
+function fromBase64(str) {
+  return decodeURIComponent(escape(atob(str.replace(/\n/g, ''))));
+}
+
+async function ghGet(path, token) {
+  const r = await fetch(`https://api.github.com/repos/${path}`, {
+    headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json' }
+  });
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${await r.text()}`);
+  return r.json();
+}
+
+async function ghPut(path, token, body) {
+  const r = await fetch(`https://api.github.com/repos/${path}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(`GitHub ${r.status}: ${await r.text()}`);
+  return r.json();
+}
+
+async function runPublish() {
+  const token = document.getElementById('gh-token').value.trim();
+  const repo = document.getElementById('gh-repo').value.trim();
+
+  if (!token) {
+    alert('Enter your GitHub token first.');
+    return;
+  }
+
+  document.getElementById('btn-publish').disabled = true;
+  setBadge('publishing');
+
+  const approved = {
+    repos: items.filter(i => i.type === 'repo' && i.checked).map(i => i.data),
+    weekly: items.filter(i => i.type === 'weekly' && i.checked).map(i => i.data),
+    monthly: items.filter(i => i.type === 'monthly' && i.checked).map(i => i.data)
+  };
+
+  const weekLabel = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+  try {
+    // 1. Fetch current index.html
+    setStatus('ps-fetch', 'running');
+    const file = await ghGet(`${repo}/contents/index.html`, token);
+    const currentHtml = fromBase64(file.content);
+    const htmlSha = file.sha;
+    setStatus('ps-fetch', 'done');
+
+    // 2. Update HTML via Claude
+    setStatus('ps-update', 'running');
+
+    const weeklyHtml = approved.weekly.map(a =>
+      `      <div class="art-row">\n        <span class="art-bullet">-</span>\n        <div>\n          <a class="art-link" href="${a.url}" target="_blank" rel="noopener">${a.title}</a>\n          <div class="art-src">${a.source}</div>\n        </div>\n      </div>`
+    ).join('\n');
+
+    const monthlyHtml = approved.monthly.map(a =>
+      `      <div class="art-row">\n        <span class="art-bullet">-</span>\n        <div>\n          <a class="art-link" href="${a.url}" target="_blank" rel="noopener">${a.title}</a>\n          <div class="art-src">${a.source}</div>\n        </div>\n      </div>`
+    ).join('\n');
+
+    const repoRows = approved.repos.map((r, i) =>
+      `    <div class="repo-row">\n      <span class="r-bullet">-</span>\n      <div>\n        <a class="r-link" href="${r.url}" target="_blank" rel="noopener">${r.name}</a>\n        <div class="r-desc">${r.desc}</div>\n        <div>${(r.tags||[]).map(t=>`<span class="tag">${t}</span>`).join('')}</div>\n      </div>\n      <div class="r-meta">★ ${r.stars}</div>\n    </div>`
+    ).join('\n');
+
+    const updatePrompt = `Update this HTML file for pmos.md. Make ONLY these changes:
+
+1. Replace all content between <div class="signal-grid"> opening and its matching closing </div> with:
+<div class="signal-grid fade">
+    <div>
+      <div class="signal-col-head">This week</div>
+${weeklyHtml}
+    </div>
+    <div>
+      <div class="signal-col-head">This month</div>
+${monthlyHtml}
+    </div>
+  </div>
+
+2. Replace all content inside <div class="repo-list fade"> with:
+${repoRows}
+
+3. Update the version comment near the top from whatever date it shows to: <code>v0.1</code> · <code>${weekLabel}</code>
+
+Return ONLY the complete updated HTML file. No explanation, no markdown, just the raw HTML.
+
+CURRENT HTML:
+${currentHtml}`;
+
+    const updatedHtml = await callClaude([{ role: 'user', content: updatePrompt }]);
+    const cleanHtml = updatedHtml.replace(/^```html?\n?/, '').replace(/```$/, '').trim();
+    setStatus('ps-update', 'done');
+
+    // 3. Push index.html
+    setStatus('ps-html', 'running');
+    await ghPut(`${repo}/contents/index.html`, token, {
+      message: `week of ${weekLabel}`,
+      content: toBase64(cleanHtml),
+      sha: htmlSha
+    });
+    setStatus('ps-html', 'done');
+
+    // 4. Push feed.xml
+    setStatus('ps-feed', 'running');
+    let feedSha = null;
+    try {
+      const feedFile = await ghGet(`${repo}/contents/feed.xml`, token);
+      feedSha = feedFile.sha;
+      const currentFeed = fromBase64(feedFile.content);
+
+      const pubDate = new Date().toUTCString().replace('GMT', '+0000');
+      const guid = `pmos-md-${new Date().toISOString().slice(0,10)}`;
+      const weeklyItems = approved.weekly.map(a => `          <li><a href="${a.url}">${a.title}</a> — ${a.source}</li>`).join('\n');
+      const newItem = `\n    <item>\n      <title>Week of ${weekLabel}</title>\n      <link>https://pmos.md</link>\n      <guid isPermaLink="false">${guid}</guid>\n      <pubDate>${pubDate}</pubDate>\n      <description><![CDATA[\n        <h3>This week</h3>\n        <ul>\n${weeklyItems}\n        </ul>\n      ]]></description>\n    </item>\n`;
+
+      const updatedFeed = currentFeed.replace(
+        /<!-- Add new items above this line/,
+        `${newItem}    <!-- Add new items above this line`
+      );
+
+      await ghPut(`${repo}/contents/feed.xml`, token, {
+        message: `week of ${weekLabel}`,
+        content: toBase64(updatedFeed),
+        sha: feedSha
+      });
+    } catch(e) {
+      // feed.xml might not exist yet
+      addLog('feed.xml not found, skipping', 'warn');
+    }
+    setStatus('ps-feed', 'done');
+
+    setBadge('done ✓');
+    setStep(4);
+    addLog(`published — week of ${weekLabel}`, 'success');
+
+  } catch(e) {
+    setBadge('error');
+    addLog(`publish failed: ${e.message}`, 'error');
+    ['ps-fetch','ps-update','ps-html','ps-feed'].forEach(id => {
+      if (document.getElementById(id).classList.contains('running')) {
+        setStatus(id, 'error');
+      }
+    });
+    document.getElementById('btn-publish').disabled = false;
+  }
+}
+</script>
+</body>
+</html>
