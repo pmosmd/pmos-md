@@ -41,12 +41,6 @@
 </script>
 <!-- Analytics: GoatCounter — privacy-first, no cookies -->
 <script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-<!-- Fonts: preload for performance, display=swap to prevent render blocking -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -61,8 +55,8 @@
   --code-bg: #EDEDEA;
   --rule:    #E2E2DC;
   --link:    #1A5276;
-  --mono:    'JetBrains Mono', 'Fira Mono', monospace;
-  --serif:   'Newsreader', Georgia, serif;
+  --mono:    ui-monospace, 'Fira Mono', monospace;
+  --serif:   Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
