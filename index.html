@@ -292,6 +292,47 @@ body {
 .hero-pick-meta .read { color: var(--accent); text-decoration: none; }
 .hero-pick-meta .read:hover { text-decoration: underline; }
 
+/* ── SPOTLIGHT ── */
+.spotlight {
+  margin-top: 2.5rem;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  padding: 1.1rem 1.25rem 1.15rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+}
+.spotlight::before {
+  content: '★ spotlight';
+  position: absolute;
+  top: -8px; left: 14px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+.spotlight-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--link);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 4px;
+  letter-spacing: -0.005em;
+}
+.spotlight-link:hover { color: var(--accent); text-decoration: underline; }
+.spotlight-desc { font-size: 12.5px; color: var(--ink3); line-height: 1.6; margin-bottom: 7px; max-width: 68ch; }
+.spotlight-meta { font-size: 11px; color: var(--ink3); text-align: right; white-space: nowrap; padding-top: 2px; }
+.spotlight-meta .stars { color: var(--ink); font-weight: 500; }
+.spotlight-meta .stars::before { content: '★ '; color: var(--accent); }
+.spotlight-meta .delta { color: var(--accent); font-size: 10px; display: block; margin-top: 2px; }
+
 /* ── SECTIONS ── */
 .section { margin-top: 2.25rem; }
 
@@ -516,6 +557,18 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
       </div>
     </div>
   </section>
+
+  <!-- SPOTLIGHT -->
+  <div class="spotlight">
+    <div>
+      <a class="spotlight-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+      <p class="spotlight-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</p>
+      <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
+    </div>
+    <div class="spotlight-meta">
+      <span class="stars">65k</span>
+    </div>
+  </div>
 
   <!-- SIGNAL -->
   <section class="section fade" id="signal">
