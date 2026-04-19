@@ -11,8 +11,9 @@
 <meta name="author" content="pmos.md">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://pmos.md">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<!-- Open Graph (LinkedIn, Facebook, Slack previews) -->
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://pmos.md">
 <meta property="og:title" content="pmos.md — The operating layer for AI-era product managers">
@@ -28,7 +29,7 @@
 <!-- RSS autodiscovery -->
 <link rel="alternate" type="application/rss+xml" title="pmos.md weekly signal" href="https://pmos.md/feed.xml">
 
-<!-- Structured data: Website -->
+<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,47 +40,40 @@
   "inLanguage": "en"
 }
 </script>
+
 <!-- Analytics: GoatCounter — privacy-first, no cookies -->
 <script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
 <!-- Fonts: preload for performance, display=swap to prevent render blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet"></noscript>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #FAFAF8;
-  --surface: #F3F3EF;
-  --ink:     #1C1C1A;
-  --ink2:    #5C5C58;
-  --ink3:    #767672;
+  /* paper palette */
+  --bg:      #FAFAF6;
+  --surface: #F2F1EA;
+  --ink:     #1A1A17;
+  --ink2:    #47463F;
+  --ink3:    #86857A;
+  --rule:    #DCDBD1;
+  --rule2:   #C8C7BC;
+  --code-bg: #ECEBE2;
+  /* pine accent */
   --accent:  #2D6A4F;
-  --red:     #B5451B;
-  --code-bg: #EDEDEA;
-  --rule:    #E2E2DC;
   --link:    #1A5276;
-  --mono:    'JetBrains Mono', 'Fira Mono', monospace;
+  --warn:    #B5451B;
+  /* type */
+  --mono:    'JetBrains Mono', 'Fira Mono', ui-monospace, monospace;
   --serif:   'Newsreader', Georgia, serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:      #141413;
-    --surface: #1C1C1A;
-    --ink:     #E8E8E4;
-    --ink2:    #A8A8A2;
-    --ink3:    #6E6E68;
-    --accent:  #4ABA7F;
-    --red:     #E06840;
-    --code-bg: #242422;
-    --rule:    #2E2E2A;
-    --link:    #6BB3E0;
-    --mono:    'JetBrains Mono', 'Fira Mono', monospace;
-    --serif:   'Newsreader', Georgia, serif;
-  }
+  --col:     840px;
+  --pad:     clamp(1.25rem, 4vw, 3rem);
+  --row-pad: 0.55rem;
 }
 
 html { scroll-behavior: smooth; }
@@ -89,243 +83,371 @@ body {
   color: var(--ink);
   font-family: var(--mono);
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  max-width: 840px;
+  max-width: var(--col);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  padding: 0 var(--pad);
 }
 
-/* ── TOP BAR — simulated editor filepath ── */
+/* ── TOPBAR ── */
 .topbar {
   position: sticky;
   top: 0;
-  background: var(--surface);
+  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(1.2) blur(8px);
+  -webkit-backdrop-filter: saturate(1.2) blur(8px);
   border-bottom: 1px solid var(--rule);
-  margin: 0 calc(-1 * clamp(1.25rem, 4vw, 3rem));
-  padding: 0.55rem clamp(1.25rem, 4vw, 3rem);
+  margin: 0 calc(-1 * var(--pad));
+  padding: 0.6rem var(--pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 100;
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--ink3);
 }
 
-.topbar-path { display: flex; align-items: center; gap: 6px; }
-.topbar-path .logo-mark { color: var(--accent); opacity: 0.9; flex-shrink: 0; }
-.topbar-path svg { opacity: 0.45; }
-.topbar-path .seg { color: var(--ink3); }
-.topbar-path .seg.cur { color: var(--accent); font-weight: 500; }
-.topbar-path .slash { margin: 0 1px; }
+.brand { display: inline-flex; align-items: baseline; color: var(--ink); text-decoration: none; }
+.brand-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+}
+.brand-name .dot { color: var(--accent); font-weight: 700; padding: 0 1px; }
+.brand-name .ext { color: var(--ink2); }
 
-.topbar-nav { display: flex; gap: 1.75rem; }
-.topbar-nav a { color: var(--ink3); text-decoration: none; font-size: 12px; transition: color 0.15s; }
+.topbar-right { display: flex; align-items: center; gap: 1.5rem; }
+.topbar-meta { font-size: 11px; color: var(--ink3); }
+.dot-live {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 5px;
+  vertical-align: 1px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.topbar-nav { display: flex; gap: 1.25rem; }
+.topbar-nav a { color: var(--ink3); text-decoration: none; font-size: 11.5px; transition: color 0.15s; }
 .topbar-nav a:hover { color: var(--accent); }
 
-/* ── DOC ── */
-.doc { padding: 2.75rem 0 5rem; }
+/* ── HERO ── */
+.hero {
+  padding: 3rem 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+.hero-left { min-width: 0; }
+.hero-right { min-width: 0; padding-top: 0.25rem; }
+.hero-meta-wrap { grid-column: 1 / -1; margin-top: 2.5rem; }
 
-/* h1 → # */
 .h1 {
-  font-family: var(--mono);
-  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
-  font-weight: 500;
-  line-height: 1.2;
-  margin-bottom: 1.25rem;
-}
-.h1::before { content: '# '; color: var(--ink3); font-weight: 300; }
-
-/* h2 → ## */
-.h2 {
-  font-family: var(--mono);
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 3rem 0 1.25rem;
-  padding-top: 2.25rem;
-  border-top: 1px dashed var(--rule);
-  color: var(--ink);
-}
-.h2::before { content: '## '; color: var(--ink3); font-weight: 300; }
-
-/* blockquote → > */
-.bq {
-  border-left: 3px solid var(--accent);
-  padding: 0.75rem 1.25rem;
-  margin: 1.25rem 0 1.5rem;
-  background: var(--surface);
-}
-.bq p {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 14.5px;
+  font-weight: 500;
+  font-size: clamp(2.5rem, 6.5vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   color: var(--ink);
-  line-height: 1.65;
+  display: inline-flex;
+  align-items: baseline;
+  margin-bottom: 1.25rem;
 }
-.bq p::before { content: '> '; font-family: var(--mono); font-style: normal; color: var(--ink3); font-size: 12px; }
-
-/* paragraph */
-.p {
-  color: var(--ink2);
-  font-size: 13.5px;
-  font-weight: 300;
-  line-height: 1.85;
-  margin-bottom: 1rem;
-  max-width: 70ch;
-}
-
-/* hr → --- */
-.hr { border: none; margin: 2.5rem 0; color: var(--ink3); font-size: 12px; }
-.hr::before { content: '---'; letter-spacing: 0.25em; }
-
-/* inline code */
-code {
+.h1 .nm { font-style: italic; }
+.h1 .ext {
   font-family: var(--mono);
-  font-size: 11.5px;
-  background: var(--code-bg);
-  padding: 1px 5px;
-  border-radius: 3px;
-  color: var(--red);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.34em;
+  letter-spacing: 0.02em;
+  color: var(--ink3);
+  text-transform: lowercase;
+  transform: translateY(-1.85em);
+  display: inline-block;
+  margin-left: 0.25em;
+  padding-left: 0.4em;
+  border-left: 1px solid var(--rule);
 }
 
-/* tag pills */
+.hero-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 34ch;
+  margin: 0 0 1.5rem;
+}
+
+.hero-sub {
+  font-size: 12.5px;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 64ch;
+  margin-bottom: 1.75rem;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.25rem;
+  font-size: 11px;
+  color: var(--ink3);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.hero-meta .sep { color: var(--rule2); }
+.hero-meta .item.col { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.hero-meta .item.col .k { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+.hero-meta .item.col strong { font-size: 13px; color: var(--ink); font-weight: 500; }
+.hero-meta .lead { display: inline-flex; align-items: center; gap: 12px; }
+.hero-meta .lead .lead-n {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3.2rem;
+  color: var(--ink);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+.hero-meta .lead .lead-lbl { font-size: 10px; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.05em; }
+.rss-link { color: var(--ink2); text-decoration: none; }
+.rss-link:hover { color: var(--accent); }
+
+/* hero pick card */
+.hero-pick {
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  padding: 1.1rem 1.15rem 1.15rem;
+  position: relative;
+}
+.hero-pick::before {
+  content: 'this week';
+  position: absolute;
+  top: -8px; left: 14px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink3);
+}
+.hero-pick-kicker {
+  font-size: 10.5px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.55rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-pick-kicker .bar { flex: 1; height: 1px; background: var(--rule); }
+.hero-pick-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.01em;
+}
+.hero-pick-title a { color: inherit; text-decoration: none; }
+.hero-pick-title a:hover { color: var(--accent); }
+.hero-pick-byline { font-size: 11px; color: var(--ink3); margin-bottom: 0.7rem; }
+.hero-pick-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink2);
+  border-left: 2px solid var(--accent);
+  padding: 0.1rem 0 0.1rem 0.75rem;
+  margin-bottom: 0.8rem;
+}
+.hero-pick-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 10.5px;
+  color: var(--ink3);
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+}
+.hero-pick-meta .why { color: var(--ink2); }
+.hero-pick-meta .why::before { content: 'why → '; color: var(--ink3); }
+.hero-pick-meta .read { color: var(--accent); text-decoration: none; }
+.hero-pick-meta .read:hover { text-decoration: underline; }
+
+/* ── SECTIONS ── */
+.section { margin-top: 2.25rem; }
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.h2 {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
+}
+.h2::before { content: '##'; color: var(--ink3); font-weight: 400; margin-right: 4px; }
+.h2-count {
+  font-size: 10.5px;
+  color: var(--ink3);
+  font-weight: 400;
+  background: var(--surface);
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  align-self: center;
+}
+
+.section-sub { font-size: 11.5px; color: var(--ink3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.section-desc { color: var(--ink2); font-size: 12.5px; line-height: 1.7; margin-bottom: 1rem; max-width: 68ch; }
+
+/* ── TAGS ── */
 .tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 10px;
   background: var(--code-bg);
   color: var(--ink2);
   padding: 1px 6px;
   border-radius: 3px;
   margin-right: 3px;
+  white-space: nowrap;
 }
+.tag-src { color: var(--ink3); background: transparent; border-left: 1px solid var(--rule); padding: 0 0 0 7px; margin-left: 4px; border-radius: 0; }
+
+code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); padding: 1px 6px; border-radius: 3px; color: var(--warn); }
 
 /* ── REPOS ── */
-.repo-list { margin-top: 0.25rem; }
-
 .repo-row {
   display: grid;
-  grid-template-columns: 14px 1fr auto;
+  grid-template-columns: 1.5rem 1fr auto;
   gap: 1rem;
-  padding: 0.9rem 0;
+  padding: var(--row-pad) 0;
   border-bottom: 1px solid var(--rule);
   align-items: start;
 }
 .repo-row:last-child { border-bottom: none; }
-
-.r-bullet { color: var(--ink3); font-size: 13px; margin-top: 1px; }
-
-.r-link {
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--link);
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 2px;
-}
+.r-bullet { color: var(--ink3); font-size: 11px; margin-top: 2px; text-align: right; }
+.r-link { font-size: 13px; font-weight: 500; color: var(--link); text-decoration: none; display: inline-block; margin-bottom: 2px; letter-spacing: -0.005em; }
 .r-link:hover { color: var(--accent); text-decoration: underline; }
+.r-desc { font-size: 12.5px; color: var(--ink3); margin-bottom: 6px; line-height: 1.55; }
+.r-meta { font-size: 11px; color: var(--ink3); text-align: right; white-space: nowrap; padding-top: 2px; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.r-meta .stars { color: var(--ink); font-weight: 500; }
+.r-meta .stars::before { content: '★ '; color: var(--accent); }
+.r-meta .delta { color: var(--accent); font-size: 10px; }
 
-.r-desc { font-size: 12.5px; color: var(--ink3); font-weight: 300; margin-bottom: 5px; }
-
-.r-meta { font-size: 11px; color: var(--ink3); text-align: right; white-space: nowrap; padding-top: 2px; }
-
-/* ── SIGNAL: TWO COL ── */
-.signal-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-top: 0.25rem;
-}
+/* ── SIGNAL ── */
+.signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 
 .signal-col-head {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--ink3);
   padding-bottom: 0.6rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
   border-bottom: 1px solid var(--rule);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
-.signal-col-head::before { content: '### '; }
+.signal-col-head::before { content: '###'; color: var(--ink3); margin-right: 6px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.signal-col-head .count { font-weight: 400; }
 
 .art-row {
-  display: flex;
-  gap: 0.75rem;
-  padding: 0.6rem 0;
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: 0.5rem;
+  padding: var(--row-pad) 0;
   border-bottom: 1px dashed var(--rule);
   align-items: baseline;
 }
 .art-row:last-child { border-bottom: none; }
-
-.art-bullet { color: var(--ink3); flex-shrink: 0; font-size: 13px; }
-
-.art-link {
-  font-size: 13px;
-  color: var(--link);
-  text-decoration: none;
-  line-height: 1.4;
-  display: block;
-  font-weight: 400;
-}
+.art-bullet { color: var(--ink3); font-size: 11px; text-align: right; }
+.art-link { font-size: 12.5px; color: var(--link); text-decoration: none; line-height: 1.45; display: block; letter-spacing: -0.005em; }
 .art-link:hover { color: var(--accent); text-decoration: underline; }
+.art-src { font-size: 10.5px; color: var(--ink3); margin-top: 3px; }
 
-.art-src { font-size: 11px; color: var(--ink3); margin-top: 2px; }
-
-/* ── PICKS: TABLE ── */
-.picks-tbl {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  margin-top: 0.5rem;
-}
-.picks-tbl thead tr { border-bottom: 1px solid var(--ink3); }
-.picks-tbl th {
-  text-align: left;
-  font-size: 10.5px;
-  font-weight: 400;
-  color: var(--ink3);
-  padding: 0.35rem 0.75rem 0.55rem;
-}
+/* ── TABLES ── */
+.picks-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 0.25rem; }
+.picks-tbl thead tr { border-bottom: 1px solid var(--rule2); }
+.picks-tbl th { text-align: left; font-size: 10px; font-weight: 500; color: var(--ink3); padding: 0.4rem 0.75rem 0.65rem; letter-spacing: 0.06em; text-transform: lowercase; }
 .picks-tbl th:first-child { padding-left: 0; }
-.picks-tbl td {
-  padding: 0.65rem 0.75rem;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-  color: var(--ink2);
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 1.5;
-}
+.picks-tbl td { padding: var(--row-pad) 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink2); font-size: 12.5px; line-height: 1.5; }
 .picks-tbl td:first-child { padding-left: 0; }
 .picks-tbl tr:last-child td { border-bottom: none; }
-.picks-tbl a { color: var(--link); text-decoration: none; font-weight: 400; }
+.picks-tbl a { color: var(--link); text-decoration: none; }
 .picks-tbl a:hover { color: var(--accent); text-decoration: underline; }
+.picks-tbl td strong { color: var(--ink); font-weight: 500; }
 
 /* ── FOOTER ── */
-.footer {
-  border-top: 1px dashed var(--rule);
-  padding: 1.25rem 0 3rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 11.5px;
-  color: var(--ink3);
-}
+.footer { margin-top: 4rem; padding: 1.5rem 0 3rem; border-top: 1px dashed var(--rule); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: 11px; color: var(--ink3); }
 .footer a { color: var(--ink3); text-decoration: none; }
 .footer a:hover { color: var(--accent); }
+.footer-right { display: flex; flex-wrap: wrap; gap: 1rem; }
 
-.tag-src { color: var(--ink3); margin-left: 6px; border-left: 1px solid var(--rule); padding-left: 7px; }
-.fade { opacity: 1; transform: none; }
+/* fade-in */
+.fade { opacity: 0; transform: translateY(4px); transition: opacity 0.5s, transform 0.5s; }
 .fade.in { opacity: 1; transform: none; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-  .signal-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .repo-row { grid-template-columns: 14px 1fr; }
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-right { padding-top: 0; }
+}
+
+@media (max-width: 640px) {
+  .signal-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .repo-row { grid-template-columns: 1.5rem 1fr; }
   .r-meta { display: none; }
   .topbar-nav { display: none; }
+  .topbar-meta .updated-prefix { display: none; }
   .picks-tbl thead { display: none; }
   .picks-tbl, .picks-tbl tbody, .picks-tbl tr, .picks-tbl td { display: block; }
   .picks-tbl tr { border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
   .picks-tbl tr:last-child { border-bottom: none; }
-  .picks-tbl td { padding: 0.2rem 0; border: none; }
+  .picks-tbl td { padding: 0.15rem 0; border: none; }
+  .hero { padding: 2rem 0 0; gap: 1.75rem; }
+  .hero-tag { font-size: 1.1rem; margin: 0 0 1rem; }
+  .h1 { font-size: clamp(2rem, 13vw, 2.7rem); }
+  .h1 .ext { font-size: 0.4em; transform: translateY(-1.7em); margin-left: 0.2em; padding-left: 0.3em; }
+  .hero-pick { padding: 0.9rem 1rem 1rem; }
+  .hero-pick-quote { display: none; }
+  .hero-meta { gap: 1.5rem; }
+  .hero-meta .lead .lead-n { font-size: 2.6rem; }
+  .section-sub { white-space: normal; }
 }
 </style>
 </head>
@@ -333,18 +455,14 @@ code {
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-path">
-    <svg class="logo-mark" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.2"/>
-      <text x="9" y="13" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="500" fill="currentColor">#</text>
-    </svg>
-    <span class="seg">~/</span><span class="slash">/</span><span class="seg cur">pmos.md</span>
-  </div>
-  <div style="display:flex;align-items:center;gap:1.75rem">
-    <span id="last-updated" style="font-size:11px;color:var(--ink3)">updated: <span data-updated="Apr 19, 2026">Apr 19, 2026</span></span>
+  <a class="brand" href="#top">
+    <span class="brand-name"><span class="nm">pmos</span><span class="dot">.</span><span class="ext">md</span></span>
+  </a>
+  <div class="topbar-right">
+    <span class="topbar-meta"><span class="dot-live"></span><span class="updated-prefix">wk 16 · </span><span data-updated="Apr 19, 2026">Apr 19, 2026</span></span>
     <nav class="topbar-nav">
-      <a href="#repos">repos</a>
       <a href="#signal">signal</a>
+      <a href="#repos">repos</a>
       <a href="#mcp">mcp</a>
       <a href="#picks">picks</a>
       <a href="/feed.xml" title="RSS feed">rss</a>
@@ -354,294 +472,339 @@ code {
   </div>
 </div>
 
-<!-- DOCUMENT -->
-<main class="doc">
+<main id="top">
 
-  <h1 class="h1">pmos.md</h1>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="h1"><span class="nm">pmos</span><span class="ext">md</span></h1>
+      <p class="hero-tag">The PM stack is being rewritten weekly. We keep track, so you don't have to.</p>
+      <p class="hero-sub">
+        A hand-curated index of GitHub repos, articles, MCP servers, and long-shelf reads —
+        filtered for substance, not volume. Built by a PM, for PMs. No ads, no affiliates,
+        no newsletters to sign up for.
+      </p>
+    </div>
 
-  <div class="bq">
-    <p>Built by a PM, for PMs. Repos worth using, articles worth reading, a curated shelf of must-reads. Updated weekly.</p>
-  </div>
+    <aside class="hero-right">
+      <div class="hero-pick">
+        <div class="hero-pick-kicker">editor's pick <span class="bar"></span> #16</div>
+        <h3 class="hero-pick-title">
+          <a href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential</a>
+        </h3>
+        <div class="hero-pick-byline">claude.com</div>
+        <p class="hero-pick-quote">—</p>
+        <div class="hero-pick-meta">
+          <span class="why">how the PM role is changing at Anthropic</span>
+          <a class="read" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">read →</a>
+        </div>
+      </div>
+    </aside>
 
-  <p class="p">
-    The PM toolkit is being reshuffled faster than any taxonomy can keep up with. This is a living index of what's actually useful —
-    filtered for signal, not volume. No sponsored placements, no affiliates.
-    Maintained by a PM. <code>v0.1</code> · <code>Apr 2026</code>
-  </p>
-
-  <hr class="hr">
+    <div class="hero-meta-wrap">
+      <div class="hero-meta">
+        <span class="item lead">
+          <span class="lead-n">47</span>
+          <span class="lead-lbl">resources<br>indexed</span>
+        </span>
+        <span class="sep">·</span>
+        <span class="item col"><span class="k">updated</span><strong>weekly</strong><span class="k">sundays, 8am PT</span></span>
+        <span class="sep">·</span>
+        <span class="item col"><span class="k">issue</span><strong>#16</strong><span class="k">apr 19, 2026</span></span>
+        <span class="sep">·</span>
+        <span class="item"><a class="rss-link" href="/feed.xml">rss feed →</a></span>
+      </div>
+    </div>
+  </section>
 
   <!-- SIGNAL -->
-  <h2 class="h2" id="signal">Signal</h2>
-  <p class="p">Best articles of the week and month. No think-pieces without substance. No hot takes.</p>
+  <section class="section fade" id="signal">
+    <div class="section-head">
+      <h2 class="h2">Signal <span class="h2-count">8 · filtered</span></h2>
+      <span class="section-sub">best reads this week + this month</span>
+    </div>
+    <p class="section-desc">No hot takes. No think-pieces without a concrete takeaway.</p>
 
-  <div class="signal-grid fade">
-    <div>
-      <div class="signal-col-head">This week</div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential — how the PM role is changing at Anthropic</a>
-          <div class="art-src"><span class="tag tag-src">claude.com</span></div>
+    <div class="signal-grid">
+      <div>
+        <div class="signal-col-head">this week <span class="count">4</span></div>
+        <div class="art-row">
+          <span class="art-bullet">01</span>
+          <div>
+            <a class="art-link" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential — how the PM role is changing at Anthropic</a>
+            <div class="art-src"><span class="tag tag-src">claude.com</span></div>
+          </div>
+        </div>
+        <div class="art-row">
+          <span class="art-bullet">02</span>
+          <div>
+            <a class="art-link" href="https://www.lennysnewsletter.com/p/state-of-product-jobs-2026" target="_blank" rel="noopener">State of the product job market in early 2026 — AI roles exploding, PM openings at multi-year high</a>
+            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+          </div>
+        </div>
+        <div class="art-row">
+          <span class="art-bullet">03</span>
+          <div>
+            <a class="art-link" href="https://www.mindtheproduct.com/the-2026-ai-product-strategy-huide-how-to-plan-budget-and-build-without-buying-into-the-hype/" target="_blank" rel="noopener">The 2026 AI product strategy guide — how to plan, budget, and build without buying into the hype</a>
+            <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span></div>
+          </div>
+        </div>
+        <div class="art-row">
+          <span class="art-bullet">04</span>
+          <div>
+            <a class="art-link" href="https://hbr.org/2026/02/to-drive-ai-adoption-build-your-teams-product-management-skills" target="_blank" rel="noopener">To drive AI adoption, build your team's product management skills</a>
+            <div class="art-src"><span class="tag tag-src">hbr.org</span></div>
+          </div>
         </div>
       </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://www.lennysnewsletter.com/p/state-of-product-jobs-2026" target="_blank" rel="noopener">State of the product job market in early 2026 — AI roles exploding, PM openings at multi-year high</a>
-          <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+
+      <div>
+        <div class="signal-col-head">this month <span class="count">4</span></div>
+        <div class="art-row">
+          <span class="art-bullet">01</span>
+          <div>
+            <a class="art-link" href="https://kylepoyar.substack.com/p/ai-growth-playbook" target="_blank" rel="noopener">The emerging AI growth playbook — part 2 of the AI-native org series</a>
+            <div class="art-src"><span class="tag tag-src">substack</span></div>
+          </div>
         </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://www.mindtheproduct.com/the-2026-ai-product-strategy-huide-how-to-plan-budget-and-build-without-buying-into-the-hype/" target="_blank" rel="noopener">The 2026 AI product strategy guide — how to plan, budget, and build without buying into the hype</a>
-          <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span></div>
+        <div class="art-row">
+          <span class="art-bullet">02</span>
+          <div>
+            <a class="art-link" href="https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal" target="_blank" rel="noopener">Not all AI agents are created equal — a framework for categorizing and prioritizing your agent initiatives</a>
+            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+          </div>
         </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://hbr.org/2026/02/to-drive-ai-adoption-build-your-teams-product-management-skills" target="_blank" rel="noopener">To drive AI adoption, build your team's product management skills</a>
-          <div class="art-src"><span class="tag tag-src">hbr.org</span></div>
+        <div class="art-row">
+          <span class="art-bullet">03</span>
+          <div>
+            <a class="art-link" href="https://producttalk.org/2026/04/vibe-coding-best-practices/" target="_blank" rel="noopener">Vibe coding best practices — avoid the doom loop with planning and code reviews</a>
+            <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
+          </div>
+        </div>
+        <div class="art-row">
+          <span class="art-bullet">04</span>
+          <div>
+            <a class="art-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
+            <div class="art-src"><span class="tag tag-src">airtable.com</span></div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div>
-      <div class="signal-col-head">This month</div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://kylepoyar.substack.com/p/ai-growth-playbook" target="_blank" rel="noopener">The emerging AI growth playbook — part 2 of the AI-native org series</a>
-          <div class="art-src"><span class="tag tag-src">substack</span></div>
-        </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal" target="_blank" rel="noopener">Not all AI agents are created equal — a framework for categorizing and prioritizing your agent initiatives</a>
-          <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
-        </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://producttalk.org/2026/04/vibe-coding-best-practices/" target="_blank" rel="noopener">Vibe coding best practices — avoid the doom loop with planning and code reviews</a>
-          <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
-        </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
-          <div class="art-src"><span class="tag tag-src">airtable.com</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr class="hr">
+  </section>
 
   <!-- REPOS -->
-  <h2 class="h2" id="repos">GitHub repos</h2>
-  <p class="p">Sorted by stars and real-world download activity. Bias toward repos PMs can use directly, not just reference.</p>
-
-  <div class="repo-list fade">
-    <div class="repo-row" style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-left: -1rem;">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
-        <div class="r-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</div>
-        <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
-      </div>
-      <div class="r-meta">★ 65k</div>
+  <section class="section fade" id="repos">
+    <div class="section-head">
+      <h2 class="h2">GitHub repos <span class="h2-count">6 · sorted by stars</span></h2>
+      <span class="section-sub">repos worth using, not just bookmarking</span>
     </div>
+    <p class="section-desc">Bias toward repos PMs can use directly, not just reference.</p>
 
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
-        <div class="r-desc">47 battle-tested PM skills + command workflows for Claude Code, Cursor, Cowork, and AI agents. Updated v0.75 Mar 2026.</div>
-        <div><span class="tag">claude-code</span><span class="tag">ai-agents</span><span class="tag">skills</span><span class="tag tag-src">github.com</span></div>
+    <div>
+      <div class="repo-row">
+        <span class="r-bullet">01</span>
+        <div>
+          <a class="r-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="r-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</div>
+          <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">65k</span></div>
       </div>
-      <div class="r-meta">★ 8.1k</div>
-    </div>
 
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
-        <div class="r-desc">29 plug-and-play PM agent skills with workflow bundles across the full product lifecycle. MCP package available.</div>
-        <div><span class="tag">mcp</span><span class="tag">workflows</span><span class="tag">templates</span><span class="tag tag-src">github.com</span></div>
+      <div class="repo-row">
+        <span class="r-bullet">02</span>
+        <div>
+          <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="r-desc">47 battle-tested PM skills + command workflows for Claude Code, Cursor, Cowork, and AI agents. Updated v0.75 Mar 2026.</div>
+          <div><span class="tag">claude-code</span><span class="tag">ai-agents</span><span class="tag">skills</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">8.1k</span><span class="delta">+412 this mo</span></div>
       </div>
-      <div class="r-meta">★ 4.3k</div>
-    </div>
 
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
-        <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
-        <div><span class="tag">resources</span><span class="tag">technical-pm</span><span class="tag tag-src">github.com</span></div>
+      <div class="repo-row">
+        <span class="r-bullet">03</span>
+        <div>
+          <a class="r-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
+          <div class="r-desc">29 plug-and-play PM agent skills with workflow bundles across the full product lifecycle. MCP package available.</div>
+          <div><span class="tag">mcp</span><span class="tag">workflows</span><span class="tag">templates</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">4.3k</span><span class="delta">+188 this mo</span></div>
       </div>
-      <div class="r-meta">★ 4.2k</div>
-    </div>
 
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
-        <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
-        <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
+      <div class="repo-row">
+        <span class="r-bullet">04</span>
+        <div>
+          <a class="r-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
+          <div><span class="tag">resources</span><span class="tag">technical-pm</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">4.2k</span></div>
       </div>
-      <div class="r-meta">★ 2k</div>
-    </div>
 
-    <div class="repo-row">
-      <span class="r-bullet">-</span>
-      <div>
-        <a class="r-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
-        <div class="r-desc">The full GitHub topic page — the best place to discover new PM repos as they emerge each week.</div>
-        <div><span class="tag">discovery</span><span class="tag">trending</span><span class="tag tag-src">github.com</span></div>
+      <div class="repo-row">
+        <span class="r-bullet">05</span>
+        <div>
+          <a class="r-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
+          <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">2.0k</span></div>
       </div>
-      <div class="r-meta">topic</div>
-    </div>
-  </div>
 
-  <hr class="hr">
+      <div class="repo-row">
+        <span class="r-bullet">06</span>
+        <div>
+          <a class="r-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="r-desc">The full GitHub topic page — the best place to discover new PM repos as they emerge each week.</div>
+          <div><span class="tag">discovery</span><span class="tag">trending</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span style="color:var(--ink3)">topic</span></div>
+      </div>
+    </div>
+  </section>
 
   <!-- MCP -->
-  <h2 class="h2" id="mcp">MCP for product managers</h2>
+  <section class="section fade" id="mcp">
+    <div class="section-head">
+      <h2 class="h2">MCP for PMs <span class="h2-count">7 · servers</span></h2>
+      <span class="section-sub">the servers that fit a PM workflow</span>
+    </div>
+    <p class="section-desc">MCP lets your AI agent reach into the tools you already use. These are the servers that are actually useful to PMs — not all 300+.</p>
 
-  <div class="fade" style="overflow-x:auto;margin-top:0.5rem">
-    <table class="picks-tbl" style="min-width:540px">
+    <div style="overflow-x:auto">
+      <table class="picks-tbl" style="min-width:540px">
+        <thead>
+          <tr>
+            <th>tool</th>
+            <th>server</th>
+            <th>status</th>
+            <th>what PMs use it for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Jira + Confluence</strong></td>
+            <td><a href="https://github.com/sooperset/mcp-atlassian" target="_blank" rel="noopener">mcp-atlassian</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>stable</code></td>
+            <td>Query tickets, create issues, search Confluence pages, manage sprints</td>
+          </tr>
+          <tr>
+            <td><strong>Linear</strong></td>
+            <td><a href="https://github.com/ibraheem4/linear-mcp" target="_blank" rel="noopener">linear-mcp</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>stable</code></td>
+            <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts</td>
+          </tr>
+          <tr>
+            <td><strong>Notion</strong></td>
+            <td><a href="https://github.com/makenotion/notion-mcp-server" target="_blank" rel="noopener">notion-mcp-server</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>official</code></td>
+            <td>Read and write docs, databases, wikis. Summarize meeting notes, update specs</td>
+          </tr>
+          <tr>
+            <td><strong>GitHub</strong></td>
+            <td><a href="https://github.com/github/github-mcp-server" target="_blank" rel="noopener">github-mcp-server</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>official</code></td>
+            <td>Review PRs, search issues, understand codebase context without asking engineering</td>
+          </tr>
+          <tr>
+            <td><strong>Slack</strong></td>
+            <td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank" rel="noopener">slack MCP</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>stable</code></td>
+            <td>Summarize channels, search past decisions, catch up on a project thread</td>
+          </tr>
+          <tr>
+            <td><strong>Productboard</strong></td>
+            <td><a href="https://github.com/habitoai/awesome-mcp-servers" target="_blank" rel="noopener">productboard-mcp</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>beta</code></td>
+            <td>Pull feature requests and roadmap items into agentic workflows</td>
+          </tr>
+          <tr>
+            <td><strong>Google Calendar</strong></td>
+            <td><a href="https://github.com/nspady/google-calendar-mcp" target="_blank" rel="noopener">google-calendar-mcp</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>stable</code></td>
+            <td>Schedule, prep for meetings, generate agenda docs from calendar context</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="section-desc" style="margin-top:1rem">New to MCP? → <a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp" target="_blank" rel="noopener" style="color:var(--link)">Anthropic's MCP docs</a> — setup guides, server examples, integration patterns.</p>
+  </section>
+
+  <!-- PICKS -->
+  <section class="section fade" id="picks">
+    <div class="section-head">
+      <h2 class="h2">Recommended <span class="h2-count">6 · permanent shelf</span></h2>
+      <span class="section-sub">subjective · no affiliate links</span>
+    </div>
+    <p class="section-desc">Things I keep coming back to. Changes rarely. If you only read one section, this is the one.</p>
+
+    <table class="picks-tbl">
       <thead>
         <tr>
-          <th>tool</th>
-          <th>server</th>
-          <th>status</th>
-          <th>what PMs use it for</th>
+          <th>title</th>
+          <th>type</th>
+          <th>why it's here</th>
+          <th>by</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Jira + Confluence</strong></td>
-          <td><a href="https://github.com/sooperset/mcp-atlassian" target="_blank" rel="noopener">mcp-atlassian</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>stable</code></td>
-          <td>Query tickets, create issues, search Confluence pages, manage sprints</td>
+          <td><a href="https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309" target="_blank" rel="noopener">Continuous Discovery Habits</a> <span class="tag tag-src">amazon.com</span></td>
+          <td><code>book</code></td>
+          <td>Required reading before picking up any AI discovery tool. The mental model shift, not the tactics, is what stays with you.</td>
+          <td>Teresa Torres</td>
         </tr>
         <tr>
-          <td><strong>Linear</strong></td>
-          <td><a href="https://github.com/ibraheem4/linear-mcp" target="_blank" rel="noopener">linear-mcp</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>stable</code></td>
-          <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts</td>
+          <td><a href="https://www.cutlefish.com" target="_blank" rel="noopener">The Beautiful Mess</a> <span class="tag tag-src">substack</span></td>
+          <td><code>newsletter</code></td>
+          <td>John Cutler writes like no one else in product. Uncomfortable, honest, systems-level thinking. The opposite of LinkedIn thought leadership.</td>
+          <td>John Cutler</td>
         </tr>
         <tr>
-          <td><strong>Notion</strong></td>
-          <td><a href="https://github.com/makenotion/notion-mcp-server" target="_blank" rel="noopener">notion-mcp-server</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>official</code></td>
-          <td>Read and write docs, databases, wikis. Summarize meeting notes, update specs</td>
+          <td><a href="https://www.pragmaticengineer.com" target="_blank" rel="noopener">The Pragmatic Engineer</a> <span class="tag tag-src">substack</span></td>
+          <td><code>newsletter</code></td>
+          <td>Essential if you work with engineers. The best writing on the PM–eng interface, grounded in how software actually gets built.</td>
+          <td>Gergely Orosz</td>
         </tr>
         <tr>
-          <td><strong>GitHub</strong></td>
-          <td><a href="https://github.com/github/github-mcp-server" target="_blank" rel="noopener">github-mcp-server</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>official</code></td>
-          <td>Review PRs, search issues, understand codebase context without asking engineering</td>
+          <td><a href="https://www.amazon.com/dp/B0C5B9JG57" target="_blank" rel="noopener">Reimagined: Building Products with Generative AI</a> <span class="tag tag-src">amazon.com</span></td>
+          <td><code>book</code></td>
+          <td>150 use cases, 30 case studies. The most practical AI product book written by people who actually built with it, not about it.</td>
+          <td>Shyvee Shi</td>
         </tr>
         <tr>
-          <td><strong>Slack</strong></td>
-          <td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank" rel="noopener">slack MCP</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>stable</code></td>
-          <td>Summarize channels, search past decisions, catch up on a project thread</td>
+          <td><a href="https://www.lennysnewsletter.com" target="_blank" rel="noopener">Lenny's Newsletter</a> <span class="tag tag-src">substack</span></td>
+          <td><code>newsletter</code></td>
+          <td>The benchmark data is what makes it irreplaceable. Retention curves, conversion rates, team ratios — nobody else publishes this.</td>
+          <td>Lenny Rachitsky</td>
         </tr>
         <tr>
-          <td><strong>Productboard</strong></td>
-          <td><a href="https://github.com/habitoai/awesome-mcp-servers" target="_blank" rel="noopener">productboard-mcp</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>beta</code></td>
-          <td>Pull feature requests and roadmap items into agentic workflows</td>
-        </tr>
-        <tr>
-          <td><strong>Google Calendar</strong></td>
-          <td><a href="https://github.com/nspady/google-calendar-mcp" target="_blank" rel="noopener">google-calendar-mcp</a> <span class="tag tag-src">github.com</span></td>
-          <td><code>stable</code></td>
-          <td>Schedule, prep for meetings, generate agenda docs from calendar context</td>
+          <td><a href="https://basecamp.com/shapeup" target="_blank" rel="noopener">Shape Up</a> <span class="tag tag-src">basecamp.com</span></td>
+          <td><code>book</code></td>
+          <td>Free online. The best alternative to Scrum that nobody talks about enough. More relevant now that AI compresses delivery timelines.</td>
+          <td>Ryan Singer</td>
         </tr>
       </tbody>
     </table>
-  </div>
+  </section>
 
-  <p class="p" style="margin-top:1rem">New to MCP? Start with the <a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp" style="color:var(--link)" target="_blank" rel="noopener">official Anthropic MCP documentation</a> — includes setup guides, server examples, and integration patterns.</p>
-
-  <hr class="hr">
-
-  <!-- PICKS -->
-  <h2 class="h2" id="picks">Recommended</h2>
-  <p class="p">Subjective and permanent. Things I keep coming back to. No affiliate links.</p>
-
-  <table class="picks-tbl fade">
-    <thead>
-      <tr>
-        <th>title</th>
-        <th>type</th>
-        <th>why it's here</th>
-        <th>by</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a href="https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309" target="_blank" rel="noopener">Continuous Discovery Habits</a> <span class="tag tag-src">amazon.com</span></td>
-        <td><code>book</code></td>
-        <td>Required reading before picking up any AI discovery tool. The mental model shift, not the tactics, is what stays with you.</td>
-        <td>Teresa Torres</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.cutlefish.com" target="_blank" rel="noopener">The Beautiful Mess</a> <span class="tag tag-src">substack</span></td>
-        <td><code>newsletter</code></td>
-        <td>John Cutler writes like no one else in product. Uncomfortable, honest, systems-level thinking. The opposite of LinkedIn thought leadership.</td>
-        <td>John Cutler</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.pragmaticengineer.com" target="_blank" rel="noopener">The Pragmatic Engineer</a> <span class="tag tag-src">substack</span></td>
-        <td><code>newsletter</code></td>
-        <td>Essential if you work with engineers. The best writing on the PM–eng interface, grounded in how software actually gets built.</td>
-        <td>Gergely Orosz</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.amazon.com/dp/B0C5B9JG57" target="_blank" rel="noopener">Reimagined: Building Products with Generative AI</a> <span class="tag tag-src">amazon.com</span></td>
-        <td><code>book</code></td>
-        <td>150 use cases, 30 case studies. The most practical AI product book written by people who actually built with it, not about it.</td>
-        <td>Shyvee Shi</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.lennysnewsletter.com" target="_blank" rel="noopener">Lenny's Newsletter</a> <span class="tag tag-src">substack</span></td>
-        <td><code>newsletter</code></td>
-        <td>The benchmark data is what makes it irreplaceable. Retention curves, conversion rates, team ratios — nobody else publishes this.</td>
-        <td>Lenny Rachitsky</td>
-      </tr>
-      <tr>
-        <td><a href="https://basecamp.com/shapeup" target="_blank" rel="noopener">Shape Up</a> <span class="tag tag-src">basecamp.com</span></td>
-        <td><code>book</code></td>
-        <td>Free online. The best alternative to Scrum that nobody talks about enough. More relevant now that AI compresses delivery timelines.</td>
-        <td>Ryan Singer</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <hr class="hr">
-
-  <div class="footer">
-    <span>built by a pm, for pms</span>
-    <span>updated weekly · <a href="/feed.xml">rss</a> · <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">watch on github</a> · <a href="/llms.txt">llms.txt</a> · <a href="https://github.com/pmosmd/pmos-md/issues/new" target="_blank" rel="noopener">suggest a resource</a></span>
-  </div>
+  <footer class="footer">
+    <span>pmos.md · built by a pm, for pms</span>
+    <span class="footer-right">
+      <a href="/feed.xml">rss</a>
+      <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">watch on github</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="https://github.com/pmosmd/pmos-md/issues/new" target="_blank" rel="noopener">suggest a resource</a>
+    </span>
+  </footer>
 
 </main>
 
 <script>
-  const obs = new IntersectionObserver(es => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.05 });
-  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.05 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

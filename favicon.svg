@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#f5f1e8"></rect>
+  <text x="10" y="46" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="500" font-size="44" fill="#181818">p</text>
+  <text x="37" y="22" font-family="JetBrains Mono, ui-monospace, monospace" font-weight="600" font-size="14" fill="#4a6cf7">md</text>
+  <circle cx="33" cy="44" r="2.5" fill="#4a6cf7"></circle>
+</svg>
