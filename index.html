@@ -44,9 +44,9 @@
 <!-- Fonts: preload for performance, display=swap to prevent render blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -55,7 +55,7 @@
   --surface: #F3F3EF;
   --ink:     #1C1C1A;
   --ink2:    #5C5C58;
-  --ink3:    #666662;
+  --ink3:    #767672;
   --accent:  #2D6A4F;
   --red:     #B5451B;
   --code-bg: #EDEDEA;
@@ -63,6 +63,23 @@
   --link:    #1A5276;
   --mono:    'JetBrains Mono', 'Fira Mono', monospace;
   --serif:   'Newsreader', Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #141413;
+    --surface: #1C1C1A;
+    --ink:     #E8E8E4;
+    --ink2:    #A8A8A2;
+    --ink3:    #6E6E68;
+    --accent:  #4ABA7F;
+    --red:     #E06840;
+    --code-bg: #242422;
+    --rule:    #2E2E2A;
+    --link:    #6BB3E0;
+    --mono:    'JetBrains Mono', 'Fira Mono', monospace;
+    --serif:   'Newsreader', Georgia, serif;
+  }
 }
 
 html { scroll-behavior: smooth; }
@@ -96,6 +113,7 @@ body {
 }
 
 .topbar-path { display: flex; align-items: center; gap: 6px; }
+.topbar-path .logo-mark { color: var(--accent); opacity: 0.9; flex-shrink: 0; }
 .topbar-path svg { opacity: 0.45; }
 .topbar-path .seg { color: var(--ink3); }
 .topbar-path .seg.cur { color: var(--accent); font-weight: 500; }
@@ -316,11 +334,14 @@ code {
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-path">
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 3.5h4.5l1.5 1.5H14v8H2v-9.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+    <svg class="logo-mark" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.2"/>
+      <text x="9" y="13" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="500" fill="currentColor">#</text>
+    </svg>
     <span class="seg">~/</span><span class="slash">/</span><span class="seg cur">pmos.md</span>
   </div>
   <div style="display:flex;align-items:center;gap:1.75rem">
-    <span id="last-updated" style="font-size:11px;color:var(--ink3)">updated: <span data-updated="Apr 12, 2026">Apr 12, 2026</span></span>
+    <span id="last-updated" style="font-size:11px;color:var(--ink3)">updated: <span data-updated="Apr 19, 2026">Apr 19, 2026</span></span>
     <nav class="topbar-nav">
       <a href="#repos">repos</a>
       <a href="#signal">signal</a>
@@ -360,29 +381,29 @@ code {
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="https://productschool.com/blog/artificial-intelligence/guide-ai-product-manager" target="_blank" rel="noopener">AI Product Managers are the PMs that matter in 2026</a>
-          <div class="art-src"><span class="tag tag-src">productschool.com</span></div>
+          <a class="art-link" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential — how the PM role is changing at Anthropic</a>
+          <div class="art-src"><span class="tag tag-src">claude.com</span></div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="https://www.iamprayerson.com/p/best-ai-tools-for-product-managers-2026" target="_blank" rel="noopener">The AI stack product managers can actually run their week on</a>
-          <div class="art-src"><span class="tag tag-src">substack</span></div>
+          <a class="art-link" href="https://www.lennysnewsletter.com/p/state-of-product-jobs-2026" target="_blank" rel="noopener">State of the product job market in early 2026 — AI roles exploding, PM openings at multi-year high</a>
+          <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="https://amycmitchell.substack.com/p/product-management-trends" target="_blank" rel="noopener">2026 trends in product management — products are evaluated by AI before people</a>
-          <div class="art-src"><span class="tag tag-src">substack</span></div>
+          <a class="art-link" href="https://www.mindtheproduct.com/the-2026-ai-product-strategy-huide-how-to-plan-budget-and-build-without-buying-into-the-hype/" target="_blank" rel="noopener">The 2026 AI product strategy guide — how to plan, budget, and build without buying into the hype</a>
+          <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span></div>
         </div>
       </div>
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="https://antmurphy.medium.com/how-product-is-changing-in-2026-78a08f150aca" target="_blank" rel="noopener">How product is changing in 2026 — data-grounded, not trend-chasing</a>
-          <div class="art-src"><span class="tag tag-src">medium</span></div>
+          <a class="art-link" href="https://hbr.org/2026/02/to-drive-ai-adoption-build-your-teams-product-management-skills" target="_blank" rel="noopener">To drive AI adoption, build your team's product management skills</a>
+          <div class="art-src"><span class="tag tag-src">hbr.org</span></div>
         </div>
       </div>
     </div>
@@ -392,8 +413,22 @@ code {
       <div class="art-row">
         <span class="art-bullet">-</span>
         <div>
-          <a class="art-link" href="https://productschool.com/blog/product-fundamentals/product-management-trends" target="_blank" rel="noopener">11 shifts shaping product management in 2026</a>
-          <div class="art-src"><span class="tag tag-src">productschool.com</span></div>
+          <a class="art-link" href="https://kylepoyar.substack.com/p/ai-growth-playbook" target="_blank" rel="noopener">The emerging AI growth playbook — part 2 of the AI-native org series</a>
+          <div class="art-src"><span class="tag tag-src">substack</span></div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal" target="_blank" rel="noopener">Not all AI agents are created equal — a framework for categorizing and prioritizing your agent initiatives</a>
+          <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+        </div>
+      </div>
+      <div class="art-row">
+        <span class="art-bullet">-</span>
+        <div>
+          <a class="art-link" href="https://producttalk.org/2026/04/vibe-coding-best-practices/" target="_blank" rel="noopener">Vibe coding best practices — avoid the doom loop with planning and code reviews</a>
+          <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
         </div>
       </div>
       <div class="art-row">
@@ -401,20 +436,6 @@ code {
         <div>
           <a class="art-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
           <div class="art-src"><span class="tag tag-src">airtable.com</span></div>
-        </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://coursiv.io/blog/best-ai-tools-for-product-managers-2026" target="_blank" rel="noopener">18 best AI tools for product managers in 2026 — ranked by workflow</a>
-          <div class="art-src"><span class="tag tag-src">coursiv.io</span></div>
-        </div>
-      </div>
-      <div class="art-row">
-        <span class="art-bullet">-</span>
-        <div>
-          <a class="art-link" href="https://aipmtools.org/articles/best-ai-product-management-tools-2026" target="_blank" rel="noopener">Best AI PM tools 2026 — scored on a 100-point rubric</a>
-          <div class="art-src"><span class="tag tag-src">aipmtools.org</span></div>
         </div>
       </div>
     </div>
@@ -427,6 +448,16 @@ code {
   <p class="p">Sorted by stars and real-world download activity. Bias toward repos PMs can use directly, not just reference.</p>
 
   <div class="repo-list fade">
+    <div class="repo-row" style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-left: -1rem;">
+      <span class="r-bullet">-</span>
+      <div>
+        <a class="r-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+        <div class="r-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</div>
+        <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
+      </div>
+      <div class="r-meta">★ 65k</div>
+    </div>
+
     <div class="repo-row">
       <span class="r-bullet">-</span>
       <div>
