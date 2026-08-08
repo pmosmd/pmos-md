@@ -25,27 +25,27 @@
       <guid isPermaLink="false">pmos-md-2026-08-09</guid>
       <pubDate>Sun, 09 Aug 2026 08:00:00 +0000</pubDate>
       <description><![CDATA[
-        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> (&#9733; 386k) — a personal AI assistant that runs on your own machine, MIT-licensed and local-first, reachable from the messaging apps you already use.</p>
+        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">openclaw/openclaw</a> (&#9733; 386k) — a personal AI assistant that runs on your own machine, MIT-licensed and local-first, reachable from the messaging apps you already use.</p>
 
         <h3>Signal — this week</h3>
         <ul>
-          <li><a href="https://www.mindtheproduct.com/is-anyone-actually-using-ai-agents/">Is anyone actually using AI agents?</a> — Mind the Product, Aug 7</li>
-          <li><a href="https://www.mindtheproduct.com/why-most-ai-hardware-products-should-never-be-built/">Why most AI hardware products should never be built</a> — Mind the Product, Aug 5</li>
-          <li><a href="https://www.producttalk.org/cdh-book-club-august-2026/">Identifying hidden assumptions</a> — Continuous Discovery Habits book club, Product Talk, Aug 3</li>
-          <li><a href="https://www.mindtheproduct.com/linked-in-responds-to-ai-slop-your-weekly-product-briefing/">LinkedIn responds to AI slop</a> — Mind the Product, Aug 3</li>
+          <li><a href="https://www.mindtheproduct.com/is-anyone-actually-using-ai-agents/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">Is anyone actually using AI agents?</a> — Mind the Product, Aug 7</li>
+          <li><a href="https://www.mindtheproduct.com/why-most-ai-hardware-products-should-never-be-built/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">Why most AI hardware products should never be built</a> — Mind the Product, Aug 5</li>
+          <li><a href="https://www.producttalk.org/cdh-book-club-august-2026/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">Identifying hidden assumptions</a> — Continuous Discovery Habits book club, Product Talk, Aug 3</li>
+          <li><a href="https://www.mindtheproduct.com/linked-in-responds-to-ai-slop-your-weekly-product-briefing/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">LinkedIn responds to AI slop</a> — Mind the Product, Aug 3</li>
         </ul>
 
         <h3>Signal — this month</h3>
         <ul>
-          <li><a href="https://stratechery.com/2026/whos-afraid-of-chinese-models/">Who's afraid of Chinese models?</a> — Stratechery, Jul 20</li>
-          <li><a href="https://www.lennysnewsletter.com/p/how-tech-workers-are-feeling-in-2026">How tech workers are feeling in 2026</a> — a workforce splitting in two, Jul 7</li>
-          <li><a href="https://newsletter.pragmaticengineer.com/p/inside-anthropic">How building software is changing at Anthropic</a> — Jul 28</li>
-          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading">The Pulse: Grok's CLI caught uploading all your local files to the cloud</a> — Jul 16</li>
+          <li><a href="https://stratechery.com/2026/whos-afraid-of-chinese-models/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">Who's afraid of Chinese models?</a> — Stratechery, Jul 20</li>
+          <li><a href="https://www.lennysnewsletter.com/p/how-tech-workers-are-feeling-in-2026?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">How tech workers are feeling in 2026</a> — a workforce splitting in two, Jul 7</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/inside-anthropic?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">How building software is changing at Anthropic</a> — Jul 28</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">The Pulse: Grok's CLI caught uploading all your local files to the cloud</a> — Jul 16</li>
         </ul>
 
         <h3>Repo changes</h3>
         <ul>
-          <li>Added <a href="https://github.com/openclaw/openclaw">openclaw/openclaw</a> (&#9733; 386k) and <a href="https://github.com/anthropics/skills">anthropics/skills</a> (&#9733; 167k)</li>
+          <li>Added <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">openclaw/openclaw</a> (&#9733; 386k) and <a href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">anthropics/skills</a> (&#9733; 167k)</li>
           <li>Removed product-on-purpose/pm-skills — below the 1k-star bar on verification</li>
           <li>Star counts across the list corrected against the GitHub API</li>
         </ul>
