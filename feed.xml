@@ -25,7 +25,7 @@
       <guid isPermaLink="false">pmos-md-2026-08-09</guid>
       <pubDate>Sun, 09 Aug 2026 08:00:00 +0000</pubDate>
       <description><![CDATA[
-        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">openclaw/openclaw</a> (&#9733; 386k) — a personal AI assistant that runs on your own machine, MIT-licensed and local-first, reachable from the messaging apps you already use.</p>
+        <p><strong>Spotlight:</strong> <a href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">different-ai/openwork</a> (&#9733; 21.6k) — the open-source alternative to Claude Cowork; one OpenWork MCP shares skills, MCPs, and connected services across Claude Code, Codex, Cursor, teammates, and machines. Shipped v0.18.18 this week.</p>
 
         <h3>Signal — this week</h3>
         <ul>
@@ -45,7 +45,7 @@
 
         <h3>Repo changes</h3>
         <ul>
-          <li>Added <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">openclaw/openclaw</a> (&#9733; 386k) and <a href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">anthropics/skills</a> (&#9733; 167k)</li>
+          <li>Added <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">openclaw/openclaw</a> (&#9733; 386k), <a href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">anthropics/skills</a> (&#9733; 167k), and <a href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-32">different-ai/openwork</a> (&#9733; 21.6k, spotlight)</li>
           <li>Removed product-on-purpose/pm-skills — below the 1k-star bar on verification</li>
           <li>Star counts across the list corrected against the GitHub API</li>
         </ul>
