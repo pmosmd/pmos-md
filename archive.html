@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>archive — pmos.md</title>
+<meta name="description" content="Every past issue of pmos.md. Weekly repos, signal articles, and curated reads for AI-era product managers — nothing dropped, nothing rewritten.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pmos.md/archive.html">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pmos.md/archive.html">
+<meta property="og:title" content="archive — pmos.md">
+<meta property="og:description" content="Every past issue of pmos.md. Nothing dropped, nothing rewritten.">
+<meta property="og:site_name" content="pmos.md">
+
+<link rel="alternate" type="application/rss+xml" title="pmos.md weekly signal" href="https://pmos.md/feed.xml">
+
+<!-- Analytics: GoatCounter — privacy-first, no cookies -->
+<script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #FAFAF6;
+  --surface: #F2F1EA;
+  --ink:     #1A1A17;
+  --ink2:    #47463F;
+  --ink3:    #706F68;
+  --rule:    #DCDBD1;
+  --rule2:   #C8C7BC;
+  --code-bg: #ECEBE2;
+  --accent:  #2D6A4F;
+  --link:    #1A5276;
+  --mono:    ui-monospace, 'Fira Mono', monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
+  --col:     840px;
+  --pad:     clamp(1.25rem, 4vw, 3rem);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* topbar */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 calc(-1 * var(--pad));
+  padding: 0.55rem var(--pad);
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 11.5px; color: var(--ink3);
+}
+.brand { text-decoration: none; color: var(--ink); font-weight: 500; font-size: 13px; }
+.brand .dot { color: var(--accent); }
+.brand .ext { color: var(--ink3); }
+.topbar-nav { display: flex; gap: 1.25rem; }
+.topbar-nav a { color: var(--ink3); text-decoration: none; font-size: 11.5px; transition: color 0.15s; }
+.topbar-nav a:hover { color: var(--accent); }
+.topbar-nav a.cur { color: var(--accent); font-weight: 500; }
+
+/* header */
+.head { padding: 2.75rem 0 0; }
+.h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.6rem, 4vw, 2.2rem); line-height: 1.1; letter-spacing: -0.01em; }
+.lede { color: var(--ink2); font-size: 13px; font-weight: 300; line-height: 1.8; margin-top: 0.85rem; max-width: 62ch; }
+.hr { border: none; margin: 2.25rem 0; color: var(--ink3); font-size: 12px; }
+.hr::before { content: '---'; letter-spacing: 0.25em; }
+
+/* issue block */
+.issue { padding-top: 2rem; margin-bottom: 1rem; scroll-margin-top: 3.5rem; }
+.issue + .issue { border-top: 1px dashed var(--rule); }
+.issue-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem; }
+.issue-no { font-size: 1rem; font-weight: 500; color: var(--ink); }
+.issue-no::before { content: '## '; color: var(--ink3); font-weight: 300; }
+.issue-no a { color: inherit; text-decoration: none; }
+.issue-no a:hover { color: var(--accent); }
+.issue-date { font-size: 11px; color: var(--ink3); }
+.issue-note { font-size: 12px; color: var(--ink3); font-weight: 300; margin-bottom: 1rem; max-width: 66ch; }
+
+.grp { margin-top: 1.1rem; }
+.grp-head { font-size: 11px; color: var(--ink3); padding-bottom: 0.45rem; border-bottom: 1px solid var(--rule); margin-bottom: 0.35rem; }
+.grp-head::before { content: '### '; }
+
+.row { display: flex; gap: 0.7rem; padding: 0.5rem 0; border-bottom: 1px dashed var(--rule); align-items: baseline; }
+.row:last-child { border-bottom: none; }
+.bullet { color: var(--ink3); flex-shrink: 0; font-size: 13px; }
+.row-body { min-width: 0; }
+.row-link { font-size: 12.5px; color: var(--link); text-decoration: none; line-height: 1.45; display: block; }
+.row-link:hover { color: var(--accent); text-decoration: underline; }
+.row-src { font-size: 10.5px; color: var(--ink3); margin-top: 2px; }
+.stars { color: var(--ink2); }
+.stars::before { content: '★ '; color: var(--accent); }
+.dead { color: #8A4520; }
+
+.pick { background: var(--surface); border-left: 3px solid var(--accent); padding: 0.7rem 1rem; margin-top: 1.1rem; }
+.pick-kicker { font-size: 10px; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.pick a { color: var(--link); text-decoration: none; font-size: 12.5px; font-weight: 500; }
+.pick a:hover { color: var(--accent); text-decoration: underline; }
+.pick p { font-size: 12px; color: var(--ink3); font-weight: 300; line-height: 1.6; margin-top: 0.25rem; max-width: 66ch; }
+
+.footer { margin-top: 3.5rem; padding: 1.5rem 0 3rem; border-top: 1px dashed var(--rule); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: 11px; color: var(--ink3); }
+.footer a { color: var(--ink3); text-decoration: none; }
+.footer a:hover { color: var(--accent); }
+.footer-right { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+@media (max-width: 600px) {
+  .topbar-nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/"><span>pmos</span><span class="dot">.</span><span class="ext">md</span></a>
+  <nav class="topbar-nav">
+    <a href="/#signal">signal</a>
+    <a href="/#repos">repos</a>
+    <a href="/#mcp">mcp</a>
+    <a href="/#picks">picks</a>
+    <a href="/archive.html" class="cur">archive</a>
+    <a href="/feed.xml" title="RSS feed">rss</a>
+    <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">github</a>
+  </nav>
+</div>
+
+<main>
+  <header class="head">
+    <h1 class="h1">archive</h1>
+    <p class="lede">
+      Every issue, kept whole. The front page shows only the current week — this is where
+      each issue lands once it rolls off, with its links intact. Nothing dropped, nothing rewritten.
+    </p>
+  </header>
+
+  <hr class="hr">
+
+  <!-- ─────────────────────────────────────────
+       NEWEST ISSUE GOES DIRECTLY BELOW THIS LINE.
+       Never edit or remove an existing block —
+       this file is append-only by design.
+       ───────────────────────────────────────── -->
+
+  <section class="issue" id="issue-32">
+    <div class="issue-head">
+      <h2 class="issue-no"><a href="#issue-32">issue #32</a></h2>
+      <span class="issue-date">wk 32 · aug 9, 2026 · current</span>
+    </div>
+    <p class="issue-note">
+      Star counts verified against the GitHub API at publication. Several figures carried over
+      from earlier issues were wrong and were corrected in this one.
+    </p>
+
+    <div class="pick">
+      <div class="pick-kicker">★ spotlight</div>
+      <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+      <p>A personal AI assistant that runs on your own machine and reaches you through WhatsApp, Telegram, Slack or Signal. MIT-licensed, local-first — memory is plain Markdown on disk.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this week</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about" target="_blank" rel="noopener">The Pulse: concern about a massive increase in code review load</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" target="_blank" rel="noopener">The 2026-07-28 MCP spec release candidate — stateless core, extensions, server-rendered apps</a>
+          <div class="row-src">modelcontextprotocol.io</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.productcompass.pm/p/ai-product-manager-roadmap-2026" target="_blank" rel="noopener">The AI product manager roadmap — workspace agents vs. product agents, and why you need both</a>
+          <div class="row-src">productcompass.pm</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://stratechery.com/2026/anthropics-safety-superpower/" target="_blank" rel="noopener">Anthropic's safety superpower — when a compliance cost turns into a moat</a>
+          <div class="row-src">stratechery.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this month</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026" target="_blank" rel="noopener">AI tooling for software engineers in 2026 — 900+ engineers surveyed, 95% use AI weekly</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://stratechery.com/2026/agents-over-bubbles/" target="_blank" rel="noopener">Agents over bubbles — why the model-plus-harness layer is where the margin sits</a>
+          <div class="row-src">stratechery.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.producttalk.org/ai-opportunity-solution-trees/" target="_blank" rel="noopener">From customer interviews to an opportunity solution tree — in minutes</a>
+          <div class="row-src">producttalk.org</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.reforge.com/blog/ai-impact-product-management" target="_blank" rel="noopener">Moving to higher ground — product management in the age of AI</a>
+          <div class="row-src">reforge.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">repos indexed</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="row-src"><span class="stars">386k</span> · new this issue</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="row-src"><span class="stars">227k</span> · corrected from 65k</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="row-src"><span class="stars">167k</span> · new this issue</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="row-src"><span class="stars">6.3k</span> · corrected from 8.1k</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="row-src"><span class="stars">4.4k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="row-src"><span class="stars">2.3k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="row-src">topic page</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">dropped</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
+          <div class="row-src">524 stars on verification — below the 1k bar. Previously listed here as 4.3k.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="issue" id="issue-16">
+    <div class="issue-head">
+      <h2 class="issue-no"><a href="#issue-16">issue #16</a></h2>
+      <span class="issue-date">wk 16 · apr 19, 2026</span>
+    </div>
+    <p class="issue-note">
+      Recorded as published. Star counts are not retroactively corrected — several were wrong,
+      and the corrections are noted in issue #32. Two links in this issue returned 404 when the
+      archive was built and are marked below; they predate link verification.
+    </p>
+
+    <div class="pick">
+      <div class="pick-kicker">★ spotlight</div>
+      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+      <p>The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. MCP support, runs on Telegram/Slack/CLI.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this week</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential — how the PM role is changing at Anthropic</a>
+          <div class="row-src">claude.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/state-of-product-jobs-2026" target="_blank" rel="noopener">State of the product job market in early 2026 — AI roles exploding, PM openings at multi-year high</a>
+          <div class="row-src">lennysnewsletter.com · <span class="dead">link dead — 404 on verification, Aug 2026</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/the-2026-ai-product-strategy-huide-how-to-plan-budget-and-build-without-buying-into-the-hype/" target="_blank" rel="noopener">The 2026 AI product strategy guide — how to plan, budget, and build without buying into the hype</a>
+          <div class="row-src">mindtheproduct.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://hbr.org/2026/02/to-drive-ai-adoption-build-your-teams-product-management-skills" target="_blank" rel="noopener">To drive AI adoption, build your team's product management skills</a>
+          <div class="row-src">hbr.org</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this month</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://kylepoyar.substack.com/p/ai-growth-playbook" target="_blank" rel="noopener">The emerging AI growth playbook — part 2 of the AI-native org series</a>
+          <div class="row-src">kylepoyar.substack.com · <span class="dead">link dead — 404 on verification, Aug 2026</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal" target="_blank" rel="noopener">Not all AI agents are created equal — a framework for categorizing and prioritizing your agent initiatives</a>
+          <div class="row-src">lennysnewsletter.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://producttalk.org/2026/04/vibe-coding-best-practices/" target="_blank" rel="noopener">Vibe coding best practices — avoid the doom loop with planning and code reviews</a>
+          <div class="row-src">producttalk.org</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
+          <div class="row-src">airtable.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">repos indexed</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="row-src"><span class="stars">65k</span> · as listed at publication</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="row-src"><span class="stars">8.1k</span> · as listed at publication</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
+          <div class="row-src"><span class="stars">4.3k</span> · as listed at publication</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="row-src"><span class="stars">4.2k</span> · as listed at publication</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="row-src"><span class="stars">2k</span> · as listed at publication</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="row-src">topic page</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>built by a pm, for pms</span>
+    <span class="footer-right">
+      <a href="/">← current issue</a>
+      <a href="/feed.xml">rss</a>
+      <a href="/llms.txt">llms.txt</a>
+      <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">github</a>
+    </span>
+  </footer>
+</main>
+
+</body>
+</html>

@@ -43,14 +43,6 @@
 
 <!-- Analytics: GoatCounter — privacy-first, no cookies -->
 <script data-goatcounter="https://pmosmd.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
-
-<!-- Fonts: preload for performance, display=swap to prevent render blocking -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet"></noscript>
-
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -69,8 +61,8 @@
   --link:    #1A5276;
   --warn:    #B5451B;
   /* type */
-  --mono:    'JetBrains Mono', 'Fira Mono', ui-monospace, monospace;
-  --serif:   'Newsreader', Georgia, serif;
+  --mono:    ui-monospace, 'Fira Mono', monospace;
+  --serif:   Georgia, 'Times New Roman', serif;
   --col:     840px;
   --pad:     clamp(1.25rem, 4vw, 3rem);
   --row-pad: 0.55rem;
@@ -500,12 +492,13 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
     <span class="brand-name"><span class="nm">pmos</span><span class="dot">.</span><span class="ext">md</span></span>
   </a>
   <div class="topbar-right">
-    <span class="topbar-meta"><span class="dot-live"></span><span class="updated-prefix">wk 16 · </span><span data-updated="Apr 19, 2026">Apr 19, 2026</span></span>
+    <span class="topbar-meta"><span class="dot-live"></span><span class="updated-prefix">wk 32 · </span><span data-updated="Aug 9, 2026">Aug 9, 2026</span></span>
     <nav class="topbar-nav">
       <a href="#signal">signal</a>
       <a href="#repos">repos</a>
       <a href="#mcp">mcp</a>
       <a href="#picks">picks</a>
+      <a href="/archive.html">archive</a>
       <a href="/feed.xml" title="RSS feed">rss</a>
       <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">github</a>
       <a href="https://github.com/pmosmd/pmos-md/issues/new" target="_blank" rel="noopener">suggest →</a>
@@ -529,15 +522,15 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
 
     <aside class="hero-right">
       <div class="hero-pick">
-        <div class="hero-pick-kicker">editor's pick <span class="bar"></span> #16</div>
+        <div class="hero-pick-kicker">editor's pick <span class="bar"></span> #32</div>
         <h2 class="hero-pick-title">
-          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
-        </h3>
-        <div class="hero-pick-byline">github.com · ★ 65k</div>
-        <p class="hero-pick-quote">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions.</p>
+          <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+        </h2>
+        <div class="hero-pick-byline">github.com · ★ 386k</div>
+        <p class="hero-pick-quote">A personal AI assistant that runs on your own machine, reachable from the messaging apps you already use.</p>
         <div class="hero-pick-meta">
-          <span class="why">the only open-source agent with a built-in learning loop</span>
-          <a class="read" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">view →</a>
+          <span class="why">local-first, MIT, and now the most-starred project on GitHub</span>
+          <a class="read" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">view →</a>
         </div>
       </div>
     </aside>
@@ -551,7 +544,9 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <span class="sep">·</span>
         <span class="item col"><span class="k">updated</span><strong>weekly</strong><span class="k">sundays, 8am PT</span></span>
         <span class="sep">·</span>
-        <span class="item col"><span class="k">issue</span><strong>#16</strong><span class="k">apr 19, 2026</span></span>
+        <span class="item col"><span class="k">issue</span><strong>#32</strong><span class="k">aug 9, 2026</span></span>
+        <span class="sep">·</span>
+        <span class="item"><a class="rss-link" href="/archive.html">past issues →</a></span>
         <span class="sep">·</span>
         <span class="item"><a class="rss-link" href="/feed.xml">rss feed →</a></span>
       </div>
@@ -561,12 +556,12 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
   <!-- SPOTLIGHT -->
   <div class="spotlight">
     <div>
-      <a class="spotlight-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
-      <p class="spotlight-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</p>
-      <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
+      <a class="spotlight-link" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+      <p class="spotlight-desc">A personal AI assistant that runs on your own machine and reaches you through WhatsApp, Telegram, Slack or Signal. MIT-licensed, local-first — memory is plain Markdown on disk — with a scheduler that can act without being prompted. Created by Peter Steinberger, now stewarded by a non-profit foundation.</p>
+      <div><span class="tag">local-first</span><span class="tag">mit</span><span class="tag">messaging</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
     </div>
     <div class="spotlight-meta">
-      <span class="stars">65k</span>
+      <span class="stars">386k</span>
     </div>
   </div>
 
@@ -584,29 +579,29 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <div class="art-row">
           <span class="art-bullet">01</span>
           <div>
-            <a class="art-link" href="https://claude.com/blog/product-management-on-the-ai-exponential" target="_blank" rel="noopener">Product management on the AI exponential — how the PM role is changing at Anthropic</a>
-            <div class="art-src"><span class="tag tag-src">claude.com</span></div>
+            <a class="art-link" href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about" target="_blank" rel="noopener">The Pulse: concern about a massive increase in code review load</a>
+            <div class="art-src"><span class="tag tag-src">pragmaticengineer.com</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">02</span>
           <div>
-            <a class="art-link" href="https://www.lennysnewsletter.com/p/state-of-product-jobs-2026" target="_blank" rel="noopener">State of the product job market in early 2026 — AI roles exploding, PM openings at multi-year high</a>
-            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+            <a class="art-link" href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" target="_blank" rel="noopener">The 2026-07-28 MCP spec release candidate — stateless core, extensions, server-rendered apps</a>
+            <div class="art-src"><span class="tag tag-src">modelcontextprotocol.io</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">03</span>
           <div>
-            <a class="art-link" href="https://www.mindtheproduct.com/the-2026-ai-product-strategy-huide-how-to-plan-budget-and-build-without-buying-into-the-hype/" target="_blank" rel="noopener">The 2026 AI product strategy guide — how to plan, budget, and build without buying into the hype</a>
-            <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span></div>
+            <a class="art-link" href="https://www.productcompass.pm/p/ai-product-manager-roadmap-2026" target="_blank" rel="noopener">The AI product manager roadmap — workspace agents vs. product agents, and why you need both</a>
+            <div class="art-src"><span class="tag tag-src">productcompass.pm</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">04</span>
           <div>
-            <a class="art-link" href="https://hbr.org/2026/02/to-drive-ai-adoption-build-your-teams-product-management-skills" target="_blank" rel="noopener">To drive AI adoption, build your team's product management skills</a>
-            <div class="art-src"><span class="tag tag-src">hbr.org</span></div>
+            <a class="art-link" href="https://stratechery.com/2026/anthropics-safety-superpower/" target="_blank" rel="noopener">Anthropic's safety superpower — when a compliance cost turns into a moat</a>
+            <div class="art-src"><span class="tag tag-src">stratechery.com</span></div>
           </div>
         </div>
       </div>
@@ -616,29 +611,29 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <div class="art-row">
           <span class="art-bullet">01</span>
           <div>
-            <a class="art-link" href="https://kylepoyar.substack.com/p/ai-growth-playbook" target="_blank" rel="noopener">The emerging AI growth playbook — part 2 of the AI-native org series</a>
-            <div class="art-src"><span class="tag tag-src">substack</span></div>
+            <a class="art-link" href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026" target="_blank" rel="noopener">AI tooling for software engineers in 2026 — 900+ engineers surveyed, 95% use AI weekly</a>
+            <div class="art-src"><span class="tag tag-src">pragmaticengineer.com</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">02</span>
           <div>
-            <a class="art-link" href="https://www.lennysnewsletter.com/p/not-all-ai-agents-are-created-equal" target="_blank" rel="noopener">Not all AI agents are created equal — a framework for categorizing and prioritizing your agent initiatives</a>
-            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+            <a class="art-link" href="https://stratechery.com/2026/agents-over-bubbles/" target="_blank" rel="noopener">Agents over bubbles — why the model-plus-harness layer is where the margin sits</a>
+            <div class="art-src"><span class="tag tag-src">stratechery.com</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">03</span>
           <div>
-            <a class="art-link" href="https://producttalk.org/2026/04/vibe-coding-best-practices/" target="_blank" rel="noopener">Vibe coding best practices — avoid the doom loop with planning and code reviews</a>
+            <a class="art-link" href="https://www.producttalk.org/ai-opportunity-solution-trees/" target="_blank" rel="noopener">From customer interviews to an opportunity solution tree — in minutes</a>
             <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">04</span>
           <div>
-            <a class="art-link" href="https://www.airtable.com/articles/product-management-trends" target="_blank" rel="noopener">Product management trends 2026 — 10 future predictions</a>
-            <div class="art-src"><span class="tag tag-src">airtable.com</span></div>
+            <a class="art-link" href="https://www.reforge.com/blog/ai-impact-product-management" target="_blank" rel="noopener">Moving to higher ground — product management in the age of AI</a>
+            <div class="art-src"><span class="tag tag-src">reforge.com</span></div>
           </div>
         </div>
       </div>
@@ -648,7 +643,7 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
   <!-- REPOS -->
   <section class="section fade" id="repos">
     <div class="section-head">
-      <h2 class="h2">GitHub repos <span class="h2-count">6 · sorted by stars</span></h2>
+      <h2 class="h2">GitHub repos <span class="h2-count">7 · sorted by stars</span></h2>
       <span class="section-sub">repos worth using, not just bookmarking</span>
     </div>
     <p class="section-desc">Bias toward repos PMs can use directly, not just reference.</p>
@@ -657,55 +652,65 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
       <div class="repo-row">
         <span class="r-bullet">01</span>
         <div>
-          <a class="r-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
-          <div class="r-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. The only open-source agent with a built-in learning loop. MCP support, runs on Telegram/Slack/CLI.</div>
-          <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="r-desc">A personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. MIT, local-first, memory stored as plain Markdown. Now the most-starred project on GitHub.</div>
+          <div><span class="tag">local-first</span><span class="tag">mit</span><span class="tag">messaging</span><span class="tag" style="color:var(--accent);font-weight:500">★ trending</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">65k</span></div>
+        <div class="r-meta"><span class="stars">386k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">02</span>
         <div>
-          <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
-          <div class="r-desc">47 battle-tested PM skills + command workflows for Claude Code, Cursor, Cowork, and AI agents. Updated v0.75 Mar 2026.</div>
-          <div><span class="tag">claude-code</span><span class="tag">ai-agents</span><span class="tag">skills</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="r-desc">The agent that grows with you. Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. MCP support, runs on Telegram/Slack/CLI.</div>
+          <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag">skills</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">8.1k</span><span class="delta">+412 this mo</span></div>
+        <div class="r-meta"><span class="stars">227k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">03</span>
         <div>
-          <a class="r-link" href="https://github.com/product-on-purpose/pm-skills" target="_blank" rel="noopener">product-on-purpose/pm-skills</a>
-          <div class="r-desc">29 plug-and-play PM agent skills with workflow bundles across the full product lifecycle. MCP package available.</div>
-          <div><span class="tag">mcp</span><span class="tag">workflows</span><span class="tag">templates</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="r-desc">The public repository for Agent Skills — the format the PM skill packs below are written against. Start here before writing your own.</div>
+          <div><span class="tag">skills</span><span class="tag">agents</span><span class="tag">reference</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">4.3k</span><span class="delta">+188 this mo</span></div>
+        <div class="r-meta"><span class="stars">167k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">04</span>
         <div>
-          <a class="r-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
-          <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
-          <div><span class="tag">resources</span><span class="tag">technical-pm</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="r-desc">Battle-tested PM skills and command workflows for Claude Code, Cursor, Cowork, and AI agents.</div>
+          <div><span class="tag">claude-code</span><span class="tag">ai-agents</span><span class="tag">skills</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">4.2k</span></div>
+        <div class="r-meta"><span class="stars">6.3k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">05</span>
         <div>
-          <a class="r-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
-          <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
-          <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/ProductHired/open-product-management" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
+          <div><span class="tag">resources</span><span class="tag">technical-pm</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">2.0k</span></div>
+        <div class="r-meta"><span class="stars">4.4k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">06</span>
+        <div>
+          <a class="r-link" href="https://github.com/dend/awesome-product-management" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
+          <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
+        </div>
+        <div class="r-meta"><span class="stars">2.3k</span></div>
+      </div>
+
+      <div class="repo-row">
+        <span class="r-bullet">07</span>
         <div>
           <a class="r-link" href="https://github.com/topics/product-management" target="_blank" rel="noopener">github.com/topics/product-management</a>
           <div class="r-desc">The full GitHub topic page — the best place to discover new PM repos as they emerge each week.</div>
@@ -743,8 +748,8 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
           </tr>
           <tr>
             <td><strong>Linear</strong></td>
-            <td><a href="https://github.com/ibraheem4/linear-mcp" target="_blank" rel="noopener">linear-mcp</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>stable</code></td>
+            <td><a href="https://linear.app/docs/mcp" target="_blank" rel="noopener">Linear remote MCP</a> <span class="tag tag-src">linear.app</span></td>
+            <td><code>official</code></td>
             <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts</td>
           </tr>
           <tr>
@@ -761,8 +766,8 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
           </tr>
           <tr>
             <td><strong>Slack</strong></td>
-            <td><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/slack" target="_blank" rel="noopener">slack MCP</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>stable</code></td>
+            <td><a href="https://github.com/korotovsky/slack-mcp-server" target="_blank" rel="noopener">slack-mcp-server</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>community</code></td>
             <td>Summarize channels, search past decisions, catch up on a project thread</td>
           </tr>
           <tr>
@@ -808,7 +813,7 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
           <td>Teresa Torres</td>
         </tr>
         <tr>
-          <td><a href="https://www.cutlefish.com" target="_blank" rel="noopener">The Beautiful Mess</a> <span class="tag tag-src">substack</span></td>
+          <td><a href="https://cutlefish.substack.com" target="_blank" rel="noopener">The Beautiful Mess</a> <span class="tag tag-src">substack</span></td>
           <td><code>newsletter</code></td>
           <td>John Cutler writes like no one else in product. Uncomfortable, honest, systems-level thinking. The opposite of LinkedIn thought leadership.</td>
           <td>John Cutler</td>
@@ -844,6 +849,7 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
   <footer class="footer">
     <span>pmos.md · built by a pm, for pms</span>
     <span class="footer-right">
+      <a href="/archive.html">archive</a>
       <a href="/feed.xml">rss</a>
       <a href="https://github.com/pmosmd/pmos-md" target="_blank" rel="noopener">watch on github</a>
       <a href="/llms.txt">llms.txt</a>
