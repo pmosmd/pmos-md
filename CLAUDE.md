@@ -43,6 +43,16 @@ Order of operations:
    - Every star count must come from `api.github.com/repos/{owner}/{repo}`,
      never from a blog post, a search result, or a previous issue.
    - Repos must clear >1k stars *on verification*, not on reputation.
+   - Every Signal article must have a confirmed publish date — check
+     `article:published_time` / `datePublished` meta tags, not search-result
+     ranking. Topical relevance is not recency: a well-optimized old post
+     outranks a genuinely new one in general web search all the time.
+     "This week" = within ~7 days of the issue date. "This month" = within
+     ~30 days. An article that doesn't clear either window doesn't belong in
+     Signal, no matter how good it is — pull from source homepages/archives
+     (sorted by date) rather than keyword search when in doubt. The page only
+     needs to be recent and popular; older-but-good material has nowhere to
+     go here — that's what the archive is for.
 4. **Update `index.html`** — Signal (4 this week / 4 this month), repos,
    spotlight, editor's pick, `data-updated`, `wk NN`, and issue number in both
    the hero-pick kicker and hero-meta.
@@ -58,6 +68,10 @@ These have all shipped to production before. Check for them:
   and a 227k-star repo as 65k)
 - `href="#"` placeholders reaching `feed.xml`
 - Invented article URLs that 404 (two shipped in issue #16)
+- Stale articles mislabeled as fresh (issue #32 originally shipped with
+  "this week" articles dated back to May, and a "this month" pick from
+  March 2025 — 17 months old. Found by checking meta tags, not by reading
+  search-result snippets)
 - Mismatched heading tags (`<h2>` closed with `</h3>`) — breaks the a11y audit
 - Skipped heading levels — the hero pick must be `<h2>`, not `<h3>`
 

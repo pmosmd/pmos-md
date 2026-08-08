@@ -29,18 +29,18 @@
 
         <h3>Signal — this week</h3>
         <ul>
-          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about">The Pulse: concern about a massive increase in code review load</a> — The Pragmatic Engineer</li>
-          <li><a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/">The 2026-07-28 MCP spec release candidate</a> — stateless core, extensions framework, server-rendered apps</li>
-          <li><a href="https://www.productcompass.pm/p/ai-product-manager-roadmap-2026">The AI product manager roadmap</a> — workspace agents vs. product agents, and why you need both</li>
-          <li><a href="https://stratechery.com/2026/anthropics-safety-superpower/">Anthropic's safety superpower</a> — Stratechery</li>
+          <li><a href="https://www.mindtheproduct.com/is-anyone-actually-using-ai-agents/">Is anyone actually using AI agents?</a> — Mind the Product, Aug 7</li>
+          <li><a href="https://www.mindtheproduct.com/why-most-ai-hardware-products-should-never-be-built/">Why most AI hardware products should never be built</a> — Mind the Product, Aug 5</li>
+          <li><a href="https://www.producttalk.org/cdh-book-club-august-2026/">Identifying hidden assumptions</a> — Continuous Discovery Habits book club, Product Talk, Aug 3</li>
+          <li><a href="https://www.mindtheproduct.com/linked-in-responds-to-ai-slop-your-weekly-product-briefing/">LinkedIn responds to AI slop</a> — Mind the Product, Aug 3</li>
         </ul>
 
         <h3>Signal — this month</h3>
         <ul>
-          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-tooling-2026">AI tooling for software engineers in 2026</a> — 900+ engineers surveyed; 95% use AI weekly, 56% do 70%+ of their work with it</li>
-          <li><a href="https://stratechery.com/2026/agents-over-bubbles/">Agents over bubbles</a> — why the model-plus-harness layer is where the margin sits</li>
-          <li><a href="https://www.producttalk.org/ai-opportunity-solution-trees/">From customer interviews to an opportunity solution tree — in minutes</a> — Product Talk</li>
-          <li><a href="https://www.reforge.com/blog/ai-impact-product-management">Moving to higher ground — product management in the age of AI</a> — Reforge</li>
+          <li><a href="https://stratechery.com/2026/whos-afraid-of-chinese-models/">Who's afraid of Chinese models?</a> — Stratechery, Jul 20</li>
+          <li><a href="https://www.lennysnewsletter.com/p/how-tech-workers-are-feeling-in-2026">How tech workers are feeling in 2026</a> — a workforce splitting in two, Jul 7</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/inside-anthropic">How building software is changing at Anthropic</a> — Jul 28</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading">The Pulse: Grok's CLI caught uploading all your local files to the cloud</a> — Jul 16</li>
         </ul>
 
         <h3>Repo changes</h3>
@@ -49,6 +49,8 @@
           <li>Removed product-on-purpose/pm-skills — below the 1k-star bar on verification</li>
           <li>Star counts across the list corrected against the GitHub API</li>
         </ul>
+
+        <p><em>Corrected same-day: the Signal section originally linked articles as old as March 2026 under a "this week" label. Every item above now carries a publish date verified within its stated window.</em></p>
       ]]></description>
     </item>
 
