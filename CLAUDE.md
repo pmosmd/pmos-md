@@ -58,6 +58,14 @@ Order of operations:
    the hero-pick kicker and hero-meta.
 5. **Add the new issue to `archive.html` too** — the archive holds every issue
    including the current one, so permalinks always resolve.
+6. **Tag every outbound content link** with `?utm_source=pmos.md&utm_medium=referral&utm_campaign=issue-NN`
+   (use `&amp;` between params in HTML/XML attributes) — this is how source
+   sites see that pmos.md sent the traffic. Applies to article links, repo
+   links, MCP tool links, and Recommended picks, in `index.html`,
+   `archive.html`'s current-issue block, and `feed.xml`'s current item.
+   Skip internal links (pmos.md itself, `/archive.html`, `/feed.xml`,
+   the `github.com/pmosmd/pmos-md` repo). Never retag already-archived past
+   issues — that's editing history, which the append-only rule forbids.
 
 Commit message format: `issue #NN — week of MMM DD, YYYY`
 
