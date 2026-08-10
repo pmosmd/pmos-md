@@ -22,7 +22,6 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} # claude_code_oauth_token hits anthropics/claude-code-action#1316 (open bug, sk-ant-oat01-* tokens fail with "Header Authorization has invalid value")
           github_token: ${{ github.token }} # standard Actions token, scoped to this repo — no separate GitHub App needed for push
-          show_full_output: true # TEMP: debugging an instant is_error:true auth failure, remove once diagnosed
           claude_args: |
             --model claude-sonnet-5
             --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
