@@ -15,6 +15,8 @@ Hosted on GitHub Pages at `https://pmos.md` via the `pmosmd/pmos-md` repo.
 ├── archive.html   — every past issue, append-only
 ├── feed.xml       — RSS feed, append-only
 ├── llms.txt       — AI agent discovery file
+├── robots.txt     — points crawlers at sitemap.xml
+├── sitemap.xml    — lists index.html and archive.html
 ├── agent.html     — legacy local publish UI (never deploy; see note below)
 ├── CNAME          — pmos.md (do not edit)
 └── CLAUDE.md      — this file
