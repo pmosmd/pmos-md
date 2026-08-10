@@ -20,6 +20,41 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #33 — Week of Aug 10, 2026</title>
+      <link>https://pmos.md/archive.html#issue-33</link>
+      <guid isPermaLink="false">pmos-md-2026-08-10</guid>
+      <pubDate>Sun, 10 Aug 2026 08:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">NousResearch/hermes-agent</a> (&#9733; 228k) — self-evolving AI with memory across sessions, MCP support, running on Telegram/Slack/CLI. Shipped v0.20.0 ("Herald Release") this week: real-time streaming voice, an A2A v1.0 agent-to-agent protocol, and signed outbound webhooks.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/inside-the-minds-of-your-engineers-cat-hicks-psychologist/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">What your developers aren't telling you</a> — Mind the Product, Aug 5</li>
+          <li><a href="https://www.mindtheproduct.com/how-chat-gpt-learned-to-mask-its-image-bias-without-fixing-it/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">How ChatGPT learned to mask its image bias without fixing it</a> — Mind the Product, Aug 4</li>
+          <li><a href="https://stratechery.com/2026/google-earnings-the-frontier-case-amazon-earnings/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Google and Amazon earnings — the clearest case yet for AI capex spend</a> — Stratechery, Aug 5</li>
+          <li><a href="https://every.to/p/designing-with-ai-make-a-jig?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Designing with AI? Make a jig</a> — Every, Aug 7</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.producttalk.org/building-ai-for-womens-health-how-hertility-combined-bayesian-diagnosis-and-scan-automation/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Building AI for women's health — how Hertility combined Bayesian diagnosis and scan automation</a> — Product Talk, Jul 23</li>
+          <li><a href="https://www.producttalk.org/quality-of-evidence-all-things-product-podcast-with-teresa-torres-petra-wille/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Quality of evidence</a> — All Things Product podcast, Product Talk, Jul 14</li>
+          <li><a href="https://www.mindtheproduct.com/evals-are-the-new-prd/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Evals are the new PRD</a> — Mind the Product, Jul 16</li>
+          <li><a href="https://www.mindtheproduct.com/product-market-fit-doesnt-live-in-your-revenue-chart/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">Product-market fit doesn't live in your revenue chart</a> — Mind the Product, Jul 23</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight moved to <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-33">NousResearch/hermes-agent</a> (&#9733; 228k) on this week's "Herald Release"</li>
+          <li>Corrected the openclaw/openclaw description — it was previously called "the most-starred project on GitHub," which does not hold up on verification (currently 6th overall); the claim was dropped</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>One Recommended-shelf link (John Cutler's newsletter, cutlefish.substack.com) returned a bot-challenge response on every fetch attempt this run and was dropped from the live page pending re-verification — not confirmed dead, just unreachable by this job's fetcher today.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #32 — Week of Aug 9, 2026</title>
       <link>https://pmos.md/archive.html#issue-32</link>
       <guid isPermaLink="false">pmos-md-2026-08-09</guid>
