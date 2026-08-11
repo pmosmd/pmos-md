@@ -84,6 +84,12 @@ These have all shipped to production before. Check for them:
   search-result snippets)
 - Mismatched heading tags (`<h2>` closed with `</h3>`) — breaks the a11y audit
 - Skipped heading levels — the hero pick must be `<h2>`, not `<h3>`
+- `--ink3` tuned against one background token and not re-checked against the
+  others — it passed 4.5:1 on `--bg` but failed at 4.46:1 on `--surface`
+  (the hero-pick/spotlight card background), which the accessibility audit
+  didn't catch until the redesign added surface-backed components that
+  reused it. If you touch `--ink3`, check contrast against `--bg`,
+  `--surface`, *and* `--code-bg` — not just whichever one you're looking at
 
 ### agent.html
 
