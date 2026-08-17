@@ -60,9 +60,24 @@ jobs:
             - Issue number = ISO week number of the run date (UTC). Labels:
               "wk NN", "MMM DD, YYYY", commit message
               `issue #NN — week of MMM DD, YYYY`.
-            - IDEMPOTENCY: if index.html already shows this issue number in
-              the hero-pick kicker / hero-meta, this week is already
-              published. Exit without committing.
+            - IDEMPOTENCY IS DATE-BASED, NEVER ISSUE-NUMBER-BASED. Read
+              index.html's data-updated date. Compute this run's target
+              Sunday = the most recent Sunday on or before today (UTC) —
+              if today IS a Sunday, that is the target. If data-updated is
+              on or after the target Sunday, this cycle is already
+              published: exit without committing. Otherwise proceed and
+              publish, EVEN IF the computed ISO-week issue number happens
+              to match an existing one already on the page. (Issue #33 was
+              published via a Monday manual test run; the following
+              Sunday's real run computed the identical ISO-week number,
+              and a number-based idempotency check at the time saw "#33
+              already published" and silently skipped — the site sat
+              stale for a full week. Comparing dates, not numbers, is
+              what prevents that recurring. If a date-based check ever
+              still yields a duplicate issue *number*, publish anyway
+              under the next integer after the highest issue number
+              already in archive.html, and note the mismatch in the new
+              issue-note.)
 
             ORDER OF OPERATIONS
             1. ARCHIVE FIRST. The archive holds every issue including the
