@@ -20,6 +20,40 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #34 — Week of Aug 17, 2026</title>
+      <link>https://pmos.md/archive.html#issue-34</link>
+      <guid isPermaLink="false">pmos-md-2026-08-17</guid>
+      <pubDate>Mon, 17 Aug 2026 20:56:38 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">openclaw/openclaw</a> (&#9733; 387k) — a personal AI assistant that runs on your own machine, MIT-licensed and local-first. This week's 2026.8.1 beta ships secret egress host binding (unbound destinations now fail closed instead of leaking plaintext), GPT-5.6 Ultra support, and provenance checks on untrusted plugin installs.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">Anthropic's "watermark" text adulteration in Claude is a perversion of writing</a> — Daring Fireball</li>
+          <li><a href="https://www.mindtheproduct.com/i-broke-an-agent-on-purpose-to-see-what-an-ai-reviewer-would-catch/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">I broke an agent on purpose to see what an AI reviewer would catch</a> — Mind the Product, Aug 11</li>
+          <li><a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+</a> — TechCrunch, Aug 16</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">The Pulse: Meta's self-inflicted resignation wave</a> — Pragmatic Engineer, Aug 14</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/useful-isnt-enough-why-our-b-2-b-ai-product-failed/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">Useful isn't enough — why our B2B AI product failed</a> — Mind the Product, Aug 7</li>
+          <li><a href="https://www.lennysnewsletter.com/p/what-if-youre-not-supposed-to-have?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">What if you're not supposed to have a long-term plan?</a> — Lenny's Newsletter, Aug 4</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/formal-methods-with-hillel-wayne?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">Formal methods with Hillel Wayne</a> — Pragmatic Engineer, Jul 29</li>
+          <li><a href="https://stratechery.com/2026/openai-hacks-hugging-face-what-happened-alignment-and-paper-clips/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">OpenAI hacks Hugging Face — what happened, alignment, and paper clips</a> — Stratechery, Jul 22</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight moved to <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34">openclaw/openclaw</a> (&#9733; 387k) on this week's 2026.8.1 beta</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>The site missed a full week: issue #33 was published via a manual Monday test run, and the ISO-week issue numbering gave it the same number the real Sunday run would have computed six days later — so the automation's own idempotency check saw "#33 already published" and correctly declined to publish anything. Corrected by hand; the numbering rule is being fixed so this can't recur.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #33 — Week of Aug 10, 2026</title>
       <link>https://pmos.md/archive.html#issue-33</link>
       <guid isPermaLink="false">pmos-md-2026-08-10</guid>

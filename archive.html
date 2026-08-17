@@ -175,6 +175,156 @@ body {
        this file is append-only by design.
        ───────────────────────────────────────── -->
 
+  <section class="issue" id="issue-34">
+    <div class="issue-head">
+      <h2 class="issue-no"><a href="#issue-34">issue #34</a></h2>
+      <span class="issue-date">wk 34 · aug 17, 2026 · current</span>
+    </div>
+    <p class="issue-note">
+      The site went a full week without updating. Issue #33 was originally published via a
+      manual test run on Monday Aug 10 — and the issue-numbering scheme (ISO week of the run
+      date) gave it the same number the real Sunday Aug 16 automated run would have computed
+      six days later. The idempotency check correctly, per its own instructions, saw "#33
+      already published" and exited without publishing anything: not a crash, a numbering
+      collision. Corrected by hand here; the underlying rule is being fixed in CLAUDE.md so a
+      mid-week manual run can no longer block the following Sunday's real one. Star counts
+      verified against the GitHub API at publication. The spotlight moved to openclaw/openclaw
+      for a genuine this-week reason — its 2026.8.1 beta ships secret egress host binding, a
+      real security hardening feature — not for its total star count, which has sat essentially
+      unchanged for weeks.
+    </p>
+
+    <div class="pick">
+      <div class="pick-kicker">★ spotlight</div>
+      <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">openclaw/openclaw</a>
+      <p>A personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. This week's 2026.8.1 beta binds every shared-store secret to its exact destination host — an unbound reference now fails closed rather than leaking plaintext — plus GPT-5.6 Ultra runtime support, SQLite backup/restore, and provenance checks on plugin installs from untrusted sources.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this week</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://daringfireball.net/2026/08/anthropics_watermark_text_adulteration_in_claude_is_a_perversion_of_writing?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">Anthropic's "watermark" text adulteration in Claude is a perversion of writing</a>
+          <div class="row-src">daringfireball.net</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/i-broke-an-agent-on-purpose-to-see-what-an-ai-reviewer-would-catch/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">I broke an agent on purpose to see what an AI reviewer would catch</a>
+          <div class="row-src">mindtheproduct.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+</a>
+          <div class="row-src">techcrunch.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">The Pulse: Meta's self-inflicted resignation wave</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this month</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/useful-isnt-enough-why-our-b-2-b-ai-product-failed/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">Useful isn't enough — why our B2B AI product failed</a>
+          <div class="row-src">mindtheproduct.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/what-if-youre-not-supposed-to-have?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">What if you're not supposed to have a long-term plan?</a>
+          <div class="row-src">lennysnewsletter.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/formal-methods-with-hillel-wayne?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">Formal methods with Hillel Wayne</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://stratechery.com/2026/openai-hacks-hugging-face-what-happened-alignment-and-paper-clips/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">OpenAI hacks Hugging Face — what happened, alignment, and paper clips</a>
+          <div class="row-src">stratechery.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">repos indexed</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="row-src"><span class="stars">387k</span> · spotlight, 2026.8.1 beta this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="row-src"><span class="stars">232k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="row-src"><span class="stars">170k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">different-ai/openwork</a>
+          <div class="row-src"><span class="stars">22.5k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/deanpeters/Product-Manager-Skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="row-src"><span class="stars">6.5k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/ProductHired/open-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="row-src"><span class="stars">4.4k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/dend/awesome-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="row-src"><span class="stars">2.3k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/topics/product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-34" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="row-src">topic page</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="issue" id="issue-33">
     <div class="issue-head">
       <h2 class="issue-no"><a href="#issue-33">issue #33</a></h2>

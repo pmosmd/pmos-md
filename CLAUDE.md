@@ -27,6 +27,17 @@ Hosted on GitHub Pages at `https://pmos.md` via the `pmosmd/pmos-md` repo.
 Runs automatically every Sunday 08:00 PT and commits straight to `main`.
 Issue numbering follows the ISO week number.
 
+**Idempotency must be date-based, never issue-number-based.** Issue #33
+was published via a manual Monday-Aug-10 test run; six days later the real
+Sunday-Aug-16 run computed the *same* ISO-week number and its own
+idempotency check saw "#33 already published," so it exited without
+publishing — the site went a full week stale. Any manual/test run that
+lands on a different day within the same ISO week as the following Sunday
+will always collide under number-based idempotency. The check must instead
+compare dates: skip only if `data-updated` is on or after the most recent
+Sunday on/before the run date. Never compare computed issue numbers to
+decide whether to skip.
+
 **Archive first — this is the rule that matters.** Nothing is ever dropped.
 Before touching `index.html`, append the outgoing issue to `archive.html` and
 `feed.xml`. Both files are append-only: never edit or delete an existing issue
@@ -84,6 +95,10 @@ These have all shipped to production before. Check for them:
   search-result snippets)
 - Mismatched heading tags (`<h2>` closed with `</h3>`) — breaks the a11y audit
 - Skipped heading levels — the hero pick must be `<h2>`, not `<h3>`
+- Issue-number-based idempotency colliding with a manual mid-week run (issue
+  #33's Monday test run and the following Sunday's real run computed the
+  same ISO week, so the real run silently skipped and the site went a full
+  week stale) — idempotency must compare dates, not issue numbers
 
 ### agent.html
 
