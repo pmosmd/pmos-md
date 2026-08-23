@@ -175,6 +175,167 @@ body {
        this file is append-only by design.
        ───────────────────────────────────────── -->
 
+  <section class="issue" id="issue-35">
+    <div class="issue-head">
+      <h2 class="issue-no"><a href="#issue-35">issue #35</a></h2>
+      <span class="issue-date">wk 34 · aug 23, 2026 · current</span>
+    </div>
+    <p class="issue-note">
+      This run's date-based idempotency check correctly found last week's data-updated
+      (Aug 17) older than this run's target Sunday (Aug 23) and proceeded to publish — but the
+      ISO week number of today's run date is 34, identical to the already-published issue #34.
+      Per the fallback rule, this issue is numbered #35 (next integer after the highest number
+      in this archive) instead of colliding with #34; "wk 34" in the date line above reflects
+      the true ISO week, not the issue number. Spotlight moved to NousResearch/hermes-agent for
+      a genuine this-week reason — three tagged releases (v0.20.3 through v0.20.5, Aug 17–21)
+      shipped real feature work, including a keyless web-search tier and NVIDIA-backed skill
+      install scanning — not for star count, which is a routine ~1% weekly gain. Two repos were
+      added after turning up ahead of the existing list on a fresh GitHub topic search, both
+      verified via the API this run: makeplane/plane (57.5k stars, an actively-shipping
+      open-source Jira/Linear/Monday alternative) and phuryn/pm-skills (25.6k stars, a 100+
+      skill PM marketplace). phuryn/pm-skills replaces deanpeters/Product-Manager-Skills, which
+      occupies the same niche at roughly a quarter of the stars. Star counts across the full
+      list re-verified against the GitHub API at publication.
+    </p>
+
+    <div class="pick">
+      <div class="pick-kicker">★ spotlight</div>
+      <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+      <p>Self-evolving AI agent that learns from tasks, writes its own skills, and retains memory across sessions. MIT, MCP support, runs on Telegram/Slack/CLI. Three tagged releases this week (v0.20.3 through v0.20.5) ship a keyless web tier — five free-vendor keys rotating with ring failover, so a fresh install gets working web search with zero configured keys — plus Bot Mode group-room threads, foldable conversation summaries, and NVIDIA SkillEvaluator advisory scanning (license + security checks) on skill installs.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this week</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/linear-data-reveals-that-ai-isnt-saving-you-time-your-weekly-product-briefing/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">Linear data reveals that AI isn't saving you time</a>
+          <div class="row-src">mindtheproduct.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">The New MCP Roadmap</a>
+          <div class="row-src">modelcontextprotocol.io</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">The Pulse: We need to talk about migrations with AI</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://stratechery.com/2026/stripe-acquiring-openrouter-aggregating-ai-flipping-the-business-model/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">Stripe Acquiring OpenRouter, Aggregating AI?, Flipping the Business Model</a>
+          <div class="row-src">stratechery.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this month</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/how-open-ai-makes-product-decisions-and-builds-at-speed-blaine-billingsley-open-ai/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">What OpenAI taught me to unlearn — Blaine Billingsley (OpenAI)</a>
+          <div class="row-src">mindtheproduct.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">Stop being skeptical about AI for development with Charity Majors</a>
+          <div class="row-src">pragmaticengineer.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://stratechery.com/2026/nvidias-risky-business/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">Nvidia's Risky Business</a>
+          <div class="row-src">stratechery.com</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">How to make people care about your startup</a>
+          <div class="row-src">lennysnewsletter.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">repos indexed</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="row-src"><span class="stars">387k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="row-src"><span class="stars">235k</span> · spotlight, v0.20.3–v0.20.5 this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="row-src"><span class="stars">171k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/makeplane/plane?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">makeplane/plane</a>
+          <div class="row-src"><span class="stars">57.5k</span> · new to the list</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">phuryn/pm-skills</a>
+          <div class="row-src"><span class="stars">25.6k</span> · new to the list, replaces deanpeters/Product-Manager-Skills</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">different-ai/openwork</a>
+          <div class="row-src"><span class="stars">23k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/ProductHired/open-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">ProductHired/open-product-management</a>
+          <div class="row-src"><span class="stars">4.4k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/dend/awesome-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="row-src"><span class="stars">2.3k</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/topics/product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-35" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="row-src">topic page</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="issue" id="issue-34">
     <div class="issue-head">
       <h2 class="issue-no"><a href="#issue-34">issue #34</a></h2>
