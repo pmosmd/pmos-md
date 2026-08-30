@@ -20,6 +20,41 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #36 — Week of Aug 30, 2026</title>
+      <link>https://pmos.md/archive.html#issue-36</link>
+      <guid isPermaLink="false">pmos-md-2026-08-30</guid>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">NousResearch/hermes-agent</a> (&#9733; 238k) — self-evolving AI agent, memory across sessions, MIT-licensed. v0.20.6 (Aug 27) rolls up roughly 525 merged PRs into a stable tag: a 50+ server remote MCP catalog (Cloudflare, Grafana Cloud, Better Stack, Railway among them), opt-in OS-keychain encryption for stored secrets, and TTL result caching for web search.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/inside-slack-code-what-it-is-and-why-anthropic-just-became-its-founding-partner/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">Slack Code: what it is, and why Anthropic just became its founding partner</a> — Mind the Product, Aug 28</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-meta-wanted-to-reduce-teams?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">The Pulse: Meta wanted to reduce teams by 60% because of AI</a> — Pragmatic Engineer, Aug 27</li>
+          <li><a href="https://www.mindtheproduct.com/the-story-is-the-strategy-what-journalism-taught-me-about-building-products-people-believe-in/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">The story is the strategy: what journalism taught me about building products people believe in</a> — Mind the Product, Aug 24</li>
+          <li><a href="https://stratechery.com/2026/autonomy-and-innovation/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">Autonomy and Innovation</a> — Stratechery, Aug 24</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">Announcing Lenny's Jobs: the best place to find, vet, and land your dream job</a> — Lenny's Newsletter, Aug 18</li>
+          <li><a href="https://www.mindtheproduct.com/ai-agents-are-your-newest-product-feature-is-your-security-thinking-keeping-up/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">AI agents are your newest product feature. Is your security thinking keeping up?</a> — Mind the Product, Aug 20</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/from-chrome-devtools-to-ai-engineering?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">From Chrome DevTools to AI Engineering, with Addy Osmani</a> — Pragmatic Engineer, Aug 19</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-great-engineering-leader-career-break?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">Headed for the Exit: the Great Engineering Leader Career Break</a> — Pragmatic Engineer, Aug 18</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight stays with <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">NousResearch/hermes-agent</a> (&#9733; 238k) for a third straight week on the strength of its v0.20.6 tag (50+ server MCP catalog, keychain secret encryption)</li>
+          <li>Added <a href="https://github.com/opf/openproject?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-36">opf/openproject</a> (&#9733; 16k), a mature open-source Jira alternative</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>This run's ISO week (35) matches the already-published issue #35 — itself a fallback number from last week's collision — so this issue is numbered #36, the next integer after the highest number in the archive, rather than colliding again.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #35 — Week of Aug 23, 2026</title>
       <link>https://pmos.md/archive.html#issue-35</link>
       <guid isPermaLink="false">pmos-md-2026-08-23</guid>
