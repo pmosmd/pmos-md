@@ -20,6 +20,41 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #37 — Week of Sep 6, 2026</title>
+      <link>https://pmos.md/archive.html#issue-37</link>
+      <guid isPermaLink="false">pmos-md-2026-09-06</guid>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">openclaw/openclaw</a> (&#9733; 389k) — personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. v2026.9.2 (Sep 5) adds GPT-6 Astra model support and reliability work: replies now survive Gateway restarts without losing their place in the recovery queue, and long transcripts stop blocking chat and dashboard responsiveness.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/product-lessons-from-a-month-of-ai-security-incidents/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">Product lessons from a month of AI security incidents</a> — Mind the Product, Sep 4</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-tech-companies-move-to?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">The Pulse: tech companies move to open AI models</a> — Pragmatic Engineer, Sep 3</li>
+          <li><a href="https://www.lennysnewsletter.com/p/how-to-turn-your-ai-into-a-world?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">How to turn your AI into a world-class designer</a> — Lenny's Newsletter, Sep 1</li>
+          <li><a href="https://www.ben-evans.com/benedictevans/2026/9/3/ai-tools-and-transformation?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">AI, tools and transformation</a> — Benedict Evans, Sep 3</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/how-to-figure-out-your-next-career?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">How to figure out your next career move</a> — Lenny's Newsletter, Aug 25</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">Why Ramp built its own in-house coding agent, Inspect</a> — Pragmatic Engineer, Aug 25</li>
+          <li><a href="https://www.mindtheproduct.com/loop-engineering-is-not-prompt-engineering/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">Loop Engineering 101: Start with the outcome</a> — Mind the Product, Aug 26</li>
+          <li><a href="https://www.mindtheproduct.com/stop-relying-on-vanity-metrics-measure-what-actually-matters-for-product-success/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">Stop relying on vanity metrics. Measure what actually matters for product success</a> — Mind the Product, Aug 18</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight moves to <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">openclaw/openclaw</a> (&#9733; 389k) on the strength of its v2026.9.2 release (GPT-6 Astra support, restart-safe reply recovery)</li>
+          <li><a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-37">NousResearch/hermes-agent</a> (&#9733; 242k) also shipped this week — v0.21.0 (Aug 31) adds Bot Mode — but hands off the spotlight after two straight issues</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>This run's ISO week (36) matches the already-published issue #36 — itself a fallback number from an earlier collision — so this issue is numbered #37, the next integer after the highest number in the archive, rather than colliding again.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #36 — Week of Aug 30, 2026</title>
       <link>https://pmos.md/archive.html#issue-36</link>
       <guid isPermaLink="false">pmos-md-2026-08-30</guid>
