@@ -20,6 +20,41 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #38 — Week of Sep 13, 2026</title>
+      <link>https://pmos.md/archive.html#issue-38</link>
+      <guid isPermaLink="false">pmos-md-2026-09-13</guid>
+      <pubDate>Sun, 13 Sep 2026 08:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">openclaw/openclaw</a> (&#9733; 390k) — personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. v2026.9.3 (Sep 8) ships a persistent Skill Workshop, a searchable meeting library with full-transcript search and Markdown/JSONL export, and optional team activity reports, alongside safer staged updates and warm prompt-cache reuse across sessions.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/build-your-own-company-brain-the?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">Build your own company brain: the enterprise AI playbook from Stripe's engineering team</a> — Lenny's Newsletter, Sep 7</li>
+          <li><a href="https://www.mindtheproduct.com/the-case-for-kill-criteria-in-product-management/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">The case for kill criteria in product management</a> — Mind the Product, Sep 8</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">What is happening with code reviews?</a> — Pragmatic Engineer, Sep 8</li>
+          <li><a href="https://stratechery.com/2026/write-things-down/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">Write Things Down</a> — Stratechery, Sep 8</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/how-to-position-your-product-for-a-future-nobody-can-predict-april-dunford/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">How to position your product for a future nobody can predict</a> — Mind the Product, Sep 2</li>
+          <li><a href="https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">How I turned Claude into a self-improving PM assistant</a> — Lenny's Newsletter, Aug 31</li>
+          <li><a href="https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">An Interview with OpenAI President Greg Brockman About Astra and Alignment</a> — Stratechery, Sep 4</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/why-performant-code-matters-but-gets?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">Why performance actually matters (but gets widely ignored), with Casey Muratori</a> — Pragmatic Engineer, Aug 26</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight stays with <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">openclaw/openclaw</a> (&#9733; 390k) for a second straight issue, on the strength of a distinct v2026.9.3 release (Skill Workshop, searchable meeting library, team activity reports)</li>
+          <li><a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-38">NousResearch/hermes-agent</a> (&#9733; 245k) shipped v0.21.2 (Sep 11) this week — a patch closing a state.db reliability regression introduced in v0.21.0</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>This run's ISO week (37) matches the already-published issue #37 — itself a fallback number from an earlier collision — so this issue is numbered #38, the next integer after the highest number in the archive, rather than colliding again.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #37 — Week of Sep 6, 2026</title>
       <link>https://pmos.md/archive.html#issue-37</link>
       <guid isPermaLink="false">pmos-md-2026-09-06</guid>
