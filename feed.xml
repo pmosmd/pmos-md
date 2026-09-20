@@ -20,6 +20,43 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #39 — Week of Sep 20, 2026</title>
+      <link>https://pmos.md/archive.html#issue-39</link>
+      <guid isPermaLink="false">pmos-md-2026-09-20</guid>
+      <pubDate>Sun, 20 Sep 2026 08:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">openclaw/openclaw</a> (&#9733; 390k) — personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. v2026.9.5 (Sep 19) ships Atomic Updates that check the next version before switching over, plugins you can install without restarting the Gateway, shareable conversations, GPT Live for meetings and phone calls, browser pages you can work on alongside your agent, revisitable conversation archives, and guided setup for a specialist agent team.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/i-use-ai-every-day-as-a-pm-heres-how-i-stopped-being-reckless-about-it/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">I use AI every day as a PM. Here's how I stopped being reckless about it</a> — Mind the Product, Sep 15</li>
+          <li><a href="https://www.producttalk.org/4-new-evals-and-16-experiment-variants/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">4 New Evals and 16 Experiment Variants to Fix 1 Customer Complaint</a> — Product Talk, Sep 16</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">Inside OpenAI's agentic software factory</a> — Pragmatic Engineer, Sep 15</li>
+          <li><a href="https://www.lennysnewsletter.com/p/60-creative-growth-ideas?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">60+ new creative growth ideas</a> — Lenny's Newsletter, Sep 15</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/how-to-turn-your-ai-into-a-world?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">How to turn your AI into a world-class designer</a> — Lenny's Newsletter, Sep 1</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">Building Codex with Tibo Sottiaux</a> — Pragmatic Engineer, Sep 9</li>
+          <li><a href="https://stratechery.com/2026/autonomy-and-innovation/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">Autonomy and Innovation</a> — Stratechery, Aug 24</li>
+          <li><a href="https://www.producttalk.org/ai-evals/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">AI Evals: A Hands-On Guide for Product Teams</a> — Product Talk, Sep 2</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight stays with <a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">openclaw/openclaw</a> (&#9733; 390k) for a third straight issue, on the strength of the v2026.9.5 release (Atomic Updates, restart-free plugin installs, shareable conversations, GPT Live)</li>
+          <li><a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">NousResearch/hermes-agent</a> (&#9733; 247k) shipped v0.21.3 (Sep 14) this week — a patch for a remote-dashboard session-refresh bug and a duplicate state.db writer-handle leak</li>
+          <li><a href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">different-ai/openwork</a> (&#9733; 23.7k) shipped v0.18.48 (Sep 15) this week — more dependable live workflow apps and session recovery</li>
+          <li>Added <a href="https://github.com/deanpeters/Product-Manager-Skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-39">deanpeters/Product-Manager-Skills</a> (&#9733; 7k) — a focused, actively maintained PM skills library for Claude Code and other agents</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>This run's ISO week (38) matches the already-published issue #38 — itself a fallback number, one ahead of its true ISO week, 37 — so this issue is numbered #39, the next integer after the highest number in the archive, rather than colliding again.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #38 — Week of Sep 13, 2026</title>
       <link>https://pmos.md/archive.html#issue-38</link>
       <guid isPermaLink="false">pmos-md-2026-09-13</guid>
