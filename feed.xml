@@ -20,6 +20,42 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #40 — Week of Sep 27, 2026</title>
+      <link>https://pmos.md/archive.html#issue-40</link>
+      <guid isPermaLink="false">pmos-md-2026-09-27</guid>
+      <pubDate>Sun, 27 Sep 2026 08:00:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">NousResearch/hermes-agent</a> (&#9733; 249k) — self-evolving AI that learns from tasks, writes its own skills, and retains memory across sessions. v0.21.4 (Sep 21) ships a Desktop plugin SDK, a Connectors page that replaces the MCP tab, complete French, German, and Spanish Desktop catalogs, custom model entry, and per-profile process control; v0.21.5 (Sep 24) rolls the follow-on patches into a stable tag.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/advanced-evals-how-to-find-and-fix?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">Advanced evals: How to find (and fix) hidden AI failures in your product</a> — Lenny's Newsletter, Sep 22</li>
+          <li><a href="https://www.mindtheproduct.com/from-ai-adoption-to-ai-maturity-why-are-product-teams-stuck-in-that-gap/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">From AI adoption to AI maturity: Why are product teams stuck in that gap?</a> — Mind the Product, Sep 23</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-end-of-coding-by-hand?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">The Pulse: RoR creator sparks new "death of coding by hand" debate</a> — Pragmatic Engineer, Sep 24</li>
+          <li><a href="https://stratechery.com/2026/begun-the-aggregator-wars-have/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">Begun, the Aggregator Wars Have</a> — Stratechery, Sep 25</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.mindtheproduct.com/roi-is-a-pm-tool-not-a-finance-deliverable/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">ROI Is a PM tool, not a finance deliverable</a> — Mind the Product, Sep 15</li>
+          <li><a href="https://www.producttalk.org/creating-aha-builder-concept-to-code-no-engineers-required/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">Creating Aha! Builder: Concept to Code, No Engineers Required</a> — Product Talk, Sep 17</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">AI Skills with Matt Pocock</a> — Pragmatic Engineer, Sep 17</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">The Pulse #191: a new trend of CPU shortages</a> — Pragmatic Engineer, Sep 10</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight moves to <a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">NousResearch/hermes-agent</a> (&#9733; 249k) after three issues with openclaw/openclaw, on the strength of the v0.21.4 release (Desktop plugin SDK, Connectors page, full-language catalogs, custom model entry, per-profile process control)</li>
+          <li><a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">openclaw/openclaw</a> (&#9733; 391k) shipped v2026.9.6 (Sep 23) this week — managed updates with restart recovery, complete 30-day usage reporting, GitHub and remote-workspace tools, live meeting notes, and new model choices</li>
+          <li><a href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-40">different-ai/openwork</a> (&#9733; 23.8k) shipped four releases this week (v0.18.49–v0.18.54) — session recovery, one-command self-hosting, a rebuilt desktop Library, and restored enterprise sign-in with Amazon Bedrock support</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>This run's ISO week (39) matches the already-published issue #39 — whose true ISO week was 38 — so this issue is numbered #40, the next integer after the highest number in the archive, rather than colliding again.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #39 — Week of Sep 20, 2026</title>
       <link>https://pmos.md/archive.html#issue-39</link>
       <guid isPermaLink="false">pmos-md-2026-09-20</guid>
