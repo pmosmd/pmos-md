@@ -20,6 +20,44 @@
          ───────────────────────────────────────── -->
 
     <item>
+      <title>Issue #41 — Week of Oct 11, 2026</title>
+      <link>https://pmos.md/archive.html#issue-41</link>
+      <guid isPermaLink="false">pmos-md-2026-10-11</guid>
+      <pubDate>Sun, 11 Oct 2026 21:22:00 +0000</pubDate>
+      <description><![CDATA[
+        <p><strong>Spotlight:</strong> <a href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">phuryn/pm-skills</a> (&#9733; 26.9k) — a marketplace of 100+ agentic skills, commands, and plugins for product work, from discovery through strategy, execution, launch, and growth; MIT-licensed. v2.2.0 (Oct 10) makes the create-prd skill lean by default: a first PRD is one to two pages, built on a six-part JTBD value proposition, with at most three questions asked when the problem, users, or success metric is missing, unknowns kept under assumptions and open questions, and a closing note on what it left out. The same release adds a code-review skill, a correctness review plus an independent second-model pass in /ship-check, and an OWASP coverage backstop in /security-audit-static.</p>
+
+        <h3>Signal — this week</h3>
+        <ul>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-of-building-internal?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">The Pulse: new trend of building “internal vibe-coding apps” at tech companies</a> — Pragmatic Engineer, Oct 8</li>
+          <li><a href="https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">How OpenAI uses ChatGPT Sites (live at DevDay!) | Kath Korevec (Product Lead)</a> — Lenny's Newsletter, Oct 5</li>
+          <li><a href="https://daringfireball.net/linked/2026/10/05/openai-announces-their-text-watermarking-plans?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">OpenAI Announces Their Text Watermarking Plans</a> — Daring Fireball, Oct 5</li>
+          <li><a href="https://www.producttalk.org/recorded-conversations-all-things-product/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">Recorded Conversations - All Things Product Podcast with Teresa Torres &amp; Petra Wille</a> — Product Talk, Oct 6</li>
+        </ul>
+
+        <h3>Signal — this month</h3>
+        <ul>
+          <li><a href="https://www.lennysnewsletter.com/p/openai-dev-day-2026-the-releases?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">OpenAI Dev Day 2026: The releases that actually matter</a> — Lenny's Newsletter, Sep 30</li>
+          <li><a href="https://www.producttalk.org/generating-opportunity-solution-trees-with-ai-how-vistaly-rebuilt-its-product-around-interview-synthesis-evals-and-repair-loops/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">Generating Opportunity Solution Trees with AI: How Vistaly Rebuilt Its Product Around Interview Synthesis, Evals, and Repair Loops</a> — Product Talk, Oct 1</li>
+          <li><a href="https://newsletter.pragmaticengineer.com/p/shopify-native-mobile?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">Why has Shopify dropped React Native?</a> — Pragmatic Engineer, Sep 29</li>
+          <li><a href="https://www.mindtheproduct.com/lessons-from-managing-ai-transformation-in-a-40-billion-contract-portfolio/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">Lessons from managing AI transformation in a $40 billion contract portfolio</a> — Mind the Product, Sep 28</li>
+        </ul>
+
+        <h3>Repo changes</h3>
+        <ul>
+          <li>Spotlight moves to <a href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">phuryn/pm-skills</a> (&#9733; 26.9k) after one issue with NousResearch/hermes-agent, on the strength of the v2.2.0 release (lean-by-default PRD skill, code-review skill, second-model review pass in /ship-check)</li>
+          <li><a href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">openclaw/openclaw</a> (&#9733; 392k) shipped v2026.10.1 (Oct 10) this week — installed-skill search so the agent no longer loads the whole skill library into the prompt, opt-in MCP Apps beside chat, and full backups on external storage or Cloudflare R2</li>
+          <li><a href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">NousResearch/hermes-agent</a> (&#9733; 253k) shipped v0.21.6 (Oct 8) this week — the first release from its new stable pipeline, rolling up about 2,100 merged PRs since v0.21.5, with hardened dashboard sign-in; full release notes ship with v0.22.0</li>
+          <li><a href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">different-ai/openwork</a> (&#9733; 24k) shipped v0.18.57 (Oct 7) this week — one-prompt migration of Claude Cowork and Claude Code plugins and skills, per-teammate connector keys, and a Google Cloud Run starting point for self-hosting</li>
+          <li><a href="https://github.com/opf/openproject?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41">opf/openproject</a> (&#9733; 16.4k) — v17.9.0 (Sep 30) creates work packages from documents, brings date alerts to the Community edition, and extends the MCP server with time tracking</li>
+          <li>Star counts across the list re-verified against the GitHub API</li>
+        </ul>
+
+        <p><em>The scheduled job failed on Oct 4 and Oct 11, so this issue was researched and published by hand and covers both weeks. Week 40 has no issue of its own; the issue number and the ISO week agree again at 41.</em></p>
+      ]]></description>
+    </item>
+
+    <item>
       <title>Issue #40 — Week of Sep 27, 2026</title>
       <link>https://pmos.md/archive.html#issue-40</link>
       <guid isPermaLink="false">pmos-md-2026-09-27</guid>
