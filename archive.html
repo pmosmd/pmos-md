@@ -123,6 +123,8 @@ body {
 .row-link { font-size: 12.5px; color: var(--link); text-decoration: none; line-height: 1.45; display: block; }
 .row-link:hover { color: var(--accent); text-decoration: underline; }
 .row-src { font-size: 10.5px; color: var(--ink3); margin-top: 2px; }
+.row-take { font-size: 12px; color: var(--ink2); font-weight: 300; line-height: 1.5; margin-top: 2px; }
+.pick .row-src { margin-top: 0.35rem; }
 .stars { color: var(--ink2); }
 .stars::before { content: '★ '; color: var(--accent); }
 .dead { color: #8A4520; }
@@ -174,6 +176,175 @@ body {
        Never edit or remove an existing block —
        this file is append-only by design.
        ───────────────────────────────────────── -->
+
+  <section class="issue" id="issue-41">
+    <div class="issue-head">
+      <h2 class="issue-no"><a href="#issue-41">issue #41</a></h2>
+      <span class="issue-date">oct 11, 2026</span>
+    </div>
+    <p class="issue-note">
+      The scheduled job failed on Oct 4 and Oct 11, so this issue was researched and published by hand and covers both weeks; there is no issue for week 40. It also changes the format. Signal items now carry their publish date, a one-line takeaway, and a paid or part-paid tag where the piece sits behind a paywall. Repos are grouped into three lanes, and ProductHired/open-product-management is retired (last push July 2024). The MCP table is rebuilt around the PM workflow and lists vendor-official servers only. Correction: its Productboard row linked to a 22-star list of servers, not a Productboard server; it now points to Productboard's own. Google Calendar is gone. Star counts re-verified against the GitHub API at publication.
+    </p>
+
+    <div class="pick">
+      <div class="pick-kicker">editor's pick</div>
+      <a href="https://www.news.aakashg.com/p/pm-to-product-builder-roadmap?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">The Roadmap to Becoming a Product Builder, with Ankit Shukla</a>
+      <p>Ankit Shukla analyzed 12,500 PM job posts and found a new role hiding in them: the product builder. The episode covers what the role is, who is hiring, what it pays, and how to get there.</p>
+      <div class="row-src">news.aakashg.com · Oct 8</div>
+    </div>
+
+    <div class="pick">
+      <div class="pick-kicker">★ spotlight · built for PMs</div>
+      <a href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
+      <p>A marketplace of 100+ agentic skills, commands, and plugins for product work, from discovery through strategy, execution, launch, and growth; MIT-licensed. v2.2.0 (Oct 10) makes the create-prd skill lean by default: a first PRD is one to two pages, the six-part JTBD value proposition (who, why, what before, how, what after, alternatives) is its spine, it asks at most three questions when the problem, users, or success metric is missing, puts unknowns under assumptions and open questions rather than inventing them, and ends by naming what it left out. The same release adds a code-review skill, a correctness review plus an independent second-model pass in /ship-check, and an OWASP coverage backstop in /security-audit-static.</p>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — this week</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">How OpenAI uses ChatGPT Sites (live at DevDay!) | Kath Korevec (Product Lead)</a>
+          <div class="row-take">A live DevDay demo of ChatGPT Sites turning Slack, Notion, and calendar data into internal tools that adapt to each person on a team.</div>
+          <div class="row-src">lennysnewsletter.com · Oct 5</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.productcompass.pm/p/jev-decision-model?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">A New Kind of AI Model: Jev and Quick Wins for PMs</a>
+          <div class="row-take">Jev is a decision model, not a text generator: give it a text and a question and it returns a decision with a probability. Free section covers quick wins for PMs; setup is paid.</div>
+          <div class="row-src">productcompass.pm · Oct 5 · part paid</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.producttalk.org/recorded-conversations-all-things-product/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Recorded Conversations - All Things Product Podcast with Teresa Torres &amp; Petra Wille</a>
+          <div class="row-take">Teresa Torres found her AI meeting transcripts contradicting her memory of conversations. Check transcripts against yourself first, and let people change their minds.</div>
+          <div class="row-src">producttalk.org · Oct 6</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/evals-analytics-and-how-to-escape-the-feature-factory-francois-lopitaux-svp-product-management-thought-spot/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Evals, Analytics, and How to escape the feature factory: Francois Lopitaux (SVP Product Management, ThoughtSpot)</a>
+          <div class="row-take">ThoughtSpot's SVP of Product on agentic products: build guardrails around a probabilistic LLM, test more hypotheses, and keep the goal fixed while the technology changes.</div>
+          <div class="row-src">mindtheproduct.com · Oct 6</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">signal — also worth your time</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.lennysnewsletter.com/p/openai-dev-day-2026-the-releases?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">OpenAI Dev Day 2026: The releases that actually matter</a>
+          <div class="row-take">A hands-on test of OpenAI's DevDay releases, including Dots, Spaces, and Sites, with a verdict on which to try first.</div>
+          <div class="row-src">lennysnewsletter.com · Sep 30</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.producttalk.org/generating-opportunity-solution-trees-with-ai-how-vistaly-rebuilt-its-product-around-interview-synthesis-evals-and-repair-loops/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Generating Opportunity Solution Trees with AI: How Vistaly Rebuilt Its Product Around Interview Synthesis, Evals, and Repair Loops</a>
+          <div class="row-take">Vistaly rebuilt its whole product around AI-generated opportunity solution trees; the agents turned out to be the easy part.</div>
+          <div class="row-src">producttalk.org · Oct 1</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.mindtheproduct.com/lessons-from-managing-ai-transformation-in-a-40-billion-contract-portfolio/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Lessons from managing AI transformation in a $40 billion contract portfolio</a>
+          <div class="row-take">Data readiness, not model architecture, decided a $40 billion contract AI rollout. Covers governance, taxonomy, and why most pilots stall after launch.</div>
+          <div class="row-src">mindtheproduct.com · Sep 28</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://www.oneusefulthing.org/p/the-dot-and-the-swarm?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">The Dot and the Swarm</a>
+          <div class="row-take">Mollick concedes he was wrong that agent teams need careful, company-style design: as with prompt chains, better models are replacing elaborate scaffolding.</div>
+          <div class="row-src">oneusefulthing.org · Oct 1</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head">repos watchlist</div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
+          <div class="row-src"><span class="stars">26.9k</span> · built for PMs · spotlight · release this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/deanpeters/Product-Manager-Skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="row-src"><span class="stars">7.3k</span> · built for PMs</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/dend/awesome-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="row-src"><span class="stars">2.4k</span> · built for PMs</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="row-src"><span class="stars">392k</span> · agent platforms PMs are adopting · release this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="row-src"><span class="stars">253k</span> · agent platforms PMs are adopting · release this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">different-ai/openwork</a>
+          <div class="row-src"><span class="stars">24k</span> · agent platforms PMs are adopting · release this week</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="row-src"><span class="stars">181k</span> · agent platforms PMs are adopting</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/makeplane/plane?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">makeplane/plane</a>
+          <div class="row-src"><span class="stars">60.7k</span> · project &amp; product platforms</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/opf/openproject?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">opf/openproject</a>
+          <div class="row-src"><span class="stars">16.4k</span> · project &amp; product platforms</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="bullet">-</span>
+        <div class="row-body">
+          <a class="row-link" href="https://github.com/topics/product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">github.com/topics/product-management</a>
+          <div class="row-src">topic page</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="issue" id="issue-40">
     <div class="issue-head">

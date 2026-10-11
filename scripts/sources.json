@@ -1,0 +1,20 @@
+{
+  "_about": "Feeds the weekly job reads. kind: pm = written for working PMs; ai = AI in practice; general = tech/business context. At most 2 of the 8 Signal items may come from non-pm kinds. Vetted Oct 2026 against live feeds (latest 8 posts free vs paid-only are in the notes). Reforge and First Round Review were dropped: 0 of 80 picks in issues #32-#41.",
+  "windows": { "week_days": 7, "month_days": 30 },
+  "feeds": [
+    { "id": "lenny", "name": "Lenny's Newsletter", "domains": ["lennysnewsletter.com"], "feed": "https://www.lennysnewsletter.com/feed", "type": "rss", "kind": "pm", "note": "mixed free/paid; check the paywall flag" },
+    { "id": "mtp", "name": "Mind the Product", "domains": ["mindtheproduct.com"], "feed": "https://www.mindtheproduct.com/api/marketo-posts-feed/", "type": "mtp-json", "kind": "pm", "note": "feed has no dates; the date comes from the page" },
+    { "id": "producttalk", "name": "Product Talk", "domains": ["producttalk.org"], "feed": "https://www.producttalk.org/rss/", "type": "rss", "kind": "pm" },
+    { "id": "aakash", "name": "Aakash Gupta, Product Growth", "domains": ["news.aakashg.com"], "feed": "https://www.news.aakashg.com/feed", "type": "rss", "kind": "pm", "note": "5 of last 8 free (Oct 2026)" },
+    { "id": "productcompass", "name": "Product Compass (Pawel Huryn)", "domains": ["productcompass.pm"], "feed": "https://www.productcompass.pm/feed", "type": "rss", "kind": "pm", "note": "6 of last 8 free; same author as phuryn/pm-skills" },
+    { "id": "elena", "name": "Elena Verna", "domains": ["elenaverna.com"], "feed": "https://www.elenaverna.com/feed", "type": "rss", "kind": "pm", "note": "4 of last 8 free" },
+    { "id": "shreyas", "name": "Shreyas Doshi", "domains": ["shreyasdoshi.substack.com"], "feed": "https://shreyasdoshi.substack.com/feed", "type": "rss", "kind": "pm", "note": "about one post a fortnight" },
+    { "id": "peteryang", "name": "Peter Yang, Creator Economy", "domains": ["creatoreconomy.so"], "feed": "https://creatoreconomy.so/feed", "type": "rss", "kind": "pm", "note": "1 of last 8 free; only pick a piece that is free" },
+    { "id": "julie", "name": "Julie Zhuo, The Looking Glass", "domains": ["lg.substack.com"], "feed": "https://lg.substack.com/feed", "type": "rss", "kind": "pm", "note": "2 of last 8 free; only pick a piece that is free" },
+    { "id": "mollick", "name": "Ethan Mollick, One Useful Thing", "domains": ["oneusefulthing.org"], "feed": "https://www.oneusefulthing.org/feed", "type": "rss", "kind": "ai" },
+    { "id": "willison", "name": "Simon Willison", "domains": ["simonwillison.net"], "feed": "https://simonwillison.net/atom/everything/", "type": "rss", "kind": "ai", "max_items": 8, "note": "very high volume and developer-leaning; only pick what a PM can act on" },
+    { "id": "pragmatic", "name": "The Pragmatic Engineer", "domains": ["pragmaticengineer.com", "newsletter.pragmaticengineer.com"], "feed": "https://newsletter.pragmaticengineer.com/feed", "type": "rss", "kind": "general", "note": "63% of picks were paid-only; use only when the piece changes what a PM does" },
+    { "id": "stratechery", "name": "Stratechery", "domains": ["stratechery.com"], "feed": "https://stratechery.com/feed/", "type": "rss", "kind": "general" },
+    { "id": "fireball", "name": "Daring Fireball", "domains": ["daringfireball.net"], "feed": "https://daringfireball.net/feeds/main", "type": "rss", "kind": "general", "max_items": 30, "note": "link posts have no meta date; the dated permalink path confirms it" }
+  ]
+}

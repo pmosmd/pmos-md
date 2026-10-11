@@ -1,0 +1,43 @@
+{
+  "issue": 41,
+  "date": "2026-10-11",
+  "note": "The scheduled job failed on Oct 4 and Oct 11, so this issue was researched and published by hand and covers both weeks; there is no issue for week 40. It also changes the format. Signal items now carry their publish date, a one-line takeaway, and a paid or part-paid tag where the piece sits behind a paywall. Repos are grouped into three lanes, and ProductHired/open-product-management is retired (last push July 2024). The MCP table is rebuilt around the PM workflow and lists vendor-official servers only. Correction: its Productboard row linked to a 22-star list of servers, not a Productboard server; it now points to Productboard's own. Google Calendar is gone. Star counts re-verified against the GitHub API at publication.",
+  "hero": {
+    "url": "https://www.news.aakashg.com/p/pm-to-product-builder-roadmap",
+    "quote": "Ankit Shukla analyzed 12,500 PM job posts and found a new role hiding in them: the product builder. The episode covers what the role is, who is hiring, what it pays, and how to get there.",
+    "why": "A hiring-data view of where the PM role is heading, with a roadmap"
+  },
+  "spotlight": {
+    "repo": "phuryn/pm-skills",
+    "tags": ["pm-skills", "claude-code", "prd"],
+    "text": "A marketplace of 100+ agentic skills, commands, and plugins for product work, from discovery through strategy, execution, launch, and growth; MIT-licensed. v2.2.0 (Oct 10) makes the create-prd skill lean by default: a first PRD is one to two pages, the six-part JTBD value proposition (who, why, what before, how, what after, alternatives) is its spine, it asks at most three questions when the problem, users, or success metric is missing, puts unknowns under assumptions and open questions rather than inventing them, and ends by naming what it left out. The same release adds a code-review skill, a correctness review plus an independent second-model pass in /ship-check, and an OWASP coverage backstop in /security-audit-static."
+  },
+  "signal": {
+    "week": [
+      { "url": "https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live",
+        "takeaway": "A live DevDay demo of ChatGPT Sites turning Slack, Notion, and calendar data into internal tools that adapt to each person on a team." },
+      { "url": "https://www.productcompass.pm/p/jev-decision-model",
+        "takeaway": "Jev is a decision model, not a text generator: give it a text and a question and it returns a decision with a probability. Free section covers quick wins for PMs; setup is paid." },
+      { "url": "https://www.producttalk.org/recorded-conversations-all-things-product/",
+        "takeaway": "Teresa Torres found her AI meeting transcripts contradicting her memory of conversations. Check transcripts against yourself first, and let people change their minds." },
+      { "url": "https://www.mindtheproduct.com/evals-analytics-and-how-to-escape-the-feature-factory-francois-lopitaux-svp-product-management-thought-spot/",
+        "takeaway": "ThoughtSpot's SVP of Product on agentic products: build guardrails around a probabilistic LLM, test more hypotheses, and keep the goal fixed while the technology changes." }
+    ],
+    "month": [
+      { "url": "https://www.lennysnewsletter.com/p/openai-dev-day-2026-the-releases",
+        "takeaway": "A hands-on test of OpenAI's DevDay releases, including Dots, Spaces, and Sites, with a verdict on which to try first." },
+      { "url": "https://www.producttalk.org/generating-opportunity-solution-trees-with-ai-how-vistaly-rebuilt-its-product-around-interview-synthesis-evals-and-repair-loops/",
+        "takeaway": "Vistaly rebuilt its whole product around AI-generated opportunity solution trees; the agents turned out to be the easy part." },
+      { "url": "https://www.mindtheproduct.com/lessons-from-managing-ai-transformation-in-a-40-billion-contract-portfolio/",
+        "takeaway": "Data readiness, not model architecture, decided a $40 billion contract AI rollout. Covers governance, taxonomy, and why most pilots stall after launch." },
+      { "url": "https://www.oneusefulthing.org/p/the-dot-and-the-swarm",
+        "takeaway": "Mollick concedes he was wrong that agent teams need careful, company-style design: as with prompt chains, better models are replacing elaborate scaffolding." }
+    ]
+  },
+  "repo_news": {
+    "openclaw/openclaw": { "release": "v2026.10.1", "text": "lets the agent search installed skills instead of loading the whole library into the prompt, adds opt-in MCP Apps beside chat, and allows full backups on external storage or Cloudflare R2." },
+    "NousResearch/hermes-agent": { "release": "v0.21.6", "text": "is the first release cut by its new stable pipeline, with a tested Docker image. It rolls up about 2,100 merged PRs since v0.21.5 and hardens dashboard sign-in; full release notes ship with v0.22.0." },
+    "different-ai/openwork": { "release": "v0.18.57", "text": "moves your Claude Cowork and Claude Code plugins and skills over with one prompt, lets each teammate hold their own connector key, and adds a Google Cloud Run starting point for self-hosting." },
+    "phuryn/pm-skills": { "release": "v2.2.0", "text": "makes the PRD skill lean by default and adds a code-review skill." }
+  }
+}
