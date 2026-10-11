@@ -1,0 +1,143 @@
+{
+  "_about": "The repo watchlist. One entry per tracked repo; descriptions are timeless (no versions, no 'this week'); release news is written per issue. Rules are in CLAUDE.md > Repos. Retire a repo when it has had no push for 90 days unless it is flagged canonical.",
+  "lanes": {
+    "pm": "built for PMs",
+    "agents": "agent platforms PMs are adopting",
+    "platforms": "project & product platforms"
+  },
+  "repos": [
+    {
+      "repo": "phuryn/pm-skills",
+      "lane": "pm",
+      "tags": [
+        "skills",
+        "agentic"
+      ],
+      "desc": "PM Skills Marketplace: 100+ agentic skills, commands, and plugins spanning discovery, strategy, execution, launch, and growth."
+    },
+    {
+      "repo": "deanpeters/Product-Manager-Skills",
+      "lane": "pm",
+      "tags": [
+        "skills",
+        "claude-code"
+      ],
+      "desc": "Battle-tested PM skills and command workflows for Claude Code, Cursor, Codex, and other agents. It teaches the reasoning behind each framework, not just the template, so the human PM learns it too."
+    },
+    {
+      "repo": "dend/awesome-product-management",
+      "lane": "pm",
+      "tags": [
+        "resources",
+        "curated"
+      ],
+      "canonical": true,
+      "desc": "The canonical curated list of PM resources: books, essays, tools, and communities. Community-maintained."
+    },
+    {
+      "repo": "openclaw/openclaw",
+      "lane": "agents",
+      "tags": [
+        "local-first",
+        "mit"
+      ],
+      "desc": "A personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use."
+    },
+    {
+      "repo": "NousResearch/hermes-agent",
+      "lane": "agents",
+      "tags": [
+        "self-evolving",
+        "mcp"
+      ],
+      "desc": "Self-evolving AI that learns from tasks, writes its own skills, and retains memory across sessions."
+    },
+    {
+      "repo": "anthropics/skills",
+      "lane": "agents",
+      "tags": [
+        "skills",
+        "agents",
+        "reference"
+      ],
+      "canonical": true,
+      "desc": "The public repository for Agent Skills, the format the PM skill packs are written against. Start here before writing your own."
+    },
+    {
+      "repo": "different-ai/openwork",
+      "lane": "agents",
+      "tags": [
+        "cowork-alt",
+        "mcp"
+      ],
+      "desc": "Open-source alternative to Claude Cowork. One OpenWork MCP shares skills, MCPs, and connected services across Claude Code, Codex, Cursor, teammates, and machines."
+    },
+    {
+      "repo": "makeplane/plane",
+      "lane": "platforms",
+      "tags": [
+        "project-mgmt",
+        "open-source"
+      ],
+      "desc": "Open-source Jira, Linear, Monday, and ClickUp alternative: a full project management platform for tasks, sprints, docs, and triage."
+    },
+    {
+      "repo": "opf/openproject",
+      "lane": "platforms",
+      "tags": [
+        "project-mgmt",
+        "open-source"
+      ],
+      "desc": "Open-source project, portfolio, and product management platform: agile planning, roadmaps, Gantt charts, and time tracking."
+    }
+  ],
+  "topic_link": {
+    "url": "https://github.com/topics/product-management",
+    "title": "github.com/topics/product-management",
+    "desc": "The full GitHub topic page, the best place to discover new PM repos as they emerge."
+  },
+  "retired": [
+    {
+      "repo": "ProductHired/open-product-management",
+      "date": "2026-10-11",
+      "reason": "last push July 2024; fails the 90-day freshness rule"
+    }
+  ],
+  "rejected": [
+    {
+      "repo": "mohitagw15856/pm-claude-skills",
+      "date": "2026-10-11",
+      "reason": "'PM' means Professional: general skills (tax, weekly reports, deposit disputes), not product management"
+    },
+    {
+      "repo": "KhazP/vibe-coding-prompt-template",
+      "date": "2026-10-11",
+      "reason": "aimed at solo vibe-coders generating PRDs for their own builds; not a PM tool"
+    },
+    {
+      "repo": "SimplifyJobs/Summer2027-Internships",
+      "date": "2026-10-11",
+      "reason": "internship job list"
+    },
+    {
+      "repo": "unopim/unopim",
+      "date": "2026-10-11",
+      "reason": "Product Information Management, not product management"
+    },
+    {
+      "repo": "pimcore/pimcore",
+      "date": "2026-10-11",
+      "reason": "Product Information Management, not product management"
+    },
+    {
+      "repo": "kdeldycke/awesome-engineering-team-management",
+      "date": "2026-10-11",
+      "reason": "engineering management, not product management"
+    },
+    {
+      "repo": "orico/www.mlcompendium.com",
+      "date": "2026-10-11",
+      "reason": "ML reference, not PM"
+    }
+  ]
+}

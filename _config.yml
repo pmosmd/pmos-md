@@ -1,0 +1,9 @@
+# GitHub Pages builds this repo with Jekyll. The site is plain static HTML, so the only job of this
+# file is to keep the project's working files off the public domain.
+exclude:
+  - CLAUDE.md
+  - README.md
+  - decisions
+  - data
+  - scripts
+  - tests

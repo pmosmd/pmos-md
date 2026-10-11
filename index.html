@@ -401,6 +401,14 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
 .r-meta .stars::before { content: '★ '; color: var(--accent); }
 .r-meta .delta { color: var(--accent); font-size: 10px; }
 
+/* repo lanes */
+.lane-head { font-family: var(--mono); font-size: 10.5px; font-weight: 500; color: var(--ink3); letter-spacing: 0.06em; text-transform: lowercase; display: flex; align-items: baseline; gap: 6px; padding: 1.4rem 0 0.5rem; border-bottom: 1px solid var(--rule); }
+.lane-head:first-child { padding-top: 0.25rem; }
+.lane-head::before { content: '###'; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.lane-head .count { margin-left: auto; font-weight: 400; }
+.repos-foot { margin-top: 0.75rem; padding: 0.9rem 0 0 2.5rem; border-top: 1px dashed var(--rule); }
+.repos-foot .r-desc { margin: 2px 0 0; }
+
 /* ── SIGNAL ── */
 .signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 
@@ -432,6 +440,10 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
 .art-link { font-size: 12.5px; color: var(--link); text-decoration: none; line-height: 1.45; display: block; letter-spacing: -0.005em; }
 .art-link:hover { color: var(--accent); text-decoration: underline; }
 .art-src { font-size: 10.5px; color: var(--ink3); margin-top: 3px; }
+.art-take { font-size: 12px; color: var(--ink2); line-height: 1.5; margin-top: 2px; }
+.art-date { font-size: 10.5px; color: var(--ink3); margin-left: 8px; }
+.tag-paid { color: var(--ink3); background: transparent; border: 1px dashed var(--rule2); margin-left: 8px; }
+.tag-hot { color: var(--accent); font-weight: 500; }
 
 /* ── TABLES ── */
 .picks-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 0.25rem; }
@@ -492,7 +504,7 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
     <span class="brand-name"><span class="nm">pmos</span><span class="dot">.</span><span class="ext">md</span></span>
   </a>
   <div class="topbar-right">
-    <span class="topbar-meta"><span class="dot-live"></span><span class="updated-prefix">wk 41 · </span><span data-updated="Oct 11, 2026">Oct 11, 2026</span></span>
+    <span class="topbar-meta"><span class="dot-live"></span><!-- pmos:begin topbar-meta --><span class="updated-prefix">issue #41 · </span><span data-updated="Oct 11, 2026">Oct 11, 2026</span><!-- pmos:end topbar-meta --></span>
     <nav class="topbar-nav">
       <a href="#signal">signal</a>
       <a href="#repos">repos</a>
@@ -521,28 +533,31 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
     </div>
 
     <aside class="hero-right">
+      <!-- pmos:begin hero-pick -->
       <div class="hero-pick">
         <div class="hero-pick-kicker">editor's pick <span class="bar"></span> #41</div>
         <h2 class="hero-pick-title">
-          <a href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
+          <a href="https://www.news.aakashg.com/p/pm-to-product-builder-roadmap?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">The Roadmap to Becoming a Product Builder, with Ankit Shukla</a>
         </h2>
-        <div class="hero-pick-byline">github.com · ★ 26.9k</div>
-        <p class="hero-pick-quote">v2.2.0 makes the PRD skill lean by default — a first PRD is one to two pages, built on a six-part JTBD value proposition, and it ends by naming what it left out.</p>
+        <div class="hero-pick-byline">news.aakashg.com · Oct 8</div>
+        <p class="hero-pick-quote">Ankit Shukla analyzed 12,500 PM job posts and found a new role hiding in them: the product builder. The episode covers what the role is, who is hiring, what it pays, and how to get there.</p>
         <div class="hero-pick-meta">
-          <span class="why">Oct 10 release (v2.2.0): lean-by-default create-prd, new code-review skill, second-model review pass in /ship-check</span>
-          <a class="read" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">view →</a>
+          <span class="why">A hiring-data view of where the PM role is heading, with a roadmap</span>
+          <a class="read" href="https://www.news.aakashg.com/p/pm-to-product-builder-roadmap?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">read →</a>
         </div>
       </div>
+      <!-- pmos:end hero-pick -->
     </aside>
 
     <div class="hero-meta-wrap">
+      <!-- pmos:begin hero-meta -->
       <div class="hero-meta">
         <span class="item lead">
-          <span class="lead-n">48</span>
-          <span class="lead-lbl">resources<br>indexed</span>
+          <span class="lead-n">35</span>
+          <span class="lead-lbl">links<br>checked</span>
         </span>
         <span class="sep">·</span>
-        <span class="item col"><span class="k">updated</span><strong>weekly</strong><span class="k">sundays, 8am PT</span></span>
+        <span class="item col"><span class="k">updated</span><strong>weekly</strong><span class="k">every sunday</span></span>
         <span class="sep">·</span>
         <span class="item col"><span class="k">issue</span><strong>#41</strong><span class="k">oct 11, 2026</span></span>
         <span class="sep">·</span>
@@ -550,26 +565,30 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <span class="sep">·</span>
         <span class="item"><a class="rss-link" href="/feed.xml">rss feed →</a></span>
       </div>
+      <!-- pmos:end hero-meta -->
     </div>
   </section>
 
   <!-- SPOTLIGHT -->
+  <!-- pmos:begin spotlight -->
   <div class="spotlight">
     <div>
       <a class="spotlight-link" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
       <p class="spotlight-desc">A marketplace of 100+ agentic skills, commands, and plugins for product work, from discovery through strategy, execution, launch, and growth; MIT-licensed. v2.2.0 (Oct 10) makes the create-prd skill lean by default: a first PRD is one to two pages, the six-part JTBD value proposition (who, why, what before, how, what after, alternatives) is its spine, it asks at most three questions when the problem, users, or success metric is missing, puts unknowns under assumptions and open questions rather than inventing them, and ends by naming what it left out. The same release adds a code-review skill, a correctness review plus an independent second-model pass in /ship-check, and an OWASP coverage backstop in /security-audit-static.</p>
-      <div><span class="tag">pm-skills</span><span class="tag">claude-code</span><span class="tag">prd</span><span class="tag" style="color:var(--accent);font-weight:500">★ this week</span><span class="tag tag-src">github.com</span></div>
+      <div><span class="tag">pm-skills</span><span class="tag">claude-code</span><span class="tag">prd</span><span class="tag tag-hot">★ this week</span><span class="tag">built for PMs</span><span class="tag tag-src">github.com</span></div>
     </div>
     <div class="spotlight-meta">
       <span class="stars">26.9k</span>
     </div>
   </div>
+  <!-- pmos:end spotlight -->
 
   <!-- SIGNAL -->
   <section class="section fade" id="signal">
+    <!-- pmos:begin signal -->
     <div class="section-head">
       <h2 class="h2">Signal <span class="h2-count">8 · filtered</span></h2>
-      <span class="section-sub">best reads this week + this month</span>
+      <span class="section-sub">best reads this week, plus a few from the past month</span>
     </div>
     <p class="section-desc">No hot takes. No think-pieces without a concrete takeaway.</p>
 
@@ -579,124 +598,136 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <div class="art-row">
           <span class="art-bullet">01</span>
           <div>
-            <a class="art-link" href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-of-building-internal?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">The Pulse: new trend of building “internal vibe-coding apps” at tech companies</a>
-            <div class="art-src"><span class="tag tag-src">pragmaticengineer.com</span></div>
+            <a class="art-link" href="https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">How OpenAI uses ChatGPT Sites (live at DevDay!) | Kath Korevec (Product Lead)</a>
+            <div class="art-take">A live DevDay demo of ChatGPT Sites turning Slack, Notion, and calendar data into internal tools that adapt to each person on a team.</div>
+            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span><span class="art-date">Oct 5</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">02</span>
           <div>
-            <a class="art-link" href="https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">How OpenAI uses ChatGPT Sites (live at DevDay!) | Kath Korevec (Product Lead)</a>
-            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+            <a class="art-link" href="https://www.productcompass.pm/p/jev-decision-model?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">A New Kind of AI Model: Jev and Quick Wins for PMs</a>
+            <div class="art-take">Jev is a decision model, not a text generator: give it a text and a question and it returns a decision with a probability. Free section covers quick wins for PMs; setup is paid.</div>
+            <div class="art-src"><span class="tag tag-src">productcompass.pm</span><span class="art-date">Oct 5</span><span class="tag tag-paid">part paid</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">03</span>
           <div>
-            <a class="art-link" href="https://daringfireball.net/linked/2026/10/05/openai-announces-their-text-watermarking-plans?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">OpenAI Announces Their Text Watermarking Plans</a>
-            <div class="art-src"><span class="tag tag-src">daringfireball.net</span></div>
+            <a class="art-link" href="https://www.producttalk.org/recorded-conversations-all-things-product/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Recorded Conversations - All Things Product Podcast with Teresa Torres &amp; Petra Wille</a>
+            <div class="art-take">Teresa Torres found her AI meeting transcripts contradicting her memory of conversations. Check transcripts against yourself first, and let people change their minds.</div>
+            <div class="art-src"><span class="tag tag-src">producttalk.org</span><span class="art-date">Oct 6</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">04</span>
           <div>
-            <a class="art-link" href="https://www.producttalk.org/recorded-conversations-all-things-product/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Recorded Conversations - All Things Product Podcast with Teresa Torres &amp; Petra Wille</a>
-            <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
+            <a class="art-link" href="https://www.mindtheproduct.com/evals-analytics-and-how-to-escape-the-feature-factory-francois-lopitaux-svp-product-management-thought-spot/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Evals, Analytics, and How to escape the feature factory: Francois Lopitaux (SVP Product Management, ThoughtSpot)</a>
+            <div class="art-take">ThoughtSpot's SVP of Product on agentic products: build guardrails around a probabilistic LLM, test more hypotheses, and keep the goal fixed while the technology changes.</div>
+            <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span><span class="art-date">Oct 6</span></div>
           </div>
         </div>
       </div>
 
       <div>
-        <div class="signal-col-head">this month <span class="count">4</span></div>
+        <div class="signal-col-head">also worth your time <span class="count">4</span></div>
         <div class="art-row">
           <span class="art-bullet">01</span>
           <div>
             <a class="art-link" href="https://www.lennysnewsletter.com/p/openai-dev-day-2026-the-releases?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">OpenAI Dev Day 2026: The releases that actually matter</a>
-            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span></div>
+            <div class="art-take">A hands-on test of OpenAI's DevDay releases, including Dots, Spaces, and Sites, with a verdict on which to try first.</div>
+            <div class="art-src"><span class="tag tag-src">lennysnewsletter.com</span><span class="art-date">Sep 30</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">02</span>
           <div>
             <a class="art-link" href="https://www.producttalk.org/generating-opportunity-solution-trees-with-ai-how-vistaly-rebuilt-its-product-around-interview-synthesis-evals-and-repair-loops/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Generating Opportunity Solution Trees with AI: How Vistaly Rebuilt Its Product Around Interview Synthesis, Evals, and Repair Loops</a>
-            <div class="art-src"><span class="tag tag-src">producttalk.org</span></div>
+            <div class="art-take">Vistaly rebuilt its whole product around AI-generated opportunity solution trees; the agents turned out to be the easy part.</div>
+            <div class="art-src"><span class="tag tag-src">producttalk.org</span><span class="art-date">Oct 1</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">03</span>
           <div>
-            <a class="art-link" href="https://newsletter.pragmaticengineer.com/p/shopify-native-mobile?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Why has Shopify dropped React Native?</a>
-            <div class="art-src"><span class="tag tag-src">pragmaticengineer.com</span></div>
+            <a class="art-link" href="https://www.mindtheproduct.com/lessons-from-managing-ai-transformation-in-a-40-billion-contract-portfolio/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Lessons from managing AI transformation in a $40 billion contract portfolio</a>
+            <div class="art-take">Data readiness, not model architecture, decided a $40 billion contract AI rollout. Covers governance, taxonomy, and why most pilots stall after launch.</div>
+            <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span><span class="art-date">Sep 28</span></div>
           </div>
         </div>
         <div class="art-row">
           <span class="art-bullet">04</span>
           <div>
-            <a class="art-link" href="https://www.mindtheproduct.com/lessons-from-managing-ai-transformation-in-a-40-billion-contract-portfolio/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Lessons from managing AI transformation in a $40 billion contract portfolio</a>
-            <div class="art-src"><span class="tag tag-src">mindtheproduct.com</span></div>
+            <a class="art-link" href="https://www.oneusefulthing.org/p/the-dot-and-the-swarm?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">The Dot and the Swarm</a>
+            <div class="art-take">Mollick concedes he was wrong that agent teams need careful, company-style design: as with prompt chains, better models are replacing elaborate scaffolding.</div>
+            <div class="art-src"><span class="tag tag-src">oneusefulthing.org</span><span class="art-date">Oct 1</span></div>
           </div>
         </div>
       </div>
     </div>
+    <!-- pmos:end signal -->
   </section>
 
   <!-- REPOS -->
   <section class="section fade" id="repos">
+    <!-- pmos:begin repos -->
     <div class="section-head">
-      <h2 class="h2">GitHub repos <span class="h2-count">11 · sorted by stars</span></h2>
-      <span class="section-sub">repos worth using, not just bookmarking</span>
+      <h2 class="h2">GitHub repos <span class="h2-count">9 · watchlist</span></h2>
+      <span class="section-sub">what changed this week comes first</span>
     </div>
     <p class="section-desc">Bias toward repos PMs can use directly, not just reference.</p>
 
     <div>
+      <h3 class="lane-head">built for PMs <span class="count">3</span></h3>
       <div class="repo-row">
         <span class="r-bullet">01</span>
         <div>
-          <a class="r-link" href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">openclaw/openclaw</a>
-          <div class="r-desc">A personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. This week's v2026.10.1 (Oct 10) lets the agent search installed skills instead of loading the whole library into the prompt, adds opt-in MCP Apps beside chat, and allows full backups on external storage or Cloudflare R2.</div>
-          <div><span class="tag">local-first</span><span class="tag">mit</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
+          <div class="r-desc">PM Skills Marketplace: 100+ agentic skills, commands, and plugins spanning discovery, strategy, execution, launch, and growth. This week's v2.2.0 (Oct 10) makes the PRD skill lean by default and adds a code-review skill.</div>
+          <div><span class="tag">skills</span><span class="tag">agentic</span><span class="tag tag-hot">★ spotlight</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">392k</span></div>
+        <div class="r-meta"><span class="stars">26.9k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">02</span>
         <div>
-          <a class="r-link" href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
-          <div class="r-desc">Self-evolving AI — learns from tasks, writes its own skills, retains memory across sessions. This week's v0.21.6 (Oct 8) is the first release cut by its new stable pipeline, with a tested Docker image. It rolls up about 2,100 merged PRs since v0.21.5 and hardens dashboard sign-in; full release notes ship with v0.22.0.</div>
-          <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
+          <div class="r-desc">Battle-tested PM skills and command workflows for Claude Code, Cursor, Codex, and other agents. It teaches the reasoning behind each framework, not just the template, so the human PM learns it too.</div>
+          <div><span class="tag">skills</span><span class="tag">claude-code</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">253k</span></div>
+        <div class="r-meta"><span class="stars">7.3k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">03</span>
         <div>
-          <a class="r-link" href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">anthropics/skills</a>
-          <div class="r-desc">The public repository for Agent Skills — the format the PM skill packs below are written against. Start here before writing your own.</div>
-          <div><span class="tag">skills</span><span class="tag">agents</span><span class="tag">reference</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/dend/awesome-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">dend/awesome-product-management</a>
+          <div class="r-desc">The canonical curated list of PM resources: books, essays, tools, and communities. Community-maintained.</div>
+          <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">180k</span></div>
+        <div class="r-meta"><span class="stars">2.4k</span></div>
       </div>
 
+      <h3 class="lane-head">agent platforms PMs are adopting <span class="count">4</span></h3>
       <div class="repo-row">
         <span class="r-bullet">04</span>
         <div>
-          <a class="r-link" href="https://github.com/makeplane/plane?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">makeplane/plane</a>
-          <div class="r-desc">Open-source Jira, Linear, Monday, and ClickUp alternative — a full project management platform for tasks, sprints, docs, and triage. v1.4.3-rc1 (Oct 6) is in release-candidate testing; the latest stable is v1.4.2 (Aug 23).</div>
-          <div><span class="tag">project-mgmt</span><span class="tag">open-source</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/openclaw/openclaw?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">openclaw/openclaw</a>
+          <div class="r-desc">A personal AI assistant that runs on your own machine and reaches you through the messaging apps you already use. This week's v2026.10.1 (Oct 10) lets the agent search installed skills instead of loading the whole library into the prompt, adds opt-in MCP Apps beside chat, and allows full backups on external storage or Cloudflare R2.</div>
+          <div><span class="tag">local-first</span><span class="tag">mit</span><span class="tag tag-hot">new this week</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">60.7k</span></div>
+        <div class="r-meta"><span class="stars">392k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">05</span>
         <div>
-          <a class="r-link" href="https://github.com/phuryn/pm-skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">phuryn/pm-skills</a>
-          <div class="r-desc">PM Skills Marketplace: 100+ agentic skills, commands, and plugins spanning discovery, strategy, execution, launch, and growth. This week's v2.2.0 (Oct 10) makes the PRD skill lean by default and adds a code-review skill.</div>
-          <div><span class="tag">skills</span><span class="tag">agentic</span><span class="tag" style="color:var(--accent);font-weight:500">★ this week</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/NousResearch/hermes-agent?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <div class="r-desc">Self-evolving AI that learns from tasks, writes its own skills, and retains memory across sessions. This week's v0.21.6 (Oct 8) is the first release cut by its new stable pipeline, with a tested Docker image. It rolls up about 2,100 merged PRs since v0.21.5 and hardens dashboard sign-in; full release notes ship with v0.22.0.</div>
+          <div><span class="tag">self-evolving</span><span class="tag">mcp</span><span class="tag tag-hot">new this week</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">26.9k</span></div>
+        <div class="r-meta"><span class="stars">253k</span></div>
       </div>
 
       <div class="repo-row">
@@ -704,7 +735,7 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         <div>
           <a class="r-link" href="https://github.com/different-ai/openwork?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">different-ai/openwork</a>
           <div class="r-desc">Open-source alternative to Claude Cowork. One OpenWork MCP shares skills, MCPs, and connected services across Claude Code, Codex, Cursor, teammates, and machines. This week's v0.18.57 (Oct 7) moves your Claude Cowork and Claude Code plugins and skills over with one prompt, lets each teammate hold their own connector key, and adds a Google Cloud Run starting point for self-hosting.</div>
-          <div><span class="tag">cowork-alt</span><span class="tag">mcp</span><span class="tag tag-src">github.com</span></div>
+          <div><span class="tag">cowork-alt</span><span class="tag">mcp</span><span class="tag tag-hot">new this week</span><span class="tag tag-src">github.com</span></div>
         </div>
         <div class="r-meta"><span class="stars">24k</span></div>
       </div>
@@ -712,62 +743,47 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
       <div class="repo-row">
         <span class="r-bullet">07</span>
         <div>
-          <a class="r-link" href="https://github.com/opf/openproject?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">opf/openproject</a>
-          <div class="r-desc">Open-source project, portfolio, and product management platform — agile planning, roadmaps, Gantt charts, and time tracking. v17.9.0 (Sep 30) creates work packages straight from documents, brings date alerts to the Community edition, and extends the MCP server with time tracking and better work-package search.</div>
-          <div><span class="tag">project-mgmt</span><span class="tag">open-source</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/anthropics/skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">anthropics/skills</a>
+          <div class="r-desc">The public repository for Agent Skills, the format the PM skill packs are written against. Start here before writing your own.</div>
+          <div><span class="tag">skills</span><span class="tag">agents</span><span class="tag">reference</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">16.4k</span></div>
+        <div class="r-meta"><span class="stars">181k</span></div>
       </div>
 
+      <h3 class="lane-head">project &amp; product platforms <span class="count">2</span></h3>
       <div class="repo-row">
         <span class="r-bullet">08</span>
         <div>
-          <a class="r-link" href="https://github.com/deanpeters/Product-Manager-Skills?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">deanpeters/Product-Manager-Skills</a>
-          <div class="r-desc">77 battle-tested PM skills and 6 command workflows for Claude Code, Cursor, Codex, and other agents — teaches the reasoning behind each framework, not just the template, so the human PM learns it too.</div>
-          <div><span class="tag">skills</span><span class="tag">claude-code</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/makeplane/plane?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">makeplane/plane</a>
+          <div class="r-desc">Open-source Jira, Linear, Monday, and ClickUp alternative: a full project management platform for tasks, sprints, docs, and triage.</div>
+          <div><span class="tag">project-mgmt</span><span class="tag">open-source</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">7.3k</span></div>
+        <div class="r-meta"><span class="stars">60.7k</span></div>
       </div>
 
       <div class="repo-row">
         <span class="r-bullet">09</span>
         <div>
-          <a class="r-link" href="https://github.com/ProductHired/open-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">ProductHired/open-product-management</a>
-          <div class="r-desc">Curated PM advice for technical people — interviews, frameworks, research, and growth tactics from practitioners.</div>
-          <div><span class="tag">resources</span><span class="tag">technical-pm</span><span class="tag tag-src">github.com</span></div>
+          <a class="r-link" href="https://github.com/opf/openproject?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">opf/openproject</a>
+          <div class="r-desc">Open-source project, portfolio, and product management platform: agile planning, roadmaps, Gantt charts, and time tracking.</div>
+          <div><span class="tag">project-mgmt</span><span class="tag">open-source</span><span class="tag tag-src">github.com</span></div>
         </div>
-        <div class="r-meta"><span class="stars">4.5k</span></div>
+        <div class="r-meta"><span class="stars">16.4k</span></div>
       </div>
 
-      <div class="repo-row">
-        <span class="r-bullet">10</span>
-        <div>
-          <a class="r-link" href="https://github.com/dend/awesome-product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">dend/awesome-product-management</a>
-          <div class="r-desc">The canonical curated list of PM resources — books, essays, tools, and communities. Community-maintained.</div>
-          <div><span class="tag">resources</span><span class="tag">curated</span><span class="tag tag-src">github.com</span></div>
-        </div>
-        <div class="r-meta"><span class="stars">2.4k</span></div>
-      </div>
-
-      <div class="repo-row">
-        <span class="r-bullet">11</span>
-        <div>
-          <a class="r-link" href="https://github.com/topics/product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">github.com/topics/product-management</a>
-          <div class="r-desc">The full GitHub topic page — the best place to discover new PM repos as they emerge each week.</div>
-          <div><span class="tag">discovery</span><span class="tag">trending</span><span class="tag tag-src">github.com</span></div>
-        </div>
-        <div class="r-meta"><span style="color:var(--ink3)">topic</span></div>
-      </div>
+      <div class="repos-foot"><a class="r-link" href="https://github.com/topics/product-management?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">github.com/topics/product-management</a><div class="r-desc">The full GitHub topic page, the best place to discover new PM repos as they emerge.</div></div>
     </div>
+    <!-- pmos:end repos -->
   </section>
 
   <!-- MCP -->
   <section class="section fade" id="mcp">
+    <!-- pmos:begin mcp -->
     <div class="section-head">
-      <h2 class="h2">MCP for PMs <span class="h2-count">7 · servers</span></h2>
-      <span class="section-sub">the servers that fit a PM workflow</span>
+      <h2 class="h2">MCP for PMs <span class="h2-count">10 · servers</span></h2>
+      <span class="section-sub">official servers by workflow stage · reviewed Oct 2026</span>
     </div>
-    <p class="section-desc">MCP lets your AI agent reach into the tools you already use. These are the servers that are actually useful to PMs — not all 300+.</p>
+    <p class="section-desc">MCP lets your AI agent reach into the tools you already use. Only vendor-official servers are listed, in the order a PM meets them, not all 300+.</p>
 
     <div style="overflow-x:auto">
       <table class="picks-tbl" style="min-width:540px">
@@ -781,50 +797,70 @@ code { font-family: var(--mono); font-size: 10.5px; background: var(--code-bg); 
         </thead>
         <tbody>
           <tr>
-            <td><strong>Jira + Confluence</strong></td>
-            <td><a href="https://github.com/sooperset/mcp-atlassian?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">mcp-atlassian</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>stable</code></td>
-            <td>Query tickets, create issues, search Confluence pages, manage sprints</td>
+            <td><strong>Dovetail</strong> <span class="tag">discover</span></td>
+            <td><a href="https://github.com/dovetail/dovetail-mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">dovetail-mcp</a> <span class="tag tag-src">github.com</span></td>
+            <td><code>official</code></td>
+            <td>Connect your agent to the Dovetail API so research can feed discovery docs and specs. Runs locally with your API token.</td>
           </tr>
           <tr>
-            <td><strong>Linear</strong></td>
+            <td><strong>Notion</strong> <span class="tag">define</span></td>
+            <td><a href="https://developers.notion.com/guides/mcp/overview?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Notion MCP</a> <span class="tag tag-src">developers.notion.com</span></td>
+            <td><code>official</code></td>
+            <td>Read and write docs, databases, and wikis. Summarize meeting notes, update specs.</td>
+          </tr>
+          <tr>
+            <td><strong>Jira + Confluence</strong> <span class="tag">plan</span></td>
+            <td><a href="https://www.atlassian.com/platform/rovo-mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Atlassian Rovo MCP server</a> <span class="tag tag-src">atlassian.com</span></td>
+            <td><code>official</code></td>
+            <td>Search and summarize Jira and Confluence, create and update issues and pages. Cloud only.</td>
+          </tr>
+          <tr>
+            <td><strong>Linear</strong> <span class="tag">plan</span></td>
             <td><a href="https://linear.app/docs/mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Linear remote MCP</a> <span class="tag tag-src">linear.app</span></td>
             <td><code>official</code></td>
-            <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts</td>
+            <td>Manage issues, projects, and cycles. Pull sprint context into PRD drafts.</td>
           </tr>
           <tr>
-            <td><strong>Notion</strong></td>
-            <td><a href="https://github.com/makenotion/notion-mcp-server?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">notion-mcp-server</a> <span class="tag tag-src">github.com</span></td>
+            <td><strong>Productboard</strong> <span class="tag">roadmap</span></td>
+            <td><a href="https://www.productboard.com/integrations/mcp-server/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Productboard MCP Server</a> <span class="tag tag-src">productboard.com</span></td>
             <td><code>official</code></td>
-            <td>Read and write docs, databases, wikis. Summarize meeting notes, update specs</td>
+            <td>Pull current specs into a coding agent, post questions back, and update status.</td>
           </tr>
           <tr>
-            <td><strong>GitHub</strong></td>
+            <td><strong>Figma</strong> <span class="tag">design</span></td>
+            <td><a href="https://help.figma.com/hc/en-us/articles/32132100833559?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Figma MCP server</a> <span class="tag tag-src">help.figma.com</span></td>
+            <td><code>official</code></td>
+            <td>Give agents the real components, variables, and layout from your Figma files. The remote server is on all seats and plans.</td>
+          </tr>
+          <tr>
+            <td><strong>GitHub</strong> <span class="tag">build</span></td>
             <td><a href="https://github.com/github/github-mcp-server?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">github-mcp-server</a> <span class="tag tag-src">github.com</span></td>
             <td><code>official</code></td>
-            <td>Review PRs, search issues, understand codebase context without asking engineering</td>
+            <td>Review PRs, search issues, understand codebase context without asking engineering.</td>
           </tr>
           <tr>
-            <td><strong>Slack</strong></td>
-            <td><a href="https://github.com/korotovsky/slack-mcp-server?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">slack-mcp-server</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>community</code></td>
-            <td>Summarize channels, search past decisions, catch up on a project thread</td>
+            <td><strong>PostHog</strong> <span class="tag">measure</span></td>
+            <td><a href="https://posthog.com/docs/model-context-protocol?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">PostHog MCP</a> <span class="tag tag-src">posthog.com</span></td>
+            <td><code>official</code></td>
+            <td>Ask product-analytics questions in plain text and let the agent query PostHog. The hosted endpoint is free to connect.</td>
           </tr>
           <tr>
-            <td><strong>Productboard</strong></td>
-            <td><a href="https://github.com/habitoai/awesome-mcp-servers?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">productboard-mcp</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>beta</code></td>
-            <td>Pull feature requests and roadmap items into agentic workflows</td>
+            <td><strong>Amplitude</strong> <span class="tag">measure</span></td>
+            <td><a href="https://amplitude.com/docs/amplitude-ai/amplitude-mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Amplitude MCP Server</a> <span class="tag tag-src">amplitude.com</span></td>
+            <td><code>official</code></td>
+            <td>Query and create charts, dashboards, experiments, and cohorts in plain language. For existing Amplitude customers.</td>
           </tr>
           <tr>
-            <td><strong>Google Calendar</strong></td>
-            <td><a href="https://github.com/nspady/google-calendar-mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">google-calendar-mcp</a> <span class="tag tag-src">github.com</span></td>
-            <td><code>stable</code></td>
-            <td>Schedule, prep for meetings, generate agenda docs from calendar context</td>
+            <td><strong>Slack</strong> <span class="tag">communicate</span></td>
+            <td><a href="https://docs.slack.dev/ai/slack-mcp-server/?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener">Slack MCP server</a> <span class="tag tag-src">docs.slack.dev</span></td>
+            <td><code>official</code></td>
+            <td>Search channels and read threads for past decisions, and catch up on a project. Workspace admins approve each client.</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <!-- pmos:end mcp -->
+
     <p class="section-desc" style="margin-top:1rem">New to MCP? → <a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp?utm_source=pmos.md&amp;utm_medium=referral&amp;utm_campaign=issue-41" target="_blank" rel="noopener" style="color:var(--link)">Anthropic's MCP docs</a> — setup guides, server examples, integration patterns.</p>
   </section>
 

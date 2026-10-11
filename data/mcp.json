@@ -1,0 +1,95 @@
+{
+  "_about": "MCP for PMs. Vendor-official servers only, in the order a PM meets them (discover, define, plan, roadmap, design, build, measure, communicate). Community servers appear only when the vendor has no official one. Reviewed quarterly (data/state.json > last_quarterly_review); every link must answer 200.",
+  "stages": [
+    "discover",
+    "define",
+    "plan",
+    "roadmap",
+    "design",
+    "build",
+    "measure",
+    "communicate"
+  ],
+  "rows": [
+    {
+      "tool": "Dovetail",
+      "stage": "discover",
+      "url": "https://github.com/dovetail/dovetail-mcp",
+      "text": "dovetail-mcp",
+      "status": "official",
+      "use": "Connect your agent to the Dovetail API so research can feed discovery docs and specs. Runs locally with your API token."
+    },
+    {
+      "tool": "Notion",
+      "stage": "define",
+      "url": "https://developers.notion.com/guides/mcp/overview",
+      "text": "Notion MCP",
+      "status": "official",
+      "use": "Read and write docs, databases, and wikis. Summarize meeting notes, update specs."
+    },
+    {
+      "tool": "Jira + Confluence",
+      "stage": "plan",
+      "url": "https://www.atlassian.com/platform/rovo-mcp",
+      "text": "Atlassian Rovo MCP server",
+      "status": "official",
+      "use": "Search and summarize Jira and Confluence, create and update issues and pages. Cloud only."
+    },
+    {
+      "tool": "Linear",
+      "stage": "plan",
+      "url": "https://linear.app/docs/mcp",
+      "text": "Linear remote MCP",
+      "status": "official",
+      "use": "Manage issues, projects, and cycles. Pull sprint context into PRD drafts."
+    },
+    {
+      "tool": "Productboard",
+      "stage": "roadmap",
+      "url": "https://www.productboard.com/integrations/mcp-server/",
+      "text": "Productboard MCP Server",
+      "status": "official",
+      "use": "Pull current specs into a coding agent, post questions back, and update status."
+    },
+    {
+      "tool": "Figma",
+      "stage": "design",
+      "url": "https://help.figma.com/hc/en-us/articles/32132100833559",
+      "text": "Figma MCP server",
+      "status": "official",
+      "use": "Give agents the real components, variables, and layout from your Figma files. The remote server is on all seats and plans."
+    },
+    {
+      "tool": "GitHub",
+      "stage": "build",
+      "url": "https://github.com/github/github-mcp-server",
+      "text": "github-mcp-server",
+      "status": "official",
+      "use": "Review PRs, search issues, understand codebase context without asking engineering."
+    },
+    {
+      "tool": "PostHog",
+      "stage": "measure",
+      "url": "https://posthog.com/docs/model-context-protocol",
+      "text": "PostHog MCP",
+      "status": "official",
+      "use": "Ask product-analytics questions in plain text and let the agent query PostHog. The hosted endpoint is free to connect."
+    },
+    {
+      "tool": "Amplitude",
+      "stage": "measure",
+      "url": "https://amplitude.com/docs/amplitude-ai/amplitude-mcp",
+      "text": "Amplitude MCP Server",
+      "status": "official",
+      "use": "Query and create charts, dashboards, experiments, and cohorts in plain language. For existing Amplitude customers."
+    },
+    {
+      "tool": "Slack",
+      "stage": "communicate",
+      "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+      "text": "Slack MCP server",
+      "status": "official",
+      "use": "Search channels and read threads for past decisions, and catch up on a project. Workspace admins approve each client."
+    }
+  ]
+}
