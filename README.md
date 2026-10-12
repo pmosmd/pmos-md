@@ -6,7 +6,15 @@ A weekly-updated index of GitHub repos, articles, and curated reads for product 
 
 ## How it updates
 
-Every Sunday at 8am PT, a scheduled GitHub Actions workflow researches new repos and articles, verifies every link and star count, and publishes directly to `main` — no human review in the loop. See [`.github/workflows/weekly-issue.yml`](.github/workflows/weekly-issue.yml) for the job itself and [`CLAUDE.md`](CLAUDE.md) for the full editorial and verification rules it follows.
+Every Sunday a scheduled GitHub Actions workflow publishes a new issue, with no human review in the loop. The model only chooses and writes. Code does everything that can be checked:
+
+- `scripts/facts.py` reads the feeds and every candidate page (title, publish date from page metadata, paywall flag), plus GitHub stars and releases from the API.
+- The model writes one small file, `data/issue-NNN.json`. `scripts/render.py` turns it into the page, one archive block and one feed item.
+- `scripts/selfcheck.py` refuses to publish unless every check passes: links answer 200, dates and titles match the pages, stars match the GitHub API, history is append-only.
+- The job that writes has no write credentials. A second job re-runs the checks and is the only one that commits.
+- A Monday watchdog opens an issue if the page is stale, and each published issue posts a receipt issue.
+
+See [`CLAUDE.md`](CLAUDE.md) for the editorial and verification rules, [`decisions/`](decisions) for why it works this way, and [`.github/workflows/`](.github/workflows) for the jobs.
 
 ## Structure
 
@@ -14,7 +22,9 @@ Every Sunday at 8am PT, a scheduled GitHub Actions workflow researches new repos
 - `archive.html` — every past issue, append-only
 - `feed.xml` — RSS feed, append-only
 - `llms.txt` — AI agent discovery file
-- `CLAUDE.md` — content guidelines, verification gates, design constraints
+- `data/` — the repo watchlist, the MCP table, and what the model wrote for each issue
+- `scripts/` — the pipeline (Python, standard library only); `tests/` — its offline tests
+- `CLAUDE.md` — editorial rules, verification gates, design constraints
 
 ## Suggest a resource
 

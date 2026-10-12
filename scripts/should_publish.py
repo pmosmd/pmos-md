@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import os
 import sys
 from pathlib import Path
 
@@ -27,7 +28,8 @@ def main() -> int:
     ap.add_argument("--today", help="YYYY-MM-DD (tests); default: today in UTC")
     a = ap.parse_args()
     root = Path(a.root)
-    today = C.parse_date(a.today) if a.today else dt.datetime.now(dt.timezone.utc).date()
+    override = a.today or os.environ.get("PMOS_TODAY")        # rehearsals pretend it is the coming Sunday
+    today = C.parse_date(override) if override else dt.datetime.now(dt.timezone.utc).date()
     st = C.index_state(C.read(root / "index.html"))
     publish, target = decide(st["updated"], today)
     blocks = C.archive_blocks(C.read(root / "archive.html"))
@@ -35,6 +37,7 @@ def main() -> int:
     reason = (f"page last updated {st['updated']}, target Sunday {target}: " + ("publish" if publish else "already published this cycle"))
     print(f"publish={'true' if publish else 'false'}")
     print(f"date={target.isoformat()}")
+    print(f"today={today.isoformat()}")
     print(f"issue={nxt}")
     print(f"reason={reason}")
     return 0

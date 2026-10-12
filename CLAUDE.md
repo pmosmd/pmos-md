@@ -137,6 +137,8 @@ These have all shipped to production before. The gate checks for them.
   22-star list of servers)
 - "This week" claims that outlive the week; release news is generated per issue from the facts
 - Discovery keyword collisions (see Repos)
+- Contrast tuned against one background only: `--ink3` passed 4.5:1 on `--bg` but failed at 4.46:1 on
+  `--surface`, the card background. If you touch `--ink3`, check `--bg`, `--surface` and `--code-bg`.
 - A silent failure: the weekly job failed on Oct 4 and Oct 11, 2026 because the API credit ran out, and
   nothing flagged it for two weeks. The watchdog and the preflight exist for this.
 
@@ -147,6 +149,11 @@ These have all shipped to production before. The gate checks for them.
   issue. Fix: top up at console.anthropic.com. A normal run cost $2.17–$3.41 under the old design; the
   facts-first design should cost a fraction of that. To see a hidden error, put `show_full_output: true` on a
   throwaway branch and `workflow_dispatch` it. Never merge that; Actions logs on this public repo are public.
+- **Testing the publisher without publishing.** `gh workflow run weekly-issue.yml -f dry_run=true` runs the
+  tests, preflight, facts and the page gate with no model call and no push (about a minute, free).
+  `gh workflow run weekly-issue.yml -f rehearse=true` is a full run including the model for the coming Sunday:
+  it renders and checks everything, pushes nothing, and attaches the rendered files to the run as an artifact
+  (needs a funded API balance; costs one run). Run a rehearsal after any change to the prompt or the pipeline.
 - **Watchdog** (`watchdog.yml`, Mondays): if the live page is older than the last Sunday, it opens a GitHub
   issue and re-dispatches the publisher once. It also covers GitHub switching off a scheduled workflow after
   60 days without repository activity.
