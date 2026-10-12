@@ -137,6 +137,8 @@ These have all shipped to production before. The gate checks for them.
   22-star list of servers)
 - "This week" claims that outlive the week; release news is generated per issue from the facts
 - Discovery keyword collisions (see Repos)
+- Contrast tuned against one background only: `--ink3` passed 4.5:1 on `--bg` but failed at 4.46:1 on
+  `--surface`, the card background. If you touch `--ink3`, check `--bg`, `--surface` and `--code-bg`.
 - A silent failure: the weekly job failed on Oct 4 and Oct 11, 2026 because the API credit ran out, and
   nothing flagged it for two weeks. The watchdog and the preflight exist for this.
 
