@@ -219,17 +219,27 @@ def main() -> int:
         urls = sorted({htmllib.unescape(h) for doc in (index, block, htmllib.unescape(item)) for h in C.hrefs(doc)})
         urls = [u for u in urls if C.host_of(u) not in C.INTERNAL_HOSTS]
 
+        gh_repo = re.compile(r"^https://github\.com/([^/?#]+)/([^/?#]+)/?$")
+
         def probe(u: str):
+            m = gh_repo.match(C.strip_utm(u))
+            if m and m.group(1) not in {"topics", "orgs", "features", "marketplace"}:
+                # github.com pages answer 429 to runner IPs; a repo link is verified through the API instead
+                return u, (200 if C.gh_api(f"repos/{m.group(1)}/{m.group(2)}") else 404), ""
             code, final, body = C.fetch(u, retries=2)
             return u, code, body
 
+        def soft(u: str, code: int) -> bool:
+            host = C.host_of(u)
+            return host in SOFT_HOSTS or (host == "github.com" and code == 429)
+
         with cf.ThreadPoolExecutor(8) as ex:
             res = list(ex.map(probe, urls))
-        hard = [(c, u) for u, c, _ in res if c != 200 and C.host_of(u) not in SOFT_HOSTS]
-        soft = [(c, u) for u, c, _ in res if c != 200 and C.host_of(u) in SOFT_HOSTS]
+        hard = [(c, u) for u, c, _ in res if c != 200 and not soft(u, c)]
+        softs = [(c, u) for u, c, _ in res if c != 200 and soft(u, c)]
         g.check(not hard, f"{len(urls)} distinct URLs answer HTTP 200", f"URLs that did not return 200: {hard}")
-        for c, u in soft:
-            g.warn(f"{u} returned {c} (bot-hostile host, not blocking)")
+        for c, u in softs:
+            g.warn(f"{u} returned {c} (rate-limited or bot-hostile host, not blocking)")
         # dates and titles re-read from page metadata now, not trusted from the model or the feed
         want = {C.norm_url(h): (t, k) for h, t, k in rows_sig}
         hero_url = re.search(r'<h2 class="hero-pick-title">\s*<a href="([^"]*)"', index)
