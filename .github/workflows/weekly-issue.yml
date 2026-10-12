@@ -32,6 +32,9 @@ env:
 jobs:
   write:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash # bash with pipefail, so `script | tee` still fails the step when the script fails
     timeout-minutes: 30
     outputs:
       publish: ${{ steps.plan.outputs.publish }}
@@ -142,6 +145,9 @@ jobs:
     needs: write
     if: needs.write.outputs.publish == 'true' && needs.write.outputs.written == 'true' && !inputs.dry_run
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash # bash with pipefail, so `script | tee` still fails the step when the script fails
     timeout-minutes: 20
     permissions:
       contents: write # commit and push to main
@@ -228,6 +234,9 @@ jobs:
     needs: [write, publish]
     if: always() && !inputs.dry_run && !inputs.rehearse && (needs.write.result == 'failure' || needs.publish.result == 'failure')
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash # bash with pipefail, so `script | tee` still fails the step when the script fails
     timeout-minutes: 5
     permissions:
       contents: read

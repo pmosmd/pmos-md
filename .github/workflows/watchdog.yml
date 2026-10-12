@@ -23,6 +23,9 @@ env:
 jobs:
   check:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash # bash with pipefail, so `script | tee` still fails the step when the script fails
     timeout-minutes: 10
     permissions:
       contents: read
