@@ -13,6 +13,10 @@ on:
         description: "Run tests, preflight, facts and the page gate; no model call, no push"
         type: boolean
         default: false
+      rehearse:
+        description: "Full run including the model, for the coming Sunday; renders and checks everything, pushes nothing"
+        type: boolean
+        default: false
 
 concurrency:
   group: weekly-issue
@@ -33,6 +37,7 @@ jobs:
       publish: ${{ steps.plan.outputs.publish }}
       date: ${{ steps.plan.outputs.date }}
       issue: ${{ steps.plan.outputs.issue }}
+      today: ${{ steps.plan.outputs.today }}
       written: ${{ steps.collect.outputs.written }}
       reason: ${{ steps.pre.outputs.reason }}
       message: ${{ steps.pre.outputs.message }}
@@ -45,7 +50,9 @@ jobs:
 
       - name: Decide whether this cycle needs an issue
         id: plan
-        run: python3 scripts/should_publish.py | tee -a "$GITHUB_OUTPUT"
+        run: |
+          if [ "${{ inputs.rehearse }}" = "true" ]; then export PMOS_TODAY="$(date -u -d 'next sunday' +%F)"; fi
+          python3 scripts/should_publish.py | tee -a "$GITHUB_OUTPUT"
 
       - name: Tests (cheap, before any credit is spent)
         if: steps.plan.outputs.publish == 'true' || inputs.dry_run
@@ -141,6 +148,7 @@ jobs:
       issues: write # receipt issue
     env:
       GH_TOKEN: ${{ github.token }}
+      PMOS_TODAY: ${{ inputs.rehearse && needs.write.outputs.today || '' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -174,9 +182,21 @@ jobs:
         if: steps.plan.outputs.publish == 'true'
         run: python3 scripts/selfcheck.py --base HEAD --facts "$RUNNER_TEMP/facts.json" --report "$RUNNER_TEMP/gate.md"
 
+      - name: Keep the rehearsal output (nothing is pushed)
+        if: inputs.rehearse && steps.plan.outputs.publish == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rehearsal
+          path: |
+            index.html
+            archive.html
+            feed.xml
+            data/
+          retention-days: 7
+
       - name: Commit and push
         id: push
-        if: steps.plan.outputs.publish == 'true'
+        if: steps.plan.outputs.publish == 'true' && !inputs.rehearse
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -206,7 +226,7 @@ jobs:
 
   notify:
     needs: [write, publish]
-    if: always() && !inputs.dry_run && (needs.write.result == 'failure' || needs.publish.result == 'failure')
+    if: always() && !inputs.dry_run && !inputs.rehearse && (needs.write.result == 'failure' || needs.publish.result == 'failure')
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
