@@ -1,0 +1,82 @@
+name: pmos.md freshness watchdog
+
+# Independent of the publisher, so it catches every way a week can be missed: an empty API balance, an
+# outage, GitHub dropping a scheduled run, or GitHub switching a scheduled workflow off after 60 days with
+# no repository activity (a failing job makes no commits). If the live page is older than the last Sunday it
+# opens a GitHub issue (you get an email) and re-dispatches the publisher once.
+
+on:
+  schedule:
+    - cron: "17 17 * * 1" # Mondays 17:17 UTC
+  workflow_dispatch:
+  pull_request: # self-test: runs the check read-only when this workflow or its script changes
+    paths:
+      - ".github/workflows/watchdog.yml"
+      - "scripts/watchdog.py"
+
+permissions:
+  contents: read
+
+env:
+  NOTIFY_USER: alexeiciobanu
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Read the live page
+        id: w
+        run: python3 scripts/watchdog.py | tee -a "$GITHUB_OUTPUT"
+
+      - name: Stale, open or update the issue
+        if: steps.w.outputs.stale == 'true' && github.event_name != 'pull_request'
+        env:
+          UPDATED: ${{ steps.w.outputs.updated }}
+          TARGET: ${{ steps.w.outputs.target }}
+          ISSUE_NO: ${{ steps.w.outputs.issue }}
+          DAYS: ${{ steps.w.outputs.days_behind }}
+        run: |
+          runs="${{ github.server_url }}/${{ github.repository }}/actions/workflows/weekly-issue.yml"
+          body="pmos.md is **$DAYS days behind**. The live page shows issue #$ISSUE_NO (updated $UPDATED); an issue dated $TARGET should be live.
+
+          1. Open the latest publisher run: $runs
+          2. If it says the credit balance is too low, top up at https://console.anthropic.com (Billing).
+          3. This watchdog re-runs the publisher once now. If the cause is still there, that run fails and posts its own issue.
+
+          The site stays on its last issue until a run succeeds."
+          gh label create watchdog --color B5451B --description "pmos.md is stale" 2>/dev/null || true
+          existing=$(gh issue list --label watchdog --state open --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "pmos.md is $DAYS days behind (live: issue #$ISSUE_NO)" --body "$body" --label watchdog --assignee "$NOTIFY_USER" 2>/dev/null \
+              || gh issue create --title "pmos.md is $DAYS days behind (live: issue #$ISSUE_NO)" --body "$body" --label watchdog
+          fi
+
+      - name: Stale, run the publisher once
+        if: steps.w.outputs.stale == 'true' && github.event_name == 'schedule'
+        run: |
+          running=$(gh run list --workflow weekly-issue.yml --status in_progress --json databaseId --jq length)
+          queued=$(gh run list --workflow weekly-issue.yml --status queued --json databaseId --jq length)
+          if [ "$running" = "0" ] && [ "$queued" = "0" ]; then
+            gh workflow run weekly-issue.yml
+          else
+            echo "A publisher run is already in flight; not starting another."
+          fi
+
+      - name: Fresh, close any open watchdog issue
+        if: steps.w.outputs.stale == 'false' && github.event_name != 'pull_request'
+        run: |
+          for n in $(gh issue list --label watchdog --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --reason completed --comment "pmos.md is current again (issue #${{ steps.w.outputs.issue }}, updated ${{ steps.w.outputs.updated }})."
+          done
