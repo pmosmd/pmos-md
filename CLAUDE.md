@@ -53,8 +53,12 @@ Order of operations:
 3. **Verify before publishing** (non-negotiable, this is an unattended job):
    - Every URL must return HTTP 200. Drop anything that doesn't. Never publish
      a link you have not fetched.
-   - Every star count must come from `api.github.com/repos/{owner}/{repo}`,
-     never from a blog post, a search result, or a previous issue.
+   - Every star count must come from the GitHub API for `{owner}/{repo}`,
+     never from a blog post, a search result, or a previous issue. In cloud
+     sessions, raw `curl api.github.com/repos/...` is refused for repos not
+     attached to the session; use the GitHub MCP tools instead
+     (`search_repositories` with `repo:{owner}/{repo}` returns
+     `stargazers_count`; `list_releases` for release dates).
    - Repos must clear >1k stars *on verification*, not on reputation.
    - Every Signal article must have a confirmed publish date — check
      `article:published_time` / `datePublished` meta tags, not search-result
