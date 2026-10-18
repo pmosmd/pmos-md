@@ -104,6 +104,16 @@ These have all shipped to production before. Check for them:
   same ISO week, so the real run silently skipped and the site went a full
   week stale) — idempotency must compare dates, not issue numbers
 
+### Environment requirements
+
+The scheduled job runs in a cloud environment whose network policy must allow
+outbound HTTPS to the research and link-check hosts: `hn.algolia.com`, the
+newsletter domains in the source list below, every host linked from
+`index.html`, and each week's new article hosts. With a restrictive policy
+(first seen Oct 2026) the job cannot fetch pages to verify 200s or publish
+dates, correctly exits without committing, and the site goes stale. If the
+site is stale, check the environment's Network access setting first.
+
 ### agent.html
 
 Superseded by the scheduled job. It required pasting a GitHub PAT into a local
